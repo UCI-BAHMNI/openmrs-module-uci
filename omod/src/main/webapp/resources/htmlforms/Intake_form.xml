@@ -1,0 +1,40 @@
+<htmlform formName="UCI INTAKE Form"
+          formDescription="ONCHOLOGY intake Form"
+          formUuid="8c2f8378-51c7-4407-85a0-cb2832accfcf"
+          formVersion="1.0"
+          formAddMetadata="yes"
+          formUILocation="patientDashboard.visitActions"
+          formOrder="1"
+          formIcon="icon-user"
+          formShowIf="(visit.active || !visit.active) &amp;&amp; patient.person.dead==false"
+          formDisplayStyle="Standard"
+          formLabel="UCI INTAKE">
+          
+         
+         <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
+         <encounterProvider role="Provider" style="autocomplete"/>
+         <encounterLocation /> 
+         
+        <section id="vitals" sectionTag="section" headerStyle="title" headerCode="referenceapplication.vitals.title">
+        <fieldset>
+            <legend><lookup expression="fn.getConcept('CIEL:5090').name"/></legend>
+            <h3><lookup expression="fn.getConcept('CIEL:5090').name"/></h3>
+            
+            <p class="left">
+                <obs conceptId="CIEL:5090" id="height" showUnits="uicommons.units.centimeters" unitsCssClass="append-to-value"/>
+            </p>
+
+        </fieldset>
+
+        <fieldset>
+            <legend><lookup expression="fn.getConcept('CIEL:5089').name"/></legend>
+            <h3>Chech chech</h3>
+
+            <p class="left">
+                <obs conceptId="CIEL:5089" id="weight" showUnits="uicommons.units.kilograms" unitsCssClass="append-to-value"/>
+            </p>
+
+        </fieldset>
+        </section>      
+          <submit />
+</htmlform>
