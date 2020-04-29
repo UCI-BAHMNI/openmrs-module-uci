@@ -47,6 +47,9 @@
         <require_module>
             org.openmrs.module.registrationapp
         </require_module>
+        <require_module >
+            org.openmrs.module.dataexchange
+        </require_module>
 	</require_modules>
 	
 	<!-- Extensions -->

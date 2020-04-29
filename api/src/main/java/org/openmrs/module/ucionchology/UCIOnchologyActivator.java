@@ -15,6 +15,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.module.BaseModuleActivator;
+import org.openmrs.module.ucionchology.inntializer.ConceptsInitializer;
 import org.openmrs.module.ucionchology.inntializer.HtmlFormsInitializer;
 import org.openmrs.module.ucionchology.inntializer.Initializer;
 
@@ -39,6 +40,7 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 	private List<Initializer> getInitializers() {
 		List<Initializer> l = new ArrayList<Initializer>();
 		l.add(new HtmlFormsInitializer(UCIOnchologyConstants.MODULE_ID));
+		l.add(new ConceptsInitializer());
 		return l;
 	}
 	

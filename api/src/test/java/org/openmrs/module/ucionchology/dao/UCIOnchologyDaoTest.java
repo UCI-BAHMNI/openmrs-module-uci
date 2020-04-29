@@ -33,6 +33,6 @@ public class UCIOnchologyDaoTest extends BaseModuleContextSensitiveTest {
 	@Test
 	@Ignore("Unignore if you want to make the Item class persistable, see also Item and liquibase.xml")
 	public void saveItem_shouldSaveAllPropertiesInDb() {
-
+		
 	}
 }

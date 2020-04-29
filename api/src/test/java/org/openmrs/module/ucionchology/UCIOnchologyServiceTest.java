@@ -39,9 +39,8 @@ public class UCIOnchologyServiceTest {
 	}
 	
 	@Test
-	public void saveItem_shouldSetOwnerIfNotSet() { 
+	public void saveItem_shouldSetOwnerIfNotSet() {
 		
 	}
-
-
+	
 }
