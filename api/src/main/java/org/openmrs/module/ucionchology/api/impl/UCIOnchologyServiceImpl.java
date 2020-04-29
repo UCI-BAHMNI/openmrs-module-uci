@@ -30,5 +30,5 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 	/**
 	 * Injected in moduleApplicationContext.xml
 	 */
-
+	
 }

@@ -14,7 +14,6 @@
          <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
          <encounterProvider role="Provider" style="autocomplete"/>
          <encounterLocation /> 
-         
         <section id="vitals" sectionTag="section" headerStyle="title" headerCode="referenceapplication.vitals.title">
         <fieldset>
             <legend><lookup expression="fn.getConcept('CIEL:5090').name"/></legend>
@@ -28,7 +27,7 @@
 
         <fieldset>
             <legend><lookup expression="fn.getConcept('CIEL:5089').name"/></legend>
-            <h3>Chech chech</h3>
+            <h3>Chech gggg</h3>
 
             <p class="left">
                 <obs conceptId="CIEL:5089" id="weight" showUnits="uicommons.units.kilograms" unitsCssClass="append-to-value"/>
