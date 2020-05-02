@@ -31,7 +31,7 @@ public class OnchologyActivatorTest extends BaseModuleContextSensitiveTest {
 		activator.started();
 		
 		System.out.println(conceptService.getAllConcepts().size());
-		Assert.assertEquals(conceptService.getAllConcepts().size(), 1);*/
+		Assert.assertEquals(conceptService.getAllConcepts().size(), 0);*/
 	}
 	
 }
