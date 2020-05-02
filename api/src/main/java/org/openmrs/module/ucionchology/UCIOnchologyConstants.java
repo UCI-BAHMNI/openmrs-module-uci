@@ -4,7 +4,7 @@ public class UCIOnchologyConstants {
 	
 	public static final String MODULE_ID = "ucionchology";
 	
-    public static final String UCI_VERSION_GP = "uci_metadata.installedVersion";
+	public static final String UCI_VERSION_GP = "uci_metadata.installedVersion";
 	
 	/**
 	 * Should be set to a higher version in case of any changes in bundled metadata
