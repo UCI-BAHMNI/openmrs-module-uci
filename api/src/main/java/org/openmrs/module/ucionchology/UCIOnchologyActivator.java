@@ -15,6 +15,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.module.BaseModuleActivator;
+import org.openmrs.module.ucionchology.api.CreateDiagnosisConcepts;
 import org.openmrs.module.ucionchology.inntializer.ConceptsInitializer;
 import org.openmrs.module.ucionchology.inntializer.HtmlFormsInitializer;
 import org.openmrs.module.ucionchology.inntializer.Initializer;
@@ -33,6 +34,7 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 	 */
 	public void started() {
 		log.info("Started UCI Onchology");
+		CreateDiagnosisConcepts.CreateConcept();
 		
 		for (Initializer initializer : getInitializers()) {
 			initializer.started();
