@@ -8,17 +8,17 @@ import org.openmrs.test.SkipBaseSetup;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @SkipBaseSetup
-public class OnchologyActivatorTest extends BaseModuleContextSensitiveTest  {
-
+public class OnchologyActivatorTest extends BaseModuleContextSensitiveTest {
+	
 	private UCIOnchologyActivator activator;
 	
 	@Autowired
 	private ConceptService conceptService;
-	
+	/*
 	@Test
 	public void testEvery() throws Exception {
 		
-		/*initializeInMemoryDatabase();
+		initializeInMemoryDatabase();
 		executeDataSet("TestDataset.xml");
 		authenticate();
 		// this test class is to asset the actual number of cocepts added to the meta data package
@@ -31,9 +31,7 @@ public class OnchologyActivatorTest extends BaseModuleContextSensitiveTest  {
 		activator.started();
 		
 		System.out.println(conceptService.getAllConcepts().size());
-		Assert.assertEquals(conceptService.getAllConcepts().size(), 3);*/
-	}
-         
-	
+		Assert.assertEquals(conceptService.getAllConcepts().size(), 13);
+	}*/
 	
 }

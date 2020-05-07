@@ -10,10 +10,103 @@
           formDisplayStyle="Standard"
           formLabel="UCI INTAKE">
           
-        <section id="vitals" sectionTag="section" headerStyle="title" headerCode="referenceapplication.vitals.title">
-            <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
-            <encounterProvider role="Provider" style="autocomplete"/>
-            <encounterLocation /> 
-        </section>       
-        <submit />
+        <macros>
+		headerColor =#00b300
+		fontOnHeaderColor = white
+	</macros>
+          <ifMode mode="ENTER">
+            <script type="text/javascript">
+             var showDetails = function(){
+                var val = htmlForm.getValueIfLegal('check.value');
+                    if(val){
+                         jq('#details').show();
+                    }else{
+                        jq('#details').hide();
+                    }
+              }
+             
+           jq(function() {
+                   jq('#details').hide();
+                   getField('check.value').change(showDetails) 
+                 
+             });
+             </script>
+          </ifMode>
+
+	<style>
+		.section {
+			border: 1px solid $headerColor;
+                        border-radius: 5px;
+			padding: 2px;
+			text-align: left;
+			margin-bottom: 1em;
+		}
+		.sectionHeader {
+			background-color: $headerColor;
+			color: $fontOnHeaderColor;
+			display: block;
+			padding: 2px;
+			font-weight: bold;
+                        border-radius: 3px;
+		}
+		table.baseline-aligned td {
+			vertical-align: baseline;
+		}
+
+	</style>
+
+     
+
+	<section headerLabel="1. Encounter Details">
+		<table class="baseline-aligned">
+			<tr>
+				<td>Date:</td>
+				<td><encounterDate default="today"/></td>
+			</tr>
+			<tr>
+				<td>Location:</td>
+				<td><encounterLocation/></td>
+			</tr>
+			<tr>
+				<td>Provider:</td>
+				<td><encounterProvider/></td>
+			</tr>
+		</table>
+	</section>
+
+	<section headerLabel="2. CANCER DIAGNOSIS SUMMARY">
+					        
+                      <fieldset style="border: 1px solid $headerColor; width:95%">
+                          <legend>Diagnosis</legend>
+                          <label>Diagnosis</label> 
+                     
+                          <table class="baseline-aligned" >   
+                               <tr style = "margin:100px">                                                                                                    
+                                  <td><encounterDiagnoses required="true" diagnosisSets="165906"/></td>
+                               </tr> 
+                              <tr style = "margin:100px">
+                                <td>
+                                     <obs id="check" conceptId="165907" style="checkbox" labelText="Diagnosis Confirmed on Histology"/> 
+                                </td>
+                                 
+                              </tr> 
+                              <tr>
+                                  <table id="details">
+                                     <tr>
+                                        <td><obs conceptId="165908"  labelText="Date Of Report"/></td>
+                                         <td><obs conceptId="165909"  labelText="Site of Biopsy"/></td>  
+                                      </tr>
+                                      <tr>
+                                        <td><obs conceptId="165910"  labelText="Histology Report"/></td>
+                                         <td><obs conceptId="165909"  labelText="Name of Pathologist"/></td>  
+                                      </tr>   
+ 
+                                  </table>
+                                 
+                              </tr>                  
+                         </table>
+                     </fieldset>
+                                                	
+	</section>     
+    <submit />
 </htmlform>
