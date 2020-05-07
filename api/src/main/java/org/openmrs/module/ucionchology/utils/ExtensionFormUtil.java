@@ -25,8 +25,6 @@ import java.util.*;
 
 /**
  * Equivalent of HtmlFormUtil for ExtensionForm objects.
- * 
- * 
  */
 public class ExtensionFormUtil {
 	
