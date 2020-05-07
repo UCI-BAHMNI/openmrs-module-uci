@@ -14,11 +14,11 @@ public class OnchologyActivatorTest extends BaseModuleContextSensitiveTest {
 	
 	@Autowired
 	private ConceptService conceptService;
-	/*
+	
 	@Test
 	public void testEvery() throws Exception {
 		
-		initializeInMemoryDatabase();
+		/*initializeInMemoryDatabase();
 		executeDataSet("TestDataset.xml");
 		authenticate();
 		// this test class is to asset the actual number of cocepts added to the meta data package
@@ -31,7 +31,7 @@ public class OnchologyActivatorTest extends BaseModuleContextSensitiveTest {
 		activator.started();
 		
 		System.out.println(conceptService.getAllConcepts().size());
-		Assert.assertEquals(conceptService.getAllConcepts().size(), 13);
-	}*/
+		Assert.assertEquals(conceptService.getAllConcepts().size(), 13); */
+	}
 	
 }
