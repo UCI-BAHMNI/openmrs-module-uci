@@ -1,14 +1,15 @@
-<htmlform formName="UCI INTAKE Form"
+<htmlform formName="CANCER DIAGNOSIS FORM"
           formDescription="ONCHOLOGY Intake Form"
-          formUuid="8c2f8378-51c7-4407-85a0-cb2832accfcf"
+          formUuid="67a71486-1a54-468f-ac3e-7091a9a79545"
           formVersion="1.0"
           formAddMetadata="yes"
           formUILocation="patientDashboard.visitActions"
           formOrder="1"
-          formIcon="icon-user"
+          formIcon="icon-stethoscope"
           formShowIf="(visit.active || !visit.active) &amp;&amp; patient.person.dead==false"
           formDisplayStyle="Standard"
-          formLabel="UCI INTAKE">
+          formEncounterType="67a71486-1a54-468f-ac3e-7091a9a79584"
+          formLabel="DIGNOSIS FORM">
           
         <macros>
 		headerColor =#00b300
