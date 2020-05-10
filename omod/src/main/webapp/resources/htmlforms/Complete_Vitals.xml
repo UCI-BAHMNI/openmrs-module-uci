@@ -350,29 +350,29 @@
         </fieldset>
 
         <fieldset>
-            <legend>Eye Movement</legend>
+            <legend><lookup expression="fn.getConcept('fa897255-6503-4624-a881-266f32559177').name"/></legend>
             <h3>Eye Movement</h3>
 
             <p>
-                <obs conceptId="165903" id="em" absoluteMinimum = "1" absoluteMaximum="4"/>
+                <obs conceptId="fa897255-6503-4624-a881-266f32559177" id="em" absoluteMinimum = "1" absoluteMaximum="4"/>
             </p>
         </fieldset>
 
          <fieldset>
-            <legend>Verbal Response</legend>
+            <legend><lookup expression="fn.getConcept('dda2d119-9a4b-40a7-be7f-86e14a477a87').name"/></legend>
             <h3>Verbal Response</h3>
 
             <p>
-                <obs conceptId="165904" id="vr" absoluteMinimum = "1" absoluteMaximum="5"/>
+                <obs conceptId="dda2d119-9a4b-40a7-be7f-86e14a477a87" id="vr" absoluteMinimum = "1" absoluteMaximum="5"/>
             </p>
         </fieldset>
   
         <fieldset>
-            <legend>Motor Response</legend>
+            <legend><lookup expression="fn.getConcept('00ec2834-edfd-43d8-a625-746c29ab08fe').name"/></legend>
             <h3>Motor Response</h3>
 
             <p>
-                <obs conceptId="165905" id="mr" absoluteMinimum = "1" absoluteMaximum="6"/>
+                <obs conceptId="00ec2834-edfd-43d8-a625-746c29ab08fe" id="mr" absoluteMinimum = "1" absoluteMaximum="6"/>
             </p>
         </fieldset>
 
