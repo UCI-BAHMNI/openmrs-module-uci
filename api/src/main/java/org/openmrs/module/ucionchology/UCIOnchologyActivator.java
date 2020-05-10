@@ -14,6 +14,11 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openmrs.Concept;
+import org.openmrs.GlobalProperty;
+import org.openmrs.api.AdministrationService;
+import org.openmrs.api.ConceptService;
+import org.openmrs.api.context.Context;
 import org.openmrs.module.BaseModuleActivator;
 import org.openmrs.module.ucionchology.api.CreateDiagnosisConcepts;
 import org.openmrs.module.ucionchology.inntializer.ConceptsInitializer;
@@ -27,6 +32,10 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 	
 	HtmlFormsInitializer htmlFormsInitializer;
 	
+	AdministrationService adminService;
+	
+	ConceptService conceptService;
+	
 	private Log log = LogFactory.getLog(this.getClass());
 	
 	/**
@@ -34,11 +43,14 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 	 */
 	public void started() {
 		log.info("Started UCI Onchology");
-		CreateDiagnosisConcepts.CreateConcept();
 		
+		CreateDiagnosisConcepts.CreateConcept();
+		CreateDiagnosisConcepts.CreateSetConcept();
+		setConceptsSetGp();
 		for (Initializer initializer : getInitializers()) {
 			initializer.started();
 		}
+		
 	}
 	
 	private List<Initializer> getInitializers() {
@@ -53,6 +65,19 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 	 */
 	public void shutdown() {
 		log.info("Shutdown UCI Onchology");
+	}
+	
+	public void setConceptsSetGp() {
+		adminService = Context.getAdministrationService();
+		conceptService = Context.getConceptService();
+		try {
+			Concept diagnosisSet = conceptService.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_OF_SETS);
+			adminService.setGlobalProperty(UCIOnchologyConstants.DIAGNOSIS_SET_GP, diagnosisSet.getUuid());
+		}
+		catch (Exception e) {
+			log.info("failed to set Concept_set Global Property");
+		}
+		
 	}
 	
 }

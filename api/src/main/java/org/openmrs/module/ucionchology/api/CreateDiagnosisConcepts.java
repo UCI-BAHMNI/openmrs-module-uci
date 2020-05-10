@@ -7,21 +7,20 @@ import org.openmrs.ConceptClass;
 import org.openmrs.ConceptDatatype;
 import org.openmrs.ConceptDescription;
 import org.openmrs.ConceptName;
+import org.openmrs.api.AdministrationService;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;
+import org.openmrs.module.ucionchology.UCIOnchologyConstants;
 
 public class CreateDiagnosisConcepts {
 	
 	public static Concept CreateConcept() {
 		ConceptService service = Context.getConceptService();
 		
-		final String concept_name = "Working Cancer Diagnosis";
-		final String cocept_source = "ICD-10-WHO";
-		
-		if (service.getConceptByName(concept_name) != null) {
-			return null;
+		if (service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_NAME) != null) {
+			return service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_NAME);
 		}
-		ConceptName name = new ConceptName(concept_name, Locale.ENGLISH);
+		ConceptName name = new ConceptName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_NAME, Locale.ENGLISH);
 		
 		Concept concept = new Concept();
 		concept.addName(name);
@@ -43,7 +42,8 @@ public class CreateDiagnosisConcepts {
 				}
 				
 				try {
-					Concept icd = service.getConceptByMapping(code.toString(), cocept_source);
+					Concept icd = service.getConceptByMapping(code.toString(),
+					    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE);
 					if (icd != null) {
 						
 						concept.addSetMember(icd);
@@ -55,6 +55,29 @@ public class CreateDiagnosisConcepts {
 				}
 			}
 		}
+		
 		return service.saveConcept(concept);
 	}
+	
+	public static void CreateSetConcept() {
+		ConceptService service = Context.getConceptService();
+		
+		if (service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_OF_SETS) != null) {} else {
+			ConceptName Setname = new ConceptName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_OF_SETS, Locale.ENGLISH);
+			
+			Concept Setconcept = new Concept();
+			Setconcept.addName(Setname);
+			
+			ConceptClass concept_class = service.getConceptClassByName("ConvSet");
+			ConceptDatatype dataType = service.getConceptDatatypeByName("N/A");
+			Setconcept.setDatatype(dataType);
+			Setconcept.setConceptClass(concept_class);
+			
+			Concept concept = service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_NAME);
+			Setconcept.addSetMember(concept);
+			service.saveConcept(Setconcept);
+		}
+		
+	}
+	
 }

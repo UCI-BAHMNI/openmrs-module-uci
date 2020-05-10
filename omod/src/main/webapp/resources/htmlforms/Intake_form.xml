@@ -1,14 +1,15 @@
-<htmlform formName="UCI INTAKE Form"
+<htmlform formName="CANCER DIAGNOSIS FORM"
           formDescription="ONCHOLOGY Intake Form"
-          formUuid="8c2f8378-51c7-4407-85a0-cb2832accfcf"
+          formUuid="67a71486-1a54-468f-ac3e-7091a9a79545"
           formVersion="1.0"
           formAddMetadata="yes"
           formUILocation="patientDashboard.visitActions"
           formOrder="1"
-          formIcon="icon-user"
+          formIcon="icon-stethoscope"
           formShowIf="(visit.active || !visit.active) &amp;&amp; patient.person.dead==false"
           formDisplayStyle="Standard"
-          formLabel="UCI INTAKE">
+          formEncounterType="67a71486-1a54-468f-ac3e-7091a9a79584"
+          formLabel="DIGNOSIS FORM">
           
         <macros>
 		headerColor =#00b300
@@ -82,23 +83,23 @@
                      
                           <table class="baseline-aligned" >   
                                <tr style = "margin:100px">                                                                                                    
-                                  <td><encounterDiagnoses required="true" diagnosisSets="165906"/></td>
+                                  <td><encounterDiagnoses required="true" diagnosisSets=""/></td>
                                </tr> 
                               <tr style = "margin:100px">
                                 <td>
-                                     <obs id="check" conceptId="165907" style="checkbox" labelText="Diagnosis Confirmed on Histology"/> 
+                                     <obs id="check" conceptId="fd80e0c9-3224-49c2-a565-dfcba35f0ce6" style="checkbox" labelText="Diagnosis Confirmed on Histology"/> 
                                 </td>
                                  
                               </tr> 
                               <tr>
                                   <table id="details">
                                      <tr>
-                                        <td><obs conceptId="165908"  labelText="Date Of Report"/></td>
-                                         <td><obs conceptId="165909"  labelText="Site of Biopsy"/></td>  
+                                        <td><obs conceptId="5e0c23df-70ef-49a1-9e16-243f0fc23b94"  labelText="Date Of Report"/></td>
+                                         <td><obs conceptId="a148e99b-23ef-4150-94d4-dc87b5ef9622"  labelText="Site of Biopsy"/></td>  
                                       </tr>
                                       <tr>
-                                        <td><obs conceptId="165910"  labelText="Histology Report"/></td>
-                                         <td><obs conceptId="165909"  labelText="Name of Pathologist"/></td>  
+                                        <td><obs conceptId="d947620f-0e80-462d-88b9-6abce180f07a"  labelText="Histology Report"/></td>
+                                         <td><obs conceptId="d26e184e-4db2-4ece-a5b6-5dfc476c0c4b"  labelText="Name of Pathologist"/></td>  
                                       </tr>   
  
                                   </table>
