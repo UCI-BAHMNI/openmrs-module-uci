@@ -28,12 +28,12 @@ public class CreateConceptsTest extends BaseModuleContextSensitiveTest {
 	}
 	
 	@Test
-	public void tescreateConcept() throws Exception {
+	public void testcreateConcept() throws Exception {
 		initializeInMemoryDatabase();
 		executeDataSet("TestDataset.xml");
 		authenticate();
 		
-		Concept c = CreateDiagnosisConcepts.CreateConcept();
+		Concept c = CreateDiagnosisConcepts.CreateWorkingDiagnosisConceptSet();
 		
 		System.out.println(c.getDisplayString());
 		System.out.println(c.getSetMembers().size());
