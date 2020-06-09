@@ -1,4 +1,5 @@
-<htmlform formName="CANCER DIAGNOSIS FORM"
+<htmlform formName="UCI INTAKE FORM"
+          formEncounterType="e22e39fd-7db2-45e7-80f1-60fa0d5a4378"
           formDescription="ONCHOLOGY Intake Form"
           formUuid="67a71486-1a54-468f-ac3e-7091a9a79545"
           formVersion="1.0"
@@ -8,13 +9,13 @@
           formIcon="icon-stethoscope"
           formShowIf="(visit.active || !visit.active) &amp;&amp; patient.person.dead==false"
           formDisplayStyle="Standard"
-          formEncounterType="67a71486-1a54-468f-ac3e-7091a9a79584"
-          formLabel="DIGNOSIS FORM">
+          formLabel="UCI INTAKE FORM">
           
         <macros>
 		headerColor =#00b300
 		fontOnHeaderColor = white
 	</macros>
+
           <ifMode mode="ENTER">
             <script type="text/javascript">
              var showDetails = function(){
@@ -28,9 +29,409 @@
              
            jq(function() {
                    jq('#details').hide();
-                   getField('check.value').change(showDetails) 
+                   getField('check.value').change(showDetails) ;
+                    jq('#hide1').hide();
+                    jq('#hide2').hide();
                  
              });
+            
+
+            jq(function() {
+
+                       
+                      jq('#field1').hide();
+                        jq('#add1').click(function () { 
+                           jq('#field1').show();                   
+                         });
+                     jq('#sub1').click(function () {
+                           var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#field1').hide();
+                           setValue('s1.value', null); 
+                           setValue('d1.value', null); 
+                           setValue('u1.value', null);
+                           setValue('c1.value', null);                  
+                         });
+
+                     jq('#field2').hide();
+                        jq('#add2').click(function () { 
+                           jq('#field2').show();                   
+                         });
+                     jq('#sub2').click(function () { 
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#field2').hide();
+                            setValue('s2.value', null); 
+                            setValue('d2.value', null); 
+                            setValue('u2.value', null);
+                            setValue('c2.value', null);                     
+                         });
+              
+
+                    jq('#field3').hide();
+                        jq('#add3').click(function () { 
+                           jq('#field3').show();                   
+                         });
+                     jq('#sub3').click(function () { 
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#field3').hide();  
+                              setValue('s3.value', null); 
+                              setValue('d3.value', null); 
+                              setValue('u3.value', null);
+                              setValue('c3.value', null);                   
+                         });
+
+
+
+                     jq('#field4').hide();
+                        jq('#add4').click(function () { 
+                           jq('#field4').show();                   
+                         });
+                     jq('#sub4').click(function () { 
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#field4').hide(); 
+                            setValue('s4.value', null); 
+                            setValue('d4.value', null); 
+                            setValue('u4.value', null);
+                            setValue('c4.value', null);                    
+                         });
+
+   
+                    jq('#field5').hide();
+                        jq('#add5').click(function () { 
+                           jq('#field5').show();                   
+                         });
+                     jq('#sub5').click(function () { 
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#field5').hide();  
+                            setValue('s5.value', null); 
+                            setValue('d5.value', null); 
+                            setValue('u5.value', null);
+                            setValue('c5.value', null);                   
+                      });
+
+                   jq('#field6').hide();
+                        jq('#add6').click(function () { 
+                           jq('#field6').show();                   
+                         });
+                    jq('#sub6').click(function () {
+
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            } 
+                           jq('#field6').hide(); 
+                             setValue('s6.value', null); 
+                             setValue('d6.value', null); 
+                             setValue('u6.value', null);
+                             setValue('c6.value', null);                    
+                       });
+
+                   jq('#field7').hide();
+                        jq('#add7').click(function () { 
+                           jq('#field7').show();                   
+                         });
+                   jq('#sub7').click(function () { 
+                             var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#field7').hide();
+                             setValue('s7.value', null); 
+                             setValue('d7.value', null); 
+                             setValue('u7.value', null);
+                             setValue('c7.value', null);                     
+                         });
+
+                    jq('#field8').hide();
+                        jq('#add8').click(function () { 
+                           jq('#field8').show();                   
+                         });
+                     jq('#sub8').click(function () {
+                              var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            } 
+                           jq('#field8').hide(); 
+                            setValue('s8.value', null); 
+                            setValue('d8.value', null); 
+                            setValue('u8.value', null);
+                            setValue('c8.value', null);                    
+                     });
+
+                    jq('#field9').hide();
+                        jq('#add9').click(function () { 
+                           jq('#field9').show();                   
+                         });
+                     jq('#sub9').click(function () {
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#field9').hide();
+                             setValue('s9.value', null); 
+                             setValue('d9.value', null); 
+                             setValue('u9.value', null);
+                             setValue('c9.value', null);                     
+                      });
+
+                    jq('#field10').hide();
+                        jq('#add10').click(function () { 
+                           jq('#field10').show();                   
+                         });
+                     jq('#sub10').click(function () { 
+
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#field10').hide();
+                                setValue('s10.value', null); 
+                                setValue('d10.value', null); 
+                                setValue('u10.value', null);
+                                setValue('c10.value', null);                     
+                         });
+
+               });
+
+
+               jq(function() {
+
+                       
+                      jq('#cond1').hide();
+                        jq('#addCond1').click(function () { 
+                           jq('#cond1').show();                   
+                         });
+                     jq('#subCond1').click(function () {
+                           var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#cond1').hide();
+                  
+                           setValue('md1.value', null);                  
+                         });
+
+                     jq('#cond2').hide();
+                        jq('#addCond2').click(function () { 
+                           jq('#cond2').show();                   
+                         });
+                     jq('#subCond2').click(function () { 
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#cond2').hide();
+                            
+                            setValue('md2.value', null);                      
+                         });
+              
+
+                    jq('#cond3').hide();
+                        jq('#addCond3').click(function () { 
+                           jq('#cond3').show();                   
+                         });
+                     jq('#subCond3').click(function () { 
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#cond3').hide();  
+                             
+                              setValue('md3.value', null);                    
+                         });
+
+
+
+                     jq('#cond4').hide();
+                        jq('#addCond4').click(function () { 
+                           jq('#cond4').show();                   
+                         });
+                     jq('#subCond4').click(function () { 
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#cond4').hide(); 
+                           
+                            setValue('md4.value', null);                    
+                         });
+
+   
+                    jq('#cond5').hide();
+                        jq('#addCond5').click(function () { 
+                           jq('#cond5').show();                   
+                         });
+                     jq('#subCond5').click(function () { 
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#cond5').hide();  
+                           
+                            setValue('md5.value', null);                    
+                      });
+
+                   jq('#cond6').hide();
+                        jq('#addCond6').click(function () { 
+                           jq('#cond6').show();                   
+                         });
+                    jq('#subCond6').click(function () {
+
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            } 
+                           jq('#cond6').hide(); 
+                            
+                             setValue('md6.value', null);                    
+                       });
+
+                   jq('#cond7').hide();
+                        jq('#addCond7').click(function () { 
+                           jq('#cond7').show();                   
+                         });
+                   jq('#subCond7').click(function () { 
+                             var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#cond7').hide();
+                            
+                             setValue('md7.value', null);                      
+                         });
+
+                    jq('#cond8').hide();
+                        jq('#addCond8').click(function () { 
+                           jq('#cond8').show();                   
+                         });
+                     jq('#subCond8').click(function () {
+                              var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            } 
+                           jq('#cond8').hide(); 
+                            
+                            setValue('md8.value', null);                     
+                     });
+
+                    jq('#cond9').hide();
+                        jq('#addCond9').click(function () { 
+                           jq('#cond9').show();                   
+                         });
+                     jq('#subCond9').click(function () {
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#cond9').hide();
+                             
+                             setValue('md9.value', null);                     
+                      });
+
+                    jq('#cond10').hide();
+                        jq('#addCond10').click(function () { 
+                           jq('#cond10').show();                   
+                         });
+                     jq('#subCond10').click(function () { 
+
+                            var conf = confirm("Are you sure you want to delete this field?? you'll loose the data!"); 
+                           if (!conf){
+                             return null
+                            }
+                           jq('#cond10').hide();
+                               
+                                setValue('md10.value', null);                     
+                         });
+
+               });
+
+                    jq(function() {
+                             jq('#tab1').hide();
+                             jq("#show1").click(function(){
+                                jq('#tab1').toggle();
+                             });
+
+                             jq('#tab2').hide();
+                             jq("#show2").click(function(){
+                                jq('#tab2').toggle();
+                             });
+
+                              jq('#tab3').hide();
+                             jq("#show3").click(function(){
+                                jq('#tab3').toggle();
+                             });
+
+                             jq('#tab4').hide();
+                                jq("#show4").click(function(){
+                                jq('#tab4').toggle();
+                             });
+
+                             jq('#tab5').hide();
+                                jq("#show5").click(function(){
+                                jq('#tab5').toggle();
+                             });
+
+                             jq('#tab6').hide();
+                                jq("#show6").click(function(){
+                                jq('#tab6').toggle();
+                             });
+                              
+                              jq('#tab7').hide();
+                                jq("#show7").click(function(){
+                                jq('#tab7').toggle();
+                             });
+
+                              jq('#tab8').hide();
+                                jq("#show8").click(function(){
+                                jq('#tab8').toggle();
+                             });
+
+                            jq('#tab9').hide();
+                                jq("#show9").click(function(){
+                                jq('#tab9').toggle();
+                             });
+                           
+                              jq('#tab10').hide();
+                                jq("#show10").click(function(){
+                                jq('#tab10').toggle();
+                             });
+ 
+                              jq('#tab11').hide();
+                                jq("#show11").click(function(){
+                                jq('#tab11').toggle();
+                             });  
+                            
+                             jq('#tab12').hide();
+                                jq("#show12").click(function(){
+                                jq('#tab12').toggle();
+                             });
+
+                             jq('#tab13').hide();
+                                jq("#show13").click(function(){
+                                jq('#tab13').toggle();
+                             });
+
+                             
+                             jq('#tab14').hide();
+                                jq("#show14").click(function(){
+                                jq('#tab14').toggle();
+                             });
+                     });
+
              </script>
           </ifMode>
 
@@ -62,28 +463,25 @@
 		<table class="baseline-aligned">
 			<tr>
 				<td>Date:</td>
-				<td><encounterDate default="today"/></td>
+				<td><encounterDate default="today"/>  
+                             <encounterType default="e22e39fd-7db2-45e7-80f1-60fa0d5a4378" />                           
+                              <encounterLocation id ="hide1" default="SessionAttribute:emrContext.sessionLocationId"/>
+                              <encounterProvider  id ="hide2" default="currentUser"/></td>
 			</tr>
-			<tr>
-				<td>Location:</td>
-				<td><encounterLocation/></td>
-			</tr>
-			<tr>
-				<td>Provider:</td>
-				<td><encounterProvider/></td>
-			</tr>
+			
 		</table>
 	</section>
 
-	<section headerLabel="2. CANCER DIAGNOSIS SUMMARY">
+	<section headerLabel="2. IN TAKE FORM">
 					        
                       <fieldset style="border: 1px solid $headerColor; width:95%">
-                          <legend>Diagnosis</legend>
-                          <label>Diagnosis</label> 
+                          <legend>Cancer Diagnosis</legend>
+                          <label>Cancer Diagnosis</label> 
                      
                           <table class="baseline-aligned" >   
                                <tr style = "margin:100px">                                                                                                    
-                                  <td><encounterDiagnoses required="true" diagnosisSets=""/></td>
+                                  <td> <obs conceptId="7c644f88-e2eb-4a44-8b52-c9b76018cb57" style = "autocomplete" id="diagnosis" /></td>
+
                                </tr> 
                               <tr style = "margin:100px">
                                 <td>
@@ -98,16 +496,1205 @@
                                          <td><obs conceptId="a148e99b-23ef-4150-94d4-dc87b5ef9622"  labelText="Site of Biopsy"/></td>  
                                       </tr>
                                       <tr>
-                                        <td><obs conceptId="d947620f-0e80-462d-88b9-6abce180f07a"  labelText="Histology Report"/></td>
+                                        <td><obs conceptId="d947620f-0e80-462d-88b9-6abce180f07a"  style="textarea" labelText="Histology Report (Microscopic Description and Conclusion)"/> 
+                                                                                                                                                       </td>
                                          <td><obs conceptId="d26e184e-4db2-4ece-a5b6-5dfc476c0c4b"  labelText="Name of Pathologist"/></td>  
-                                      </tr>   
+                                      </tr> 
+                                        <tr>
+                                             <td><obs conceptId="5514af2a-b671-4f39-86e9-ef97909acc20"  labelText="Pathology lab"/></td> 
+                                              <td><obs conceptId="86409b31-1a2f-47dd-a980-87c3c87714f8"  labelText="Pathology lab No./Tissue Block Number"/></td>  
+                                        </tr> 
+                                            <tr>
+                                              <td><obs conceptId="eebc65cd-a0ec-4205-889f-4c9b88ec730c"  labelText="Attach scanned pathology report"/></td> 
+ 
+                                        </tr> 
  
                                   </table>
                                  
                               </tr>                  
                          </table>
                      </fieldset>
-                                                	
+                       <fieldset style="border: 1px solid $headerColor; width:95%">
+                          <legend>Presenting Complaint</legend> 
+                           <div>  
+                             <table >
+                               <tr>
+                                   <th> 
+                                      Symptom
+                                   </th>
+                                   <th>
+                                     Duration
+                                   </th>
+                                   <th>
+                                     Unit Of Duration
+                                   </th>
+                                   <th>
+                                     Comment
+                                   </th>
+                               </tr>
+                               <tr>
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732" defaultValue ="1072" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c"  style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-plus-sign edit-action" id ="add1"></i>
+                                   </td>
+                               </tr>   
+
+                                <tr id="field1">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" id="s1"  style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731"  id="d1"/>
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732"  id="u1"/>
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c1" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub1"></i>
+                                   <i class="icon-plus-sign edit-action" id="add2"></i>
+                                   </td>
+                               </tr> 
+
+
+                              <tr id="field2">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s2" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731" id="d2" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732"  id="u2"/>
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c"  id="c2" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub2"></i>
+                                   <i class="icon-plus-sign edit-action" id="add3"></i>
+                                   </td>
+                               </tr>  
+
+
+                             <tr id="field3">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s3" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731"  id="d3"/>
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732"  id="u3"/>
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c3" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub3"></i>
+                                   <i class="icon-plus-sign edit-action" id="add4"></i>
+                                   </td>
+                               </tr>  
+
+                                 <tr id="field4">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s4" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731" id="d4"/>
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732"  id="u4"/>
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c4" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub4"></i>
+                                   <i class="icon-plus-sign edit-action" id="add5"></i>
+                                   </td>
+                               </tr>   
+
+                               <tr id="field5">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s5" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731"  id="d5"/>
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732"  id="u5"/>
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c5" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub5"></i>
+                                   <i class="icon-plus-sign edit-action" id="add6"></i>
+                                   </td>
+                               </tr> 
+
+                             <tr id="field6">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s6" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731" placeholder="1" id="d6"/>
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732"  id="u6"/>
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c6" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub6"></i>
+                                   <i class="icon-plus-sign edit-action" id="add7"></i>
+                                   </td>
+                               </tr> 
+
+                                <tr id="field7">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" id="s7" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731" id="d7" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732" id="u7" />
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c7" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub7"></i>
+                                   <i class="icon-plus-sign edit-action" id="add8"></i>
+                                   </td>
+                               </tr> 
+
+                              <tr id="field8">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s8" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731"  id="d8"/>
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732"  id="u8"/>
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c8" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub8"></i>
+                                   <i class="icon-plus-sign edit-action" id="add9"></i>
+                                   </td>
+                               </tr> 
+
+                              <tr id="field9">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s9" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731" id="d9" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732" id="u9" />
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c9" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub9"></i>
+                                   <i class="icon-plus-sign edit-action" id="add10"></i>
+                                   </td>
+                               </tr> 
+
+                              <tr id="field10">
+                                   <td>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s10" style="autocomplete"/>
+                                   </td>
+                                   <td>
+                                     <obs conceptId="1731" id="d10" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="1732" id="u10" />
+                                   </td>
+                                    <td>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c10" style="textarea"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="sub10"></i>
+                                   </td>
+                               </tr> 
+                             </table> 
+                           </div>
+                       </fieldset>
+
+ 
+                       <fieldset style="border: 1px solid $headerColor; width:95%">
+                          <legend>COMORBIDITIES</legend> 
+                           
+                             <table >
+                               <tr>
+                                   <th> 
+                                      Condition
+                                   </th>
+                                   <th>
+                                     Medication
+                                   </th>
+                               </tr>
+                               <tr>
+                                   <td>
+                                     <condition required="false" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" style="autocomplete"  labelText="Drug"/>
+                                       <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-plus-sign edit-action" id="addCond1"></i>
+                                   </td>
+                               </tr> 
+                               <tr id="cond1">
+                                   <td>
+                                     <condition required="false" id="cd1"/>
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" id="md1" style="autocomplete" labelText="Drug"/>
+                                     <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond1"></i>
+                                   <i class="icon-plus-sign edit-action" id="addCond2"></i>
+                                   </td>
+                               </tr> 
+
+                               <tr id="cond2">
+                                   <td>
+                                     <condition required="false" id="cd2" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" id="md2" style="autocomplete" labelText="Drug"/>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond2"></i>
+                                   <i class="icon-plus-sign edit-action" id="addCond3"></i>
+                                   </td>
+                               </tr> 
+
+                               <tr id="cond3">
+                                   <td>
+                                     <condition required="false" id="cd3"/>
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" id="md3" style="autocomplete" labelText="Drug"/>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond3"></i>
+                                   <i class="icon-plus-sign edit-action" id="addCond4"></i>
+                                   </td>
+                               </tr> 
+
+                               <tr id="cond4">
+                                   <td>
+                                     <condition required="false" id="cd4"/>
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" id="md4" style="autocomplete" labelText="Drug"/>
+                                       <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond4"></i>
+                                   <i class="icon-plus-sign edit-action" id="addCond5"></i>
+                                   </td>
+                               </tr> 
+
+                               <tr id="cond5">
+                                   <td>
+                                     <condition required="false" id="cd5" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" id="md5" style="autocomplete" labelText="Drug"/>
+                                        <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond5"></i>
+                                   <i class="icon-plus-sign edit-action" id="addCond6"></i>
+                                   </td>
+                               </tr> 
+
+                                 <tr id="cond6">
+                                   <td>
+                                     <condition required="false" id="cd6" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug"  id="md6" style="autocomplete" labelText="Drug"/>
+                                       <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond6"></i>
+                                   <i class="icon-plus-sign edit-action" id="addCond7"></i>
+                                   </td>
+                               </tr> 
+
+                                <tr id="cond7">
+                                   <td>
+                                     <condition required="false" id="cd7" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" id="md7" style="autocomplete" labelText="Drug"/>
+                                       <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond7"></i>
+                                   <i class="icon-plus-sign edit-action" id="addCond8"></i>
+                                   </td>
+                               </tr> 
+
+                              <tr id="cond8">
+                                   <td>
+                                     <condition required="false" id="cd8" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" id="md8" style="autocomplete" labelText="Drug"/>
+                                       <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond8"></i>
+                                   <i class="icon-plus-sign edit-action" id="addCond9"></i>
+                                   </td>
+                               </tr> 
+
+                                <tr id="cond9">
+                                   <td>
+                                     <condition required="false" id="cd9" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" id="md9" style="autocomplete" labelText="Drug"/>
+                                       <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond9"></i>
+                                   <i class="icon-plus-sign edit-action" id="addCond10"></i>
+                                   </td>
+                               </tr> 
+
+                                <tr id="cond10">
+                                   <td>
+                                     <condition required="false" id="cd10" />
+                                   </td>
+                                   <td>
+                                      <obs conceptId="161189" answerClasses="Drug" id="md10"  style="autocomplete" labelText="Drug"/>
+                                       <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Comment"/>
+                                   </td>
+                                   <td>
+                                   <i class="icon-minus-sign edit-action" id="subCond10"></i>
+                                   </td>
+                               </tr> 
+                             </table> 
+                       </fieldset>
+
+                       <fieldset style="border: 1px solid $headerColor; width:95%">
+                       <legend>Review Of Systems</legend> 
+                           <table>
+                             <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show1"></i>  Constitutional  <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab1">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="55c1cc2a-f8cc-455d-ac6a-e719fc64bc82"  style="checkbox" labelText="Recent weight loss"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="140f0861-011b-4814-9ab5-1ecb47d75772"  style="checkbox" labelText="Recent weight gain"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="e955518d-8900-44a8-af1b-b08113600e05"  style="checkbox" labelText="Fevers/ chills"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="133027"  style="checkbox" labelText="Night sweats"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="140501"  style="checkbox" labelText="Fatigue"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+                           <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show2"></i>  Gastrointestinal  <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab2">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="	b7a45ec2-291d-4ad3-8c24-6a63dd044b48"  style="checkbox" labelText="Anorexia"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="f42fa01c-dff1-4833-8196-a27d85e31b37" style="checkbox" labelText="Difficulty swallowing" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                   <tr>
+                                                    <td><obs conceptId="52caf5c8-0921-4a0a-ab02-1bb342a2a3f3" style="checkbox" labelText="Frequent heartburn" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="be3b54cd-628f-4d8f-b75e-308a2bf83ac8" style="checkbox" labelText="Belching/ excess gas" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                   <tr>
+                                                    <td><obs conceptId="b194e427-b134-4c7d-b642-de59762b5268" style="checkbox" labelText="Frequent Nausea" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                   <tr>
+                                                    <td><obs conceptId="fce5b8fc-1960-470b-9e61-59e3d608f5ec" style="checkbox" labelText="painful swallowing" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="9fa81bd3-3e7c-4d63-bafd-80c7964460cb" style="checkbox" labelText="Vomiting" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="2aff7f85-eb64-44a0-8dc2-428b85500c68" style="checkbox" labelText="Diarrhea" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                   <tr>
+                                                    <td><obs conceptId="3a07ce5e-07ee-4452-bcec-d11aae685252" style="checkbox" labelText="Constipation" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="83be70d1-c36a-4a1c-bb8e-9d46284904e9" style="checkbox" labelText="Black stools" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                   <tr>
+                                                    <td><obs conceptId="491d3b01-a4a6-4c7b-8212-ef319d4b49f9" style="checkbox" labelText="Rectal bleeding" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                   <tr>
+                                                    <td><obs conceptId="10b151a5-cd66-419f-a435-49974ad51ea2" style="checkbox" labelText="Abdominal distension" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="481fe69c-d15f-4f93-981d-b811e00cd4e6" style="checkbox" labelText="Abdominal pain" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="a3126839-ba5e-493f-9992-e76682a72cd5" style="checkbox" labelText="Early satiety" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="283cc4ac-ff1b-44d2-886d-15b8b4f866fc" style="checkbox" labelText="Yellow eyes" /> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+
+
+                            <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show3"></i> Respiratory  <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab3">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="ac3d904e-513f-4abe-9df0-9b0d70e9e8de"  style="checkbox" labelText="Difficulty in breathing"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="2723a290-03d4-49d6-97be-29a851352e71"  style="checkbox" labelText="Cough"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="ef46e88c-eeee-44e3-9f7d-cd1609313543"  style="checkbox" labelText="Chest pain"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="7e5e2a15-7e45-496f-b97a-f407b6300a34"  style="checkbox" labelText="Sputum production"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="ad66558d-9f97-450a-ab6c-fd64c58f94a4"  style="checkbox" labelText="Hemoptysis"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   <tr>
+                                                    <td><obs conceptId="9af00821-1e5c-4040-a4fb-628eba45127a"  style="checkbox" labelText="Wheezing"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+
+                              <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show4"></i> Cardiovascular <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab4">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="9e39afa2-3810-434a-bf74-e2baa09a6152"  style="checkbox" labelText="Orthopnea"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="18968939-a9d6-496c-b41c-29fbf908ce09"  style="checkbox" labelText="Palpitations"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="be87f941-c0d1-44a6-9ba3-511b8b70711e"  style="checkbox" labelText="Bilateral Edema"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="6edd98f6-2842-4a65-8587-36cc52b03ce7"  style="checkbox" labelText="Intermittent claudication"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="c9cf0e4e-fb0b-4895-ac17-8c6632bd172d"  style="checkbox" labelText="Fainting"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   <tr>
+                                                    <td><obs conceptId="152c6c3f-43f6-4d8b-b721-ad9632540407"  style="checkbox" labelText="PND"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="13df64f5-1fac-401d-8992-d1391617cfbc"  style="checkbox" labelText="Angina"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                </table>
+                                          </td>
+                                     </tr> 
+
+                                
+                                </table>
+                             </td>                             
+                           </tr>
+
+                           <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show5"></i>  Breast  <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab5">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="e6b84031-397d-451a-8e52-3d441bc05233"  style="checkbox" labelText="Pain in breast"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="35150a31-3952-42d3-ac28-42bddd5eff01"  style="checkbox" labelText="Lump in breasts"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="47dad23d-6426-485f-89fe-ef60ee60d2d6"  style="checkbox" labelText="Discharge from nipple"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="333db1cd-7014-4d53-84ea-4f4da77e052a"  style="checkbox" labelText="Ulcer that won’t heal"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="7a77036c-9f09-4788-a33f-d8e2f61727b8"  style="checkbox" labelText="Last mammogram"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   <tr>
+                                                    <td><obs conceptId="82eed475-40c0-4d3c-ae0e-5966ff360e1a"  labelText="Breast affected"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                
+
+                                                </table>
+                                          </td>
+                                     </tr> 
+
+                                </table>
+                             </td>                             
+                           </tr>
+
+                            <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show6"></i>  Nervous system  <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab6">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="ebd155dd-59f8-41a6-b5dc-0414125c4241"  style="checkbox" labelText="Headaches"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="87501a81-d431-422c-8798-727af4e06f34"  style="checkbox" labelText="Dizziness/ vertigo"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="fcc108ed-aa1f-4ecb-b590-d2c8f104f76c"  style="checkbox" labelText="Photophobia"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="396d7961-6aff-48ad-8d1a-df327f8b0ba4"  style="checkbox" labelText="Convulsions/ seizures"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="9c2e307e-dc4a-4009-a74d-374872e877d1"  style="checkbox" labelText="Memory loss"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   <tr>
+                                                    <td><obs conceptId="fef1b49d-d794-4cb2-b17e-d5a9f6db97ff"  style="checkbox" labelText="Poor coordination "/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="0bf3dba2-130b-4f79-a0ab-123fd4da2e99"  style="checkbox" labelText="Weakness in arms"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="bf8563d8-29be-47ee-b5c7-9fae5f6464ae"  style="checkbox" labelText="Weakness in legs"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                   <tr>
+                                                    <td><obs conceptId="9169ce73-ace4-4ce6-bfc6-d67a0e1503dd"  style="checkbox" labelText="Numbness in arms/legs"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="96a14b30-7442-410a-961e-603e9f94721f"  style="checkbox" labelText="Abnormal movement"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="257b2c2f-fc76-411a-afed-06ed4b57e369"  style="checkbox" labelText="Blurred vision"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="ec213706-1b10-4f80-a903-08dc50a02d64"  style="checkbox" labelText="Eye pain"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="fd7f546a-c2a0-4bce-a46c-0bcfcb46fde6"  style="checkbox" labelText="Double vision"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+
+
+                               <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show7"></i> Genitourinary  <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab7">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="24ecd643-6787-4bbe-9203-13025f75a9cb"  style="checkbox" labelText="Pain/burning with urination"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="3aadc376-f5a5-4523-b927-d780906c3b20"  style="checkbox" labelText="Nocturia &gt; 3 times"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="f9c00f1a-9c6b-41e0-8fd0-a57434baa853"  style="checkbox" labelText="Hesitancy/ slow starting"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="b8f1f3d9-076f-458f-9371-f5b7c38b4855"  style="checkbox" labelText="Dribbling/ slow stopping"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="111636"  labelText="Urinary incontinence"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   <tr>
+                                                    <td><obs conceptId="f7a0845e-a660-4265-86e8-3d87f8a0b05b"  style="checkbox" labelText="Hematuria"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                   </tr>
+                                                   <includeIf velocityTest="$patient.gender == 'M' ">
+                                                       <tr>
+                                                        <td><b> FOR MEN ONLY</b> </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><obs conceptId="23c83482-9ef8-47ae-a2c4-346780b7c784"  style="checkbox" labelText="Penile discharge"/> </td>
+                                                         <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                      </tr>
+                                                     <tr>
+                                                        <td><obs conceptId="bdc3c478-27ae-4ba0-8084-c1eae4b63df8"  style="checkbox" labelText="Impotence "/> </td>
+                                                          <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                     </tr>
+                                                   </includeIf> 
+
+                                                     <includeIf velocityTest="$patient.gender == 'F' ">
+                                                         
+                                                       <tr>
+                                                        <td><b> FOR WOMEN ONLY</b> </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><obs conceptId="cf9ab05f-56b0-474e-b38f-fc1c46900bee"  style="checkbox" labelText="Vaginal discharge "/> </td>
+                                                         <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                      </tr>
+                                                     <tr>
+                                                        <td><obs conceptId="147232"  style="checkbox" labelText="Vaginal bleeding"/> </td>
+                                                          <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                     </tr>
+
+                                                     <tr>
+                                                       <td><obs conceptId="de2681ec-19fb-49a3-b177-b53745aa528d"  style="checkbox" labelText="Painful intercourse"/> </td>
+                                                       <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><obs conceptId="6a5e1360-d454-49d1-b593-9291242422c9"  labelText="LNMP"/> </td>
+                                                         <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                    </tr>
+
+                                                      <tr>
+                                                        <td><obs conceptId="160598"  labelText="Age of menarche"/> </td>
+                                                        <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                     </tr>
+
+                                                       <tr>
+                                                        <td><obs conceptId="bcba105e-f83d-4fff-a6c2-49c409a4b96b"  labelText="Number of pregnancies"/> </td>
+                                                         <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                     </tr>
+
+                                                       <tr>
+                                                        <td><obs conceptId="bcba105e-f83d-4fff-a6c2-49c409a4b96b"  labelText="Number of miscarriages"/> </td>
+                                                         <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                      </tr>
+
+                                                       <tr>
+                                                        <td><obs conceptId="1635"  labelText="Prior contraceptives"/> </td>
+                                                         <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                      </tr>
+
+
+                                                     <tr>
+                                                       <td><obs conceptId="638b5e8a-c169-477b-b7b4-401c4da876e7"  style="checkbox" labelText="Post-menopausal hormone"/> </td>
+                                                       <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                     </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="68d520ae-ffd4-4b1e-8b6f-505080838548"  style="checkbox" labelText="Last pap smear"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   </includeIf>
+
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+
+                            <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show8"></i>  Endocrine  <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab8">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="0ba00444-369a-4d69-9510-85a9ce72ddab"  style="checkbox" labelText="Hot flushes"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="8ffb37e6-551a-4fb8-93e4-69c4c95bd5e0"  style="checkbox" labelText="Cold intolerance"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="7c69324e-89ac-4618-b430-788fca09d2a9"  style="checkbox" labelText="Heat intolerance"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="33e753e1-0217-437a-95fe-c256ffa563ed"  style="checkbox" labelText="Excessive thirst"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="c9f3b471-32e3-4b88-8f9f-25e644e223d9"  style="checkbox" labelText="Excessive urination"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   <tr>
+                                                    <td><obs conceptId="0fe1b8f3-486d-4106-8fdf-fb97a10cd17d"  style="checkbox" labelText="Excessive hunger"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>                                              
+
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+
+                                                <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show9"></i> Musculoskeletal  <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab9">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="195cd46a-f070-4a8d-9469-60afd6345d65"  style="checkbox" labelText="Joint pain "/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="8ac597d5-e50a-4b49-8f25-c975795d134d"  style="checkbox" labelText="Joint swelling"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="9b797bd8-64d4-4513-9410-2834f42141cf"  style="checkbox" labelText="Deformity"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="910682d8-ad65-4588-9ac3-c93cccd17546"  style="checkbox" labelText="Muscle pain"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="c6ee11db-34b3-47ab-ad31-f55928d23804"  style="checkbox" labelText="Back pain"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   <tr>
+                                                    <td><obs conceptId="f2e49402-7c6e-4ae9-bbdd-5b0a89463da5"  style="checkbox" labelText="Decreased range of motion"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+
+                      <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show10"></i> Skin <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab10">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="27cd7b53-f45a-43db-92e2-94592c7f2197"  style="checkbox" labelText="Excessive itching"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="cd6ae44c-51b3-47d9-8764-cf3ae90cef39"  style="checkbox" labelText="Rashes"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="423c14b7-ad10-4682-92d6-81f4cae01d35"  style="checkbox" labelText="skin Swellings"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="ea26736e-19f1-4c05-895a-18fe74080426"  style="checkbox" labelText="Change in color"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="333db1cd-7014-4d53-84ea-4f4da77e052a"  style="checkbox" labelText="Ulcer that won’t heal"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+
+
+                              <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show11"></i>  ENT  <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab11">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="badf28bf-0448-44d0-a3ba-b48879f4f3d6"  style="checkbox" labelText="Hearing loss "/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="7295312a-0060-4616-b819-9d9be93d6956"  style="checkbox" labelText="Loss of teeth"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="aa5d958d-3afa-411f-9dc0-90c23bbba7d5"  style="checkbox" labelText="Tooth aches"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="0731318c-45f9-470f-9125-760a1233efb8"  style="checkbox" labelText="Change in voice"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="490bf479-0c6e-4b99-9e5c-ac1915de784c"  style="checkbox" labelText="Nose bleeds"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   <tr>
+                                                    <td><obs conceptId="5c8b8697-d6b9-404d-8a80-6b548bc9f516"  style="checkbox" labelText="Halitosis "/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="a81b36bc-4cde-49e3-9d5a-cfda2b4790c5"  style="checkbox" labelText="ENT Swelling"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+                            <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show12"></i> Psychiatric <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab12">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="251aeaaf-9fdc-4b35-a9d8-91bd43aa8a67"  style="checkbox" labelText="Anxiety"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="3c47a694-a061-4c5f-abeb-88f8dab22467"  style="checkbox" labelText="Low mood/ depression"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="9c60ca3f-bbac-475a-ae1a-bbeb54d06379"  style="checkbox" labelText="Hallucinations "/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="7c05d920-9226-4193-bb3c-831db7a7e7ef"  style="checkbox" labelText="Work stress"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="c679582c-0720-45a8-9b4a-d207a2bf3ea3"  style="checkbox" labelText="Family stress"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+                                                   
+
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+                           <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show13"></i> Hematological <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab13">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="e0cfc57e-1eae-49f1-856f-34c9f07680e5"  style="checkbox" labelText="Severe /frequent infections"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="ee426b1f-0acc-4508-aced-a25cb7ca436a"  style="checkbox" labelText="Easy bleeding/ bruising"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="00fec438-a404-48aa-96db-51c38f89c6fd"  style="checkbox" labelText="Swelling of lymph nodes"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+                               <tr>
+                               <td> 
+                                 <table >
+                                    <tr>
+                                        <th><span> <i class=" icon-chevron-down  edit-action" id ="show14"></i> Tumor <label><input type="checkbox" /> None</label></span></th>  
+                                    </tr> 
+                                    <tr id="tab14">
+                                         <td> 
+                                             <table cellpadding="0" cellspacing="0" border="0">
+                                                 <tr>
+                                                   <td><obs conceptId="163894"  style="checkbox" labelText="Swelling"/> </td>
+                                                    <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><obs conceptId="333db1cd-7014-4d53-84ea-4f4da77e052a"  style="checkbox" labelText="Ulcer that won’t heal"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="7250ebdf-3809-4fe4-b67b-e25cae2ba799"  style="checkbox" labelText="Discharge"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="1482f976-eb80-4ce3-bbed-d6c5ff10d24c"  style="checkbox" labelText="Pain"/> </td>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" /> </td>
+                                                  </tr>
+
+                                                  
+                                                </table>
+                                          </td>
+                                     </tr> 
+                                </table>
+                             </td>                             
+                           </tr>
+
+
+
+                          </table>
+                       </fieldset>
+
+                        <fieldset style="border: 1px solid $headerColor; width:95%">
+                          <legend>Perfomance Score</legend> 
+                           <obs conceptId="f326efa0-77fb-4ddf-8b87-6ced44b2dceb" />
+                           
+                       </fieldset>
+                       <fieldset style="border: 1px solid $headerColor; width:95%">
+                          <legend>Pain Score</legend> 
+                              <table>
+                                  <tr>
+                                      <th>Score </th>
+                                      <td>Site </td>
+                                      <td> Detail</td>
+                                  </tr>
+                                  <tr>
+                                      <td><obs conceptId="59ed35a6-67b2-4b36-aa14-7ce68a9ea567" /> </td>
+                                       <td><obs conceptId="8275d894-3b35-42a9-a6a0-eb78abcb034d" /></td>
+                                      <td><obs conceptId="c98d932c-3b29-4260-bc08-da0060146912" style="textarea"/></td>
+                                  </tr>
+
+                            </table>
+                       </fieldset>
+                                               	
 	</section>     
-    <submit />
+  <submit />
 </htmlform>

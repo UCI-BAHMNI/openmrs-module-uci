@@ -23,7 +23,7 @@
             formIcon="icon-stethoscope"
             formShowIf="(visit.active || !visit.active) &amp;&amp; patient.person.dead==false"
             formDisplayStyle="Simple"
-            formLabel="UCI COMPLETE VITALS" >
+            formLabel="UCI  VITALS" >
             
     <style>
         #calculated-bmi {
@@ -81,7 +81,7 @@
                     } else {
                         jq('#no-calculated-bmi').hide();
                         jq('#calculated-bmi-wrapper').show();
-                        jq('#calculated-bmi').html(bmi.toFixed(1));
+                        jq('#calculated-bmi').html(bmi.toFixed(1) +" kg/m<sup>2</sup>");
                         jq('#hidden-calculated-bmi').val(bmi.toFixed(1));
                     }
                 };
@@ -95,7 +95,7 @@
                    
                       if (bsa == null || isNaN(bsa)) {
                       }else{
-                          setValue('bsa_field.value', bsa);
+                          setValue('bsa_field.value', bsa.toFixed(2));
                        }
                  };
 
@@ -111,14 +111,11 @@
                    };
        
                   var changeBsa = function(){
-                    alert("this value cant be overiden !!");
+                    alert("This value is just Calculated. It cant be overiden !!");
                     updateBsa();
                  };
 
-                 var changeGcs = function(){
-                    alert("this value cant be overiden !!");
-                    updateGcs();
-                 };
+                 
 
                 jq(function() {
                     jq('#calculated-bmi-wrapper').hide();
@@ -143,8 +140,12 @@
                    getField('vr.value').change(updateGcs)              
                    getField('mr.value').change(updateGcs);
                    updateGcs();
-                   getField('gcs.value').change(changeGsc);                 
-                 });
+                   getField('gcs.value').change(
+                         function(){
+                      alert("This value is just Calculated. It cant be overiden !!");
+                      updateGcs();
+                        })                 
+                     });
                     
                 jq(function() {
 				    jq('#bp_systolic input[type=text]').attr('min', '50');
@@ -225,7 +226,7 @@
             <h3><lookup expression="fn.getConcept('CIEL:5090').name"/></h3>
             
             <p class="left">
-                <obs conceptId="CIEL:5090" id="height" showUnits="uicommons.units.centimeters" unitsCssClass="append-to-value"/>
+                <obs conceptId="CIEL:5090" id="height" absoluteMinimum ="30" showUnits="uicommons.units.centimeters" unitsCssClass="append-to-value"/>
             </p>
 
         </fieldset>
@@ -235,7 +236,7 @@
             <h3><lookup expression="fn.getConcept('CIEL:5089').name"/></h3>
 
             <p class="left">
-                <obs conceptId="CIEL:5089" id="weight" showUnits="uicommons.units.kilograms" unitsCssClass="append-to-value"/>
+                <obs conceptId="CIEL:5089" id="weight" absoluteMinimum = "1" showUnits="uicommons.units.kilograms" unitsCssClass="append-to-value"/>
             </p>
 
         </fieldset>
@@ -254,7 +255,7 @@
                     <ifMode mode="VIEW" include="false">
                         <uimessage code="referenceapplication.vitals.bmi.display"/>
                     </ifMode>
-                    <span id='calculated-bmi'></span>
+                    <span id='calculated-bmi'/> 
                 </span>
 
                 <p id="calculated-bmi-continue">
@@ -265,11 +266,11 @@
 
         </includeIf>
         <fieldset>
-            <legend><lookup expression="fn.getConcept('CIEL:980').name"/></legend>
-            <h3><lookup expression="fn.getConcept('CIEL:980').name"/></h3>
+            <legend>Body Surface Area (Calculated)</legend>
+            <h3>Body Surface Area</h3>
             
             <p class="left">
-                <obs conceptId="CIEL:980" id="bsa_field"/>
+                <obs conceptId="CIEL:980" id="bsa_field" showUnits="m &lt;sup&gt; 2&lt;/sup&gt;"/> 
             </p>
 
         </fieldset>
@@ -308,19 +309,22 @@
             <h3><uimessage code="referenceapplication.vitals.bloodPressure.title"/></h3>
 
             <p class="left">
-                <obs conceptId="CIEL:5085" id="bp_systolic"/>
+               Systolic <obs conceptId="CIEL:5085" id="bp_systolic"/>
             </p>
             <p class="left">
-                
+               / 
             </p>
             <p class="left">
-                <obs conceptId="CIEL:5086" id="bp_diastolic"/>
+               Diastolic <obs conceptId="CIEL:5086" id="bp_diastolic"/>
+            </p>
+            <p class="left">
+              mmHg
             </p>
         </fieldset>
 
         <fieldset>
-            <legend><lookup expression="fn.getConcept('CIEL:5092').name"/></legend>
-            <h3><lookup expression="fn.getConcept('CIEL:5092').name"/></h3>
+            <legend><lookup expression="fn.getConcept('CIEL:5092').name"/>  SpO<sub>2</sub></legend>
+            <h3><lookup expression="fn.getConcept('CIEL:5092').name"/> (SpO<sub>2</sub>)</h3>
 
             <p>
                 <obs conceptId="CIEL:5092" id="o2_sat" showUnits="uicommons.units.percent" unitsCssClass="append-to-value"/>
@@ -345,43 +349,74 @@
             <h3><lookup expression="fn.getConcept('CIEL:887').name"/></h3>
 
             <p>
-                <obs conceptId="CIEL:887" id="blood_sugar" showUnits="mm/l" unitsCssClass="append-to-value" absoluteMinimum = "0" absoluteMaximum="30"/>
+                <obs conceptId="CIEL:887" id="blood_sugar" showUnits=" mmol/L" unitsCssClass="append-to-value" absoluteMinimum = "0" absoluteMaximum="30"/>
             </p>
         </fieldset>
 
-        <fieldset>
-            <legend><lookup expression="fn.getConcept('fa897255-6503-4624-a881-266f32559177').name"/></legend>
-            <h3>Eye Movement</h3>
-
-            <p>
-                <obs conceptId="fa897255-6503-4624-a881-266f32559177" id="em" absoluteMinimum = "1" absoluteMaximum="4"/>
-            </p>
-        </fieldset>
-
-         <fieldset>
-            <legend><lookup expression="fn.getConcept('dda2d119-9a4b-40a7-be7f-86e14a477a87').name"/></legend>
-            <h3>Verbal Response</h3>
-
-            <p>
-                <obs conceptId="dda2d119-9a4b-40a7-be7f-86e14a477a87" id="vr" absoluteMinimum = "1" absoluteMaximum="5"/>
-            </p>
-        </fieldset>
-  
-        <fieldset>
-            <legend><lookup expression="fn.getConcept('00ec2834-edfd-43d8-a625-746c29ab08fe').name"/></legend>
-            <h3>Motor Response</h3>
-
-            <p>
-                <obs conceptId="00ec2834-edfd-43d8-a625-746c29ab08fe" id="mr" absoluteMinimum = "1" absoluteMaximum="6"/>
-            </p>
-        </fieldset>
-
-       <fieldset>
+       <fieldset field-separator=" , ">
             <legend><lookup expression="fn.getConcept('CIEL:160347').name"/></legend>
             <h3><lookup expression="fn.getConcept('CIEL:160347').name"/></h3>
+             <table style ="border-style:none">
+                <tr>  
+                 <td>
+                     <p class="left">
+                         <lookup expression="fn.getConcept('fa897255-6503-4624-a881-266f32559177').name"/>
+                      </p>
+
+                 </td>
+                 <td>
+                       <p class="left">
+                         <lookup expression="fn.getConcept('dda2d119-9a4b-40a7-be7f-86e14a477a87').name"/>
+                      </p>
+
+                </td>
+                 <td>
+                      <p class="left">
+                           <lookup expression="fn.getConcept('00ec2834-edfd-43d8-a625-746c29ab08fe').name"/>
+                      </p>
+             
+                 </td>
+                 <td> 
+                       <p>
+                          <lookup expression="fn.getConcept('CIEL:160347').name"/> 
+                      </p>
+                 </td>
+            </tr>
+
+             <tr>  
+                 <td>
+                     <p class="left">
+                          <obs conceptId="fa897255-6503-4624-a881-266f32559177" id="em" absoluteMinimum = "1" absoluteMaximum="4"/>
+                      </p>
+
+                 </td>
+                 <td>
+                       <p class="left">
+                        <obs conceptId="dda2d119-9a4b-40a7-be7f-86e14a477a87" id="vr" absoluteMinimum = "1" absoluteMaximum="5"/>
+                      </p>
+
+                </td>
+                 <td>
+                      <p class="left">
+                           <obs conceptId="00ec2834-edfd-43d8-a625-746c29ab08fe" id="mr" absoluteMinimum = "1" absoluteMaximum="6"/>
+                      </p>
+             
+                 </td>
+                 <td> 
+                       <p>
+                          <obs conceptId="160347" id="gcs" absoluteMinimum = "3" absoluteMaximum="15"/>
+                      </p>
+                 </td>
+               </tr>
+         </table>
+        </fieldset>
+
+           <fieldset>
+            <legend><lookup expression="fn.getConcept('59ed35a6-67b2-4b36-aa14-7ce68a9ea567').name"/></legend>
+            <h3><lookup expression="fn.getConcept('59ed35a6-67b2-4b36-aa14-7ce68a9ea567').name"/></h3>
 
             <p>
-                <obs conceptId="160347" id="gcs" absoluteMinimum = "3" absoluteMaximum="15"/>
+                <obs conceptId="59ed35a6-67b2-4b36-aa14-7ce68a9ea567" id="pain_scale" />
             </p>
         </fieldset>
   

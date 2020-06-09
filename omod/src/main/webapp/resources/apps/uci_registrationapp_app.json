@@ -1,0 +1,74 @@
+[
+    {
+        "id": "referenceapplication.registerPatient.Test",
+        "instanceOf": "registrationapp.registerPatient",
+        "label": "My Register Patient",
+        "description": "Create MY new Patient Record",
+        "extensions": [
+            {
+                "id": "referenceapplication.registrationapp.Pat",
+                "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+                "type": "link",
+                "label": "My Register Patient",
+                "url": "registrationapp/registerPatient.page?appId=referenceapplication.registerPatient.Test",
+                "icon": "icon-user",
+                "order": 1,
+                "requiredPrivilege": "App: registrationapp.registerPatient"
+            },
+            {
+                "id": "application.registrationapp.RegLink",
+                "extensionPointId": "patientDashboard.overallActions",
+                "type": "link",
+                "label": "referenceapplication.app.editRegistrationInfo.label",
+                "url": "registrationapp/registrationSummary.page?patientId={{patient.uuid}}&appId=referenceapplication.registerPatient.Test",
+                "icon": "icon-pencil",
+                "order": 25,
+                "requiredPrivilege": "App: registrationapp.registerPatient"
+            }
+        ],
+        "config": {
+            "afterCreatedUrl": "/coreapps/clinicianfacing/patient.page?patientId={{patientId}}",
+            "sections": [
+                {
+                    "id": "demographics",
+                    "questions": [
+                        {
+                            "legend": "National Id",
+                            "fields": [
+                                {
+                                    "type": "personAttribute",
+                                    "label": "NIN",
+                                    "formFieldName": "NIN",
+                                    "uuid": "f8708d68-a34c-47ae-b9a1-acfa28679c2b",
+                                    "widget": {
+                                        "providerName": "uicommons",
+                                        "fragmentId": "field/text"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "legend": "UCI ID",
+                            "fields": [
+                                {
+                                    "type": "personAttribute",
+                                    "label": "UCI ID",
+                                    "formFieldName": "UCI ID",
+                                    "uuid": "fc60bdcb-30d4-4ddf-8f6e-17037a580b58",
+                                    "widget": {
+                                        "providerName": "uicommons",
+                                        "fragmentId": "field/text"
+                                    },
+                                    "cssClasses": [
+                                        "uci-id",
+                                        "required"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

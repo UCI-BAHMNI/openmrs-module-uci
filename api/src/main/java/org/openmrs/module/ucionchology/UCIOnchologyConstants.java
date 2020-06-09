@@ -13,7 +13,11 @@ public class UCIOnchologyConstants {
 	
 	public static final String DIAGNOSIS_SET_GP = "emr.concept.diagnosisSetOfSets";
 	
+	public static final String DIAGNOSIS_CONCEPT_SET_NAME = "Working Cancer Diagnosis (set)";
+	
 	public static final String DIAGNOSIS_CONCEPT_NAME = "Working Cancer Diagnosis";
+	
+	public static final String SYMPTOMS_CONCEPT_NAME = "ALL CANCER SYMPTOMS";
 	
 	public static final String DIAGNOSIS_CONCEPT_SET_OF_SETS = "Diagnosis Set of Sets";
 	

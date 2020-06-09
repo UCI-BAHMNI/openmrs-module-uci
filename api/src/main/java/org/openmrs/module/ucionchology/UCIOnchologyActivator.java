@@ -24,6 +24,7 @@ import org.openmrs.module.ucionchology.api.CreateDiagnosisConcepts;
 import org.openmrs.module.ucionchology.inntializer.ConceptsInitializer;
 import org.openmrs.module.ucionchology.inntializer.HtmlFormsInitializer;
 import org.openmrs.module.ucionchology.inntializer.Initializer;
+import org.openmrs.module.appframework.service.AppFrameworkService;
 
 /**
  * This class contains the logic that is run every time this module is either started or shutdown
@@ -43,12 +44,21 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 	 */
 	public void started() {
 		log.info("Started UCI Onchology");
+		AppFrameworkService appFrameworkService = Context.getService(AppFrameworkService.class);
 		
-		CreateDiagnosisConcepts.CreateConcept();
-		CreateDiagnosisConcepts.CreateSetConcept();
-		setConceptsSetGp();
-		for (Initializer initializer : getInitializers()) {
-			initializer.started();
+		try {
+			appFrameworkService.disableApp("referenceapplication.registrationapp.registerPatient");
+			appFrameworkService.disableApp("referenceapplication.vitals");
+
+			for (Initializer initializer : getInitializers()) {
+				initializer.started();
+			}
+			
+			CreateDiagnosisConcepts.CreateWorkingDiagnosisConceptCoded();
+			CreateDiagnosisConcepts.CreateSymptomsConcept();
+		}
+		catch (Exception e) {
+			
 		}
 		
 	}
