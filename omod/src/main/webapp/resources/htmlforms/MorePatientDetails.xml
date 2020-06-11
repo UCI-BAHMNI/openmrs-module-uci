@@ -12,21 +12,18 @@
   ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
   -->
 
-<htmlform 
-formUuid="a000cb34-9ec1-4344-a1c8-f692232f6edd" 
+<htmlform formUuid="a000cb34-9ec1-4344-a1c8-f692232f6edd" 
 formName="More Patient Details" 
 formEncounterType="67a71486-1a54-468f-ac3e-7091a9a79584" 
 formVersion="1.0"
 formDescription="More Details"
 formAddMetadata="yes"
-formUILocation="patientDashboard.generalActions"
+formUILocation="patientDashboard.overallActions"
 formOrder="1"
 formIcon="icon-stethoscope"
-formShowIf="(visit.active || !visit.active) &amp;&amp; patient.person.dead==false"
+formShowIf=""
 formDisplayStyle="Simple"
-formLabel="More Patient Details" 
-
->
+formLabel="More Patient Details" >
        
 
     <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">

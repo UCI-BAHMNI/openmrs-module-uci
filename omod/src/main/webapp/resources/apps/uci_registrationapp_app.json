@@ -1,16 +1,16 @@
 [
     {
-        "id": "referenceapplication.registerPatient.Test",
+        "id": "referenceapplication.registerPatient.uci",
         "instanceOf": "registrationapp.registerPatient",
-        "label": "My Register Patient",
+        "label": "Register UCI Patient",
         "description": "Create MY new Patient Record",
         "extensions": [
             {
                 "id": "referenceapplication.registrationapp.Pat",
                 "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
                 "type": "link",
-                "label": "My Register Patient",
-                "url": "registrationapp/registerPatient.page?appId=referenceapplication.registerPatient.Test",
+                "label": "Register UCI Patient",
+                "url": "registrationapp/registerPatient.page?appId=referenceapplication.registerPatient.uci",
                 "icon": "icon-user",
                 "order": 1,
                 "requiredPrivilege": "App: registrationapp.registerPatient"
@@ -20,7 +20,7 @@
                 "extensionPointId": "patientDashboard.overallActions",
                 "type": "link",
                 "label": "referenceapplication.app.editRegistrationInfo.label",
-                "url": "registrationapp/registrationSummary.page?patientId={{patient.uuid}}&appId=referenceapplication.registerPatient.Test",
+                "url": "registrationapp/registrationSummary.page?patientId={{patient.uuid}}&appId=referenceapplication.registerPatient.uci",
                 "icon": "icon-pencil",
                 "order": 25,
                 "requiredPrivilege": "App: registrationapp.registerPatient"
