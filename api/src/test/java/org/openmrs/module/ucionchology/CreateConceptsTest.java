@@ -39,7 +39,7 @@ public class CreateConceptsTest extends BaseModuleContextSensitiveTest {
 		System.out.println(c.getSetMembers().size());
 		
 		Assert.assertEquals(14, c.getSetMembers().size());
-		Assert.assertEquals("Working Cancer Diagnosis", c.getDisplayString());
+		Assert.assertEquals("Working Cancer Diagnosis (set)", c.getDisplayString());
 		for (Concept x : c.getSetMembers()) {
 			System.out.println(x.getDisplayString());
 			for (ConceptMap map : x.getConceptMappings()) {

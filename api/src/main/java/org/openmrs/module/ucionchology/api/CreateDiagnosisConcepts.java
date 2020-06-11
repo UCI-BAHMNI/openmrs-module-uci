@@ -83,7 +83,7 @@ public class CreateDiagnosisConcepts {
 		ConceptService service = Context.getConceptService();
 		
 		if (service.getConceptByName(UCIOnchologyConstants.SYMPTOMS_CONCEPT_NAME) != null) {
-			Concept concept =  service.getConceptByName(UCIOnchologyConstants.SYMPTOMS_CONCEPT_NAME);
+			Concept concept = service.getConceptByName(UCIOnchologyConstants.SYMPTOMS_CONCEPT_NAME);
 			for (int i = 0; i < 100; i++) {
 				for (int x = 0; x < 10; x += 1) {
 					String var = i + "." + x;
@@ -111,7 +111,6 @@ public class CreateDiagnosisConcepts {
 			return service.saveConcept(concept);
 		}
 		
-		
 		return new Concept();
 	}
 	
@@ -119,7 +118,7 @@ public class CreateDiagnosisConcepts {
 		ConceptService service = Context.getConceptService();
 		
 		if (service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_NAME) != null) {
-           Concept concept = service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_NAME);
+			Concept concept = service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_NAME);
 			for (int i = 0; i < 100; i++) {
 				for (int x = 0; x < 10; x += 1) {
 					String var = i + "." + x;
@@ -133,9 +132,9 @@ public class CreateDiagnosisConcepts {
 					try {
 						Concept icd = service.getConceptByMapping(code.toString(),
 						    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE);
-						if (icd != null) {							
+						if (icd != null) {
 							ConceptAnswer ans = new ConceptAnswer(icd);
-							concept.addAnswer(ans);							
+							concept.addAnswer(ans);
 						}
 					}
 					catch (Exception e) {
