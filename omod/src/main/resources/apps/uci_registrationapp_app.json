@@ -3,7 +3,7 @@
         "id": "referenceapplication.registerPatient.uci",
         "instanceOf": "registrationapp.registerPatient",
         "label": "Register UCI Patient",
-        "description": "Create MY new Patient Record",
+        "description": "Create UCI new Patient Record",
         "extensions": [
             {
                 "id": "referenceapplication.registrationapp.Pat",
