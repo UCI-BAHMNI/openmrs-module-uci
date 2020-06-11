@@ -50,12 +50,13 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 			appFrameworkService.disableApp("referenceapplication.registrationapp.registerPatient");
 			appFrameworkService.disableApp("referenceapplication.vitals");
 			
-			CreateDiagnosisConcepts.CreateWorkingDiagnosisConceptCoded();
-			CreateDiagnosisConcepts.CreateSymptomsConcept();
-			CreateDiagnosisConcepts.ConvertMedicationConcept();
 			for (Initializer initializer : getInitializers()) {
 				initializer.started();
 			}
+			
+			CreateDiagnosisConcepts.CreateWorkingDiagnosisConceptCoded();
+			CreateDiagnosisConcepts.CreateSymptomsConcept();
+			CreateDiagnosisConcepts.ConvertMedicationConcept();
 			
 		}
 		catch (Exception e) {
