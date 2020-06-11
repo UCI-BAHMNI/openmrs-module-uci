@@ -27,8 +27,8 @@ public class CreateDiagnosisConcepts {
 		concept.addName(name);
 		concept.addDescription(new ConceptDescription("Diagnosis For all ICD-0-3 Concepts", null));
 		
-		ConceptClass concept_class = service.getConceptClassByName("Finding");
-		ConceptDatatype dataType = service.getConceptDatatypeByName("Coded");
+		ConceptClass concept_class = service.getConceptClassByName("ConvSet");
+		ConceptDatatype dataType = service.getConceptDatatypeByName("N/A");
 		concept.setDatatype(dataType);
 		concept.setConceptClass(concept_class);
 		
@@ -149,4 +149,11 @@ public class CreateDiagnosisConcepts {
 		return new Concept();
 	}
 	
+	public static void ConvertMedicationConcept() {
+		ConceptService service = Context.getConceptService();
+		Concept concept = service.getConcept(161189);
+		ConceptDatatype CodedDataType = service.getConceptDatatypeByName("Coded");
+		concept.setDatatype(CodedDataType);
+		service.saveConcept(concept);
+	}
 }
