@@ -49,7 +49,7 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 		try {
 			appFrameworkService.disableApp("referenceapplication.registrationapp.registerPatient");
 			appFrameworkService.disableApp("referenceapplication.vitals");
-
+			
 			for (Initializer initializer : getInitializers()) {
 				initializer.started();
 			}
