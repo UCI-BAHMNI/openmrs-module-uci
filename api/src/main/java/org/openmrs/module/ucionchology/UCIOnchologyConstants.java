@@ -9,17 +9,19 @@ public class UCIOnchologyConstants {
 	/**
 	 * Should be set to a higher version in case of any changes in bundled metadata
 	 */
-	public static final Integer UCI_METADATA_VERSION = 4;
+	public static final Integer UCI_METADATA_VERSION = 1;
 	
 	public static final String DIAGNOSIS_SET_GP = "emr.concept.diagnosisSetOfSets";
 	
 	public static final String DIAGNOSIS_CONCEPT_SET_NAME = "Working Cancer Diagnosis (set)";
 	
-	public static final String DIAGNOSIS_CONCEPT_NAME = "Working Cancer Diagnosis";
-	
-	public static final String SYMPTOMS_CONCEPT_NAME = "ALL CANCER SYMPTOMS";
+	public static final String SYMPTOMS_CONCEPT_SET_NAME = "All Cancer Symptoms (set)";
 	
 	public static final String DIAGNOSIS_CONCEPT_SET_OF_SETS = "Diagnosis Set of Sets";
 	
 	public static final String DIAGNOSIS_CONCEPT_SOURCE = "ICD-10-WHO";
+	
+	public static final String DIAGNOSIS_SET_CONCEPT_UUID = "Dc644f88-e2eb-4a44-8b52-c9b76018cb5D";
+	
+	public static final String SYMPTOMS_SET_CONCEPT_UUID = "Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS";
 }
