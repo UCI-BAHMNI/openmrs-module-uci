@@ -178,7 +178,7 @@ formLabel="More Patient Details" >
             <h3>Working Cancer Diagnosis</h3>
 
             <p>
-              <obs conceptId="7c644f88-e2eb-4a44-8b52-c9b76018cb57" style = "autocomplete" id="diagnosis" />
+              <obs conceptId="7c644f88-e2eb-4a44-8b52-c9b76018cb57" answerConceptSetIds="Dc644f88-e2eb-4a44-8b52-c9b76018cb5D" style = "autocomplete" id="diagnosis" />
             </p>
 
         </fieldset>

@@ -54,9 +54,11 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 				initializer.started();
 			}
 			
-			CreateDiagnosisConcepts.CreateWorkingDiagnosisConceptCoded();
-			CreateDiagnosisConcepts.CreateSymptomsConcept();
+			CreateDiagnosisConcepts.CreateWorkingDiagnosisConceptSet();
+			CreateDiagnosisConcepts.CreateSymptomsConceptSet();
 			CreateDiagnosisConcepts.ConvertMedicationConcept();
+			CreateDiagnosisConcepts.CreateDiagnosisSetofSetsConcept();
+			setConceptsSetGp();
 			
 		}
 		catch (Exception e) {

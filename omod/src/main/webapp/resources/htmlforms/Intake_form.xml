@@ -480,7 +480,7 @@
                      
                           <table class="baseline-aligned" >   
                                <tr style = "margin:100px">                                                                                                    
-                                  <td> <obs conceptId="7c644f88-e2eb-4a44-8b52-c9b76018cb57" style = "autocomplete" id="diagnosis" /></td>
+                                  <td> <obs conceptId="7c644f88-e2eb-4a44-8b52-c9b76018cb57" answerConceptSetIds="Dc644f88-e2eb-4a44-8b52-c9b76018cb5D" style = "autocomplete" id="diagnosis" /></td>
 
                                </tr> 
                               <tr style = "margin:100px">
@@ -534,7 +534,7 @@
                                </tr>
                                <tr>
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731" />
@@ -552,7 +552,7 @@
 
                                 <tr id="field1">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" id="s1"  style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s1"  style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731"  id="d1"/>
@@ -561,7 +561,7 @@
                                       <obs conceptId="1732"  id="u1"/>
                                    </td>
                                     <td>
-                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c1" style="textarea"/>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c"  id="c1" style="textarea"/>
                                    </td>
                                    <td>
                                    <i class="icon-minus-sign edit-action" id="sub1"></i>
@@ -572,7 +572,7 @@
 
                               <tr id="field2">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s2" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s2" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731" id="d2" />
@@ -592,7 +592,7 @@
 
                              <tr id="field3">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s3" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s3" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731"  id="d3"/>
@@ -611,7 +611,7 @@
 
                                  <tr id="field4">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s4" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s4" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731" id="d4"/>
@@ -620,7 +620,7 @@
                                       <obs conceptId="1732"  id="u4"/>
                                    </td>
                                     <td>
-                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" id="c4" style="textarea"/>
+                                      <obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c"  id="c4" style="textarea"/>
                                    </td>
                                    <td>
                                    <i class="icon-minus-sign edit-action" id="sub4"></i>
@@ -630,7 +630,7 @@
 
                                <tr id="field5">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s5" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s5" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731"  id="d5"/>
@@ -649,7 +649,7 @@
 
                              <tr id="field6">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s6" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s6" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731" placeholder="1" id="d6"/>
@@ -668,7 +668,7 @@
 
                                 <tr id="field7">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" id="s7" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s7" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731" id="d7" />
@@ -687,7 +687,7 @@
 
                               <tr id="field8">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s8" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s8" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731"  id="d8"/>
@@ -706,7 +706,7 @@
 
                               <tr id="field9">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s9" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s9" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731" id="d9" />
@@ -725,7 +725,7 @@
 
                               <tr id="field10">
                                    <td>
-                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9"  id="s10" style="autocomplete"/>
+                                     <obs conceptId="1a7fa9c8-1f9f-4427-9e67-c0ff90a9ebb9" answerConceptSetIds="Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS" id="s10" style="autocomplete"/>
                                    </td>
                                    <td>
                                      <obs conceptId="1731" id="d10" />

@@ -1,67 +1,29 @@
 package org.openmrs.module.ucionchology.api;
 
+import java.util.List;
 import java.util.Locale;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openmrs.Concept;
 import org.openmrs.ConceptAnswer;
 import org.openmrs.ConceptClass;
 import org.openmrs.ConceptDatatype;
 import org.openmrs.ConceptDescription;
 import org.openmrs.ConceptName;
-import org.openmrs.api.AdministrationService;
+import org.openmrs.api.APIException;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.UCIOnchologyConstants;
 
 public class CreateDiagnosisConcepts {
 	
-	public static Concept CreateWorkingDiagnosisConceptSet() {
-		ConceptService service = Context.getConceptService();
-		
-		if (service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_NAME) != null) {
-			return service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_NAME);
-		}
-		ConceptName name = new ConceptName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_NAME, Locale.ENGLISH);
-		
-		Concept concept = new Concept();
-		concept.addName(name);
-		concept.addDescription(new ConceptDescription("Diagnosis For all ICD-0-3 Concepts", null));
-		
-		ConceptClass concept_class = service.getConceptClassByName("ConvSet");
-		ConceptDatatype dataType = service.getConceptDatatypeByName("N/A");
-		concept.setDatatype(dataType);
-		concept.setConceptClass(concept_class);
-		
-		for (int i = 0; i < 100; i++) {
-			for (int x = 0; x < 10; x += 1) {
-				String var = i + "." + x;
-				StringBuffer code = new StringBuffer("C00");
-				if (var.length() <= 3) {
-					code.replace(2, 4, var);
-				} else {
-					code.replace(1, 4, var);
-				}
-				
-				try {
-					Concept icd = service.getConceptByMapping(code.toString(),
-					    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE);
-					if (icd != null) {
-						concept.addSetMember(icd);
-					}
-				}
-				catch (Exception e) {
-					
-				}
-			}
-		}
-		
-		return service.saveConcept(concept);
-	}
+	private Log log = LogFactory.getLog(this.getClass());
 	
-	public static void CreateSetConcept() {
+	public static void CreateDiagnosisSetofSetsConcept() {
 		ConceptService service = Context.getConceptService();
 		
-		if (service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_OF_SETS) != null) {} else {
+		if (service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_OF_SETS) == null) {
 			ConceptName Setname = new ConceptName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_OF_SETS, Locale.ENGLISH);
 			
 			Concept Setconcept = new Concept();
@@ -79,12 +41,45 @@ public class CreateDiagnosisConcepts {
 		
 	}
 	
-	public static Concept CreateSymptomsConcept() {
+	public static void CreateSymptomsConceptSet() {
 		ConceptService service = Context.getConceptService();
-		
-		if (service.getConceptByName(UCIOnchologyConstants.SYMPTOMS_CONCEPT_NAME) != null) {
-			Concept concept = service.getConceptByName(UCIOnchologyConstants.SYMPTOMS_CONCEPT_NAME);
+		if (service.getConceptByName(UCIOnchologyConstants.SYMPTOMS_CONCEPT_SET_NAME) == null) {
+			
+			ConceptName name = new ConceptName(UCIOnchologyConstants.SYMPTOMS_CONCEPT_SET_NAME, Locale.ENGLISH);
+			
+			Concept concept = new Concept();
+			concept.addName(name);
+			concept.addDescription(new ConceptDescription("all ICD-10-WHO Symptoms  Concepts", Locale.ENGLISH));
+			concept.setUuid(UCIOnchologyConstants.SYMPTOMS_SET_CONCEPT_UUID);
+			ConceptClass concept_class = service.getConceptClassByName("ConvSet");
+			ConceptDatatype dataType = service.getConceptDatatypeByName("N/A");
+			concept.setDatatype(dataType);
+			concept.setConceptClass(concept_class);
+			
 			for (int i = 0; i < 100; i++) {
+				
+				StringBuffer code2 = new StringBuffer("R0");
+				String var2 = Integer.toString(i);
+				if (var2.length() <= 1) {
+					code2.replace(2, 2, var2);
+				} else {
+					code2.replace(1, 2, var2);
+				}
+				
+				try {
+					List<Concept> concepts = service.getConceptsByMapping(code2.toString(),
+					    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE, false);
+					for (Concept c1 : concepts) {
+						if (c1 != null) {
+							concept.addSetMember(c1);
+						}
+					}
+				}
+				catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				for (int x = 0; x < 10; x += 1) {
 					String var = i + "." + x;
 					StringBuffer code = new StringBuffer("R00");
@@ -96,10 +91,10 @@ public class CreateDiagnosisConcepts {
 					
 					try {
 						Concept icd = service.getConceptByMapping(code.toString(),
-						    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE);
+						    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE, false);
 						if (icd != null) {
-							ConceptAnswer ans = new ConceptAnswer(icd);
-							concept.addAnswer(ans);
+							
+							concept.addSetMember(icd);
 						}
 					}
 					catch (Exception e) {
@@ -108,18 +103,50 @@ public class CreateDiagnosisConcepts {
 				}
 			}
 			
-			return service.saveConcept(concept);
+			service.saveConcept(concept);
 		}
 		
-		return new Concept();
 	}
 	
-	public static Concept CreateWorkingDiagnosisConceptCoded() {
-		ConceptService service = Context.getConceptService();
+	public static void CreateWorkingDiagnosisConceptSet() {
 		
-		if (service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_NAME) != null) {
-			Concept concept = service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_NAME);
+		ConceptService service = Context.getConceptService();
+		if (service.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_NAME) == null) {
+			ConceptName name = new ConceptName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_NAME, Locale.ENGLISH);
+			
+			Concept concept = new Concept();
+			concept.addName(name);
+			concept.addDescription(new ConceptDescription("all ICD-10-WHO Diagnosis  Concepts", Locale.ENGLISH));
+			concept.setUuid(UCIOnchologyConstants.DIAGNOSIS_SET_CONCEPT_UUID);
+			ConceptClass concept_class = service.getConceptClassByName("ConvSet");
+			ConceptDatatype dataType = service.getConceptDatatypeByName("N/A");
+			concept.setDatatype(dataType);
+			concept.setConceptClass(concept_class);
+			
 			for (int i = 0; i < 100; i++) {
+				
+				StringBuffer code2 = new StringBuffer("C0");
+				String var2 = Integer.toString(i);
+				if (var2.length() <= 1) {
+					code2.replace(2, 2, var2);
+				} else {
+					code2.replace(1, 2, var2);
+				}
+				
+				try {
+					List<Concept> concepts = service.getConceptsByMapping(code2.toString(),
+					    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE, false);
+					for (Concept c1 : concepts) {
+						if (c1 != null) {
+							concept.addSetMember(c1);
+						}
+					}
+				}
+				catch (Exception e1) {
+					
+					e1.printStackTrace();
+				}
+				
 				for (int x = 0; x < 10; x += 1) {
 					String var = i + "." + x;
 					StringBuffer code = new StringBuffer("C00");
@@ -131,10 +158,9 @@ public class CreateDiagnosisConcepts {
 					
 					try {
 						Concept icd = service.getConceptByMapping(code.toString(),
-						    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE);
+						    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE, false);
 						if (icd != null) {
-							ConceptAnswer ans = new ConceptAnswer(icd);
-							concept.addAnswer(ans);
+							concept.addSetMember(icd);
 						}
 					}
 					catch (Exception e) {
@@ -143,10 +169,9 @@ public class CreateDiagnosisConcepts {
 				}
 			}
 			
-			return service.saveConcept(concept);
+			service.saveConcept(concept);
 		}
 		
-		return new Concept();
 	}
 	
 	public static void ConvertMedicationConcept() {
