@@ -12,180 +12,181 @@
   ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
   -->
 
-<htmlform formUuid="a000cb34-9ec1-4344-a1c8-f692232f6edd" 
-formName="More Patient Details" 
-formEncounterType="67a71486-1a54-468f-ac3e-7091a9a79584" 
-formVersion="1.0"
-formDescription="More Details"
-formAddMetadata="yes"
-formUILocation="patientDashboard.overallActions"
-formOrder="1"
-formIcon="icon-stethoscope"
-formShowIf=""
-formDisplayStyle="Simple"
-formLabel="More Patient Details" >
-       
-
-    <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
-        <fieldset>
-            <legend>When?</legend>
-            <label>When?</label>
-
-            <encounterDate default="now" showTime="false"/>
-        </fieldset>
-
-        <fieldset>
-            <legend>Who?</legend>
-            <label>Who?</label>
-
-            <encounterProviderAndRole default="currentUser" />
-        </fieldset>
-
-        <fieldset>
-            <legend>Where?</legend>
-            <label>Where?</label>
-
-            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
-        </fieldset>
-    </div>
-
-    <section id="extra" sectionTag="section" headerStyle="title" headerCode="Patient Details">
-        <fieldset>
-            <legend>Address</legend>
-            <h3>Addres</h3>
-            
-            <table>
-              <tr>
-                   <th>Country </th>  
-                   <th>District </th>
-                   <th>County/Division</th>
-              </tr>
-              <tr>
-                   <td> <obs conceptId="CIEL:165198" id="country" /></td>  
-                   <td><obs conceptId="3ac75e7b-fff0-420d-ba61-13c5e323b946" id="district" /></td>
-                   <td><obs conceptId="a10c2796-5962-4d01-8583-5a4ba933dde3" id="county" /></td>
-              </tr>
-            </table>
-
-           <table>
-              <tr>
-                   <th>Sub-Country </th>  
-                   <th>Parish</th>
-                   <th>Village</th>
-              </tr>
-              <tr>
-                   <td><obs conceptId="70790745-ec9f-4989-91ba-1ce09d086154" id="subcounty" /></td>  
-                   <td><obs conceptId="84bd82b0-4f38-4a3f-8462-70abbac354c2" id="parish" /></td>
-                   <td><obs conceptId="9d043bc1-7199-4b15-a98c-29d858f06dc3" id="village" /></td>
-              </tr>
-            </table>
-
-         </fieldset>
+<htmlform formUuid="a000cb34-9ec1-4344-a1c8-f692232f6edd" formName="Complete Patient Details" formEncounterType="e22e39fd-7db2-45e7-80f1-60fa0d5a4378" formVersion="1.0" formDescription="More Details" formAddMetadata="yes" formUILocation="patientDashboard.overallActions" formOrder="1" formIcon="icon-stethoscope" formShowIf="" formDisplayStyle="Simple" formLabel="Complete Patient Details">
 
 
-           <fieldset>
-            <legend>Phone Number</legend>
-            <h3>Phone Number</h3>
+  <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
+    <fieldset>
+      <legend>When?</legend>
+      <label>When?</label>
 
-            <p>
-               Contact 1 <obs conceptId="b9b4866c-09a6-432c-a045-c42f486723a9" id="number" />
-            </p>
-            <p>
-               Contact 2 <obs conceptId="b9b4866c-09a6-432c-a045-c42f486723a9" id="number2" />
-            </p>
-        </fieldset>
+      <encounterDate default="now" showTime="false"/>
+    </fieldset>
 
-        <fieldset>
-            <legend>Tribe</legend>
-            <h3>Tribe</h3>
+    <fieldset>
+      <legend>Who?</legend>
+      <label>Who?</label>
 
-            <p>
-              <obs conceptId="b9adc1a3-46c3-4bfe-a887-9b15498f3cc7" id="tribe" />
-            </p>
+      <encounterProviderAndRole default="currentUser" encounterRole="240b26f9-dd88-4172-823d-4a8bfeb7841f"/>
+    </fieldset>
 
-        </fieldset>
+    <fieldset>
+      <legend>Where?</legend>
+      <label>Where?</label>
+      <encounterType default="e22e39fd-7db2-45e7-80f1-60fa0d5a4378" />
+      <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"/>
+    </fieldset>
+  </div>
 
-        <fieldset>
-            <legend>Language</legend>
-            <h3>Language</h3>
+  <section id="extra" sectionTag="section" headerStyle="title" headerCode="Patient Details">
+    <fieldset>
+      <legend>Address</legend>
+      <h3>Addres</h3>
 
-            <p>
-              <obs conceptId="22cf5dad-efa0-4efc-ba6c-d62f1f933b4f" id="language" />
-            </p>
+      <table>
+        <tr>
+          <th>Country </th>
+          <th>District </th>
+          <th>County/Division</th>
+        </tr>
+        <tr>
+          <td>
+            <obs conceptId="CIEL:165198" id="country" />
+          </td>
+          <td>
+            <obs conceptId="3ac75e7b-fff0-420d-ba61-13c5e323b946" id="district" />
+          </td>
+          <td>
+            <obs conceptId="a10c2796-5962-4d01-8583-5a4ba933dde3" id="county" />
+          </td>
+        </tr>
+      </table>
 
-        </fieldset>
+      <table>
+        <tr>
+          <th>Sub-Country </th>
+          <th>Parish</th>
+          <th>Village</th>
+        </tr>
+        <tr>
+          <td>
+            <obs conceptId="70790745-ec9f-4989-91ba-1ce09d086154" id="subcounty" />
+          </td>
+          <td>
+            <obs conceptId="84bd82b0-4f38-4a3f-8462-70abbac354c2" id="parish" />
+          </td>
+          <td>
+            <obs conceptId="9d043bc1-7199-4b15-a98c-29d858f06dc3" id="village" />
+          </td>
+        </tr>
+      </table>
 
-        <fieldset>
-            <legend>Religion</legend>
-            <h3>Religion</h3>
+    </fieldset>
 
-            <p>
-              <obs conceptId="CIEL:162929" id="religion" />
-            </p>
 
-        </fieldset>
+    <fieldset>
+      <legend>Phone Number</legend>
+      <h3>Phone Number</h3>
 
-       <fieldset>
-            <legend>Occupation</legend>
-            <h3>Occupation</h3>
+      <p>
+               Contact 1 <obs conceptId="b9b4866c-09a6-432c-a045-c42f486723a9" id="number" size ="25"/>
+      </p>
+      <p>
+               Contact 2 <obs conceptId="b9b4866c-09a6-432c-a045-c42f486723a9" id="number2" size = "25" />
+      </p>
+    </fieldset>
 
-            <p>
-              <obs conceptId="ac5c907b-29ea-478d-90c8-fe58e6f51eaa" id="occupation" />
-            </p>
+    <fieldset>
+      <legend>Tribe</legend>
+      <h3>Tribe</h3>
 
-        </fieldset>
+      <p>
+        <obs conceptId="b9adc1a3-46c3-4bfe-a887-9b15498f3cc7" id="tribe" />
+      </p>
 
-        <fieldset>
-            <legend>Marital Status</legend>
-            <h3>Marital Status</h3>
+    </fieldset>
 
-            <p>
-              <obs conceptId="4446c97f-b35c-41f4-b0f3-63d679efe2f8" id="maritalStatus" />
-            </p>
+    <fieldset>
+      <legend>Language</legend>
+      <h3>Language</h3>
 
-        </fieldset>
+      <p>
+        <obs conceptId="22cf5dad-efa0-4efc-ba6c-d62f1f933b4f" id="language" />
+      </p>
 
-        <fieldset>
-            <legend>Next Of Kin</legend>
-            <h3>Next Of Kin</h3>
+    </fieldset>
 
-            <p>
+    <fieldset>
+      <legend>Religion</legend>
+      <h3>Religion</h3>
+
+      <p>
+        <obs conceptId="CIEL:162929" id="religion" />
+      </p>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Occupation</legend>
+      <h3>Occupation</h3>
+
+      <p>
+        <obs conceptId="ac5c907b-29ea-478d-90c8-fe58e6f51eaa" id="occupation" />
+      </p>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Marital Status</legend>
+      <h3>Marital Status</h3>
+
+      <p>
+        <obs conceptId="4446c97f-b35c-41f4-b0f3-63d679efe2f8" id="maritalStatus" />
+      </p>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Next Of Kin</legend>
+      <h3>Next Of Kin</h3>
+
+      <p>
               Name <obs conceptId="CIEL:162729" id="nextOfKin" />
-            </p>
+      </p>
 
-           <p>
+      <p>
               Relationship Type <obs conceptId="b0c8e5b8-0672-40a2-a285-42b16ef9e8aa" id="rshipType" />
-            </p>
+      </p>
 
-           <p>
-              Contact <obs conceptId="ec3c2f34-1baf-4f46-9825-c32fc5c8d211" id="contact" />
-          </p>
+      <p>
+              Contact <obs conceptId="ec3c2f34-1baf-4f46-9825-c32fc5c8d211" id="contact" size="25"/>
+      </p>
 
-        </fieldset>
+    </fieldset>
 
-        <fieldset>
-            <legend>Referring Hospital</legend>
-            <h3>Referring Hospital</h3>
+    <fieldset>
+      <legend>Referring Hospital</legend>
+      <h3>Referring Hospital</h3>
 
-            <p>
-              <obs conceptId="5b27f6e5-378e-4910-b85c-5a668e9c5fe2" id="referringHospital" />
-            </p>
+      <p>
+        <obs conceptId="5b27f6e5-378e-4910-b85c-5a668e9c5fe2" id="referringHospital" />
+      </p>
 
-        </fieldset>
+    </fieldset>
 
-        <fieldset>
-            <legend>Cancer Diagnosis</legend>
-            <h3>Working Cancer Diagnosis</h3>
+    <fieldset>
+      <legend>Cancer Diagnosis</legend>
+      <h3>Working Cancer Diagnosis</h3>
 
-            <p>
-              <obs conceptId="7c644f88-e2eb-4a44-8b52-c9b76018cb57" answerConceptSetIds="Dc644f88-e2eb-4a44-8b52-c9b76018cb5D" style = "autocomplete" id="diagnosis" />
-            </p>
+      <p>
+        <obs conceptId="7c644f88-e2eb-4a44-8b52-c9b76018cb57" answerConceptSetIds="Dc644f88-e2eb-4a44-8b52-c9b76018cb5D" style = "autocomplete" id="diagnosis" />
+      </p>
 
-        </fieldset>
+    </fieldset>
 
 
-    </section>
+  </section>
 
-    <submit/>
+  <submit/>
 
 </htmlform>

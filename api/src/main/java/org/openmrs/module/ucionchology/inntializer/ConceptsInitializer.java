@@ -28,6 +28,7 @@ public class ConceptsInitializer implements Initializer {
 			
 			DataImporter dataImporter = Context.getRegisteredComponent("dataImporter", DataImporter.class);
 			dataImporter.importData("UCI_Concepts.xml");
+			dataImporter.importData("system_review_concepts.xml");
 			
 			//1.11 requires building the index for the newly added concepts.
 			//Without doing so, cs.getConceptByClassName() will return an empty list.
