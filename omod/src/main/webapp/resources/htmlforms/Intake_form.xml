@@ -18,7 +18,185 @@
 
           <ifMode mode="ENTER">
             <script type="text/javascript">
+           
+             // configure general system 1
+                jq(function() {
+                       
+                       getField('SG1.value').prop("disabled", true);
+                        // jq('#ts1').hide();
+                       getField("SO1.value").change( function(){
+
+                            var val = htmlForm.getValueIfLegal('SO1.value'); 
+                              
+                              if(val == 136443){
+              
+                                       //jq('#ts1').show();
+                                    getField('SG1.value').prop("disabled", false);
+                              }else {
+                                      //jq('#ts1').hide();
+                                       setValue('SG1.value', null);
+                                       getField('SG1.value').prop("disabled", true);
+                              }
+
+                          });
+
+                    });
+
+
+
+                    
+             // configure general system 2
+                jq(function() {
+                       
+                       getField('SG2.value').prop("disabled", true);
+                        // jq('#ts2').hide();
+                       getField("SO2.value").change( function(){
+
+                            var val = htmlForm.getValueIfLegal('SO2.value'); 
+                              
+                              if(val == 121629){
+              
+                                       //jq('#ts2').show();
+                                    getField('SG2.value').prop("disabled", false);
+                              }else {
+                                      //jq('#ts2').hide();
+                                       setValue('SG2.value', null);
+                                       getField('SG2.value').prop("disabled", true);
+                              }
+
+                          });
+
+                    });
+
+              // configure general system 3
+                jq(function() {
+                       
+                       getField('SG3.value').prop("disabled", true);
+                        // jq('#ts3').hide();
+                       getField("SO3.value").change( function(){
+
+                            var val = htmlForm.getValueIfLegal('SO3.value'); 
+                              
+                              if(val == 143050){
+              
+                                       //jq('#ts3').show();
+                                    getField('SG3.value').prop("disabled", false);
+                              }else {
+                                      //jq('#ts3').hide();
+                                       setValue('SG3.value', null);
+                                       getField('SG3.value').prop("disabled", true);
+                              }
+
+                          });
+
+                    });
+
+
+                 // configure general system 4
+                jq(function() {
+                       
+                       getField('SG4.value').prop("disabled", true);
+                        // jq('#ts4').hide();
+                       getField("SO4.value").change( function(){
+
+                            var val = htmlForm.getValueIfLegal('SO4.value'); 
+                              
+                              if(val == 588){
+              
+                                       //jq('#ts4').show();
+                                    getField('SG4.value').prop("disabled", false);
+                              }else {
+                                      //jq('#ts4').hide();
+                                       setValue('SG4.value', null);
+                                       getField('SG4.value').prop("disabled", true);
+                              }
+
+                          });
+
+                    });
+
+                        
+                 // configure general system 5
+                jq(function() {
+                       
+                       getField('SG5.value').prop("disabled", true);
+                       getField('SG5B.value').prop("disabled", true);
+                        // jq('#ts5').hide();
+                       getField("SO5.value").change( function(){
+
+                            var val = htmlForm.getValueIfLegal('SO5.value'); 
+                              
+                              if(val == 1065){
+              
+                                       //jq('#ts5').show();
+                                     getField('SG5.value').prop("disabled", false);
+                                     getField('SG5B.value').prop("disabled", false);
+                              }else {
+                                      //jq('#ts5').hide();
+                                       setValue('SG5.value', null);
+                                       getField('SG5.value').prop("disabled", true);
+
+                                       setValue('SG5B.value', null);
+                                       getField('SG5B.value').prop("disabled", true);
+                              }
+
+                          });
+
+                    });
+
+
+
+                 // configure general system 6
+                jq(function() {
+                       
+                       getField('SG6.value').prop("disabled", true);
+                        // jq('#ts6').hide();
+                       getField("SO6.value").change( function(){
+
+                            var val = htmlForm.getValueIfLegal('SO6.value'); 
+                              
+                              if(val == 135488){
+              
+                                       //jq('#ts6').show();
+                                    getField('SG6.value').prop("disabled", false);
+                              }else {
+                                      //jq('#ts6').hide();
+                                       setValue('SG6.value', null);
+                                       getField('SG6.value').prop("disabled", true);
+                              }
+
+                          });
+
+                    });
+
+
+                  // configure general system 7
+                jq(function() {
+                       
+                       getField('SG7.value').prop("disabled", true);
+                        // jq('#ts7').hide();
+                       getField("SO7.value").change( function(){
+
+                            var val = htmlForm.getValueIfLegal('SO7.value'); 
+                              
+                              if(val == 142630){
+              
+                                       //jq('#ts7').show();
+                                    getField('SG7.value').prop("disabled", false);
+                              }else {
+                                      //jq('#ts7').hide();
+                                       setValue('SG7.value', null);
+                                       getField('SG7.value').prop("disabled", true);
+                              }
+
+                          });
+
+                    });
+
+
+
              var showDetails = function(){
+
                 var val = htmlForm.getValueIfLegal('check.value');
                     if(val){
                          jq('#details').show();
@@ -390,7 +568,7 @@
                                       
                                       jq("#SMP_A1").prop("disabled", true);
                                       jq("#SMP_A1").prop("checked", false);
-                                      setValue('weightloss.value', 1066);
+                                      setValue('weightloss.value', 1115);
 
                                        jq("#SMP_A2").prop("disabled", true);
                                         jq("#SMP_A2").prop("checked", false);
@@ -531,7 +709,7 @@
                                       
                                       jq("#SMP_B1").prop("disabled", true);
                                       jq("#SMP_B1").prop("checked", false);
-                                      setValue('anorexia.value', null);
+                                      setValue('anorexia.value', 1115);
 
                                        jq("#SMP_B2").prop("disabled", true);
                                        jq("#SMP_B2").prop("checked", false);
@@ -919,7 +1097,7 @@
                                       
                                       jq("#SMP_C1").prop("disabled", true);
                                       jq("#SMP_C1").prop("checked", false);
-                                      setValue('C1.value', null);
+                                      setValue('C1.value', 1115);
 
                                        jq("#SMP_C2").prop("disabled", true);
                                        jq("#SMP_C2").prop("checked", false);
@@ -1101,7 +1279,7 @@
                                       
                                       jq("#SMP_D1").prop("disabled", true);
                                       jq("#SMP_D1").prop("checked", false);
-                                      setValue('D1.value', null);
+                                      setValue('D1.value', 1115);
 
                                        jq("#SMP_D2").prop("disabled", true);
                                        jq("#SMP_D2").prop("checked", false);
@@ -1322,8 +1500,8 @@
                                       
                                       jq("#SMP_E1").prop("disabled", true);
                                       jq("#SMP_E1").prop("checked", false);
-                                      setValue('E1.value', null);
-                                       setValue('LB1.value', null);
+                                      setValue('E1.value', 1115);
+                                      setValue('LB1.value', null);
 
                                        jq("#SMP_E2").prop("disabled", true);
                                        jq("#SMP_E2").prop("checked", false);
@@ -1463,7 +1641,7 @@
                                       
                                       jq("#SMP_F1").prop("disabled", true);
                                       jq("#SMP_F1").prop("checked", false);
-                                      setValue('F1.value', null);
+                                      setValue('F1.value', 1115);
 
                                       
                                       jq("#SMP_F2").prop("disabled", true);
@@ -1824,7 +2002,7 @@
                                       
                                       jq("#SMP_G1").prop("disabled", true);
                                       jq("#SMP_G1").prop("checked", false);
-                                      setValue('G1.value', null);
+                                      setValue('G1.value', 1115);
 
                                       
                                       jq("#SMP_G2").prop("disabled", true);
@@ -2130,7 +2308,7 @@
                                       
                                       jq("#SMP_H1").prop("disabled", true);
                                       jq("#SMP_H1").prop("checked", false);
-                                      setValue('H1.value', null);
+                                      setValue('H1.value', 1115);
 
                                       
                                       jq("#SMP_H2").prop("disabled", true);
@@ -2312,7 +2490,7 @@
                                       
                                       jq("#SMP_I1").prop("disabled", true);
                                       jq("#SMP_I1").prop("checked", false);
-                                      setValue('I1.value', null);
+                                      setValue('I1.value', 1115);
 
                                       
                                       jq("#SMP_I2").prop("disabled", true);
@@ -2492,7 +2670,7 @@
                                       
                                       jq("#SMP_J1").prop("disabled", true);
                                       jq("#SMP_J1").prop("checked", false);
-                                      setValue('J1.value', null);
+                                      setValue('J1.value', 1115);
 
                                       
                                       jq("#SMP_J2").prop("disabled", true);
@@ -2649,7 +2827,7 @@
                                       
                                       jq("#SMP_K1").prop("disabled", true);
                                       jq("#SMP_K1").prop("checked", false);
-                                      setValue('K1.value', null);
+                                      setValue('K1.value', 1115);
 
                                       
                                       jq("#SMP_K2").prop("disabled", true);
@@ -2855,7 +3033,7 @@
                                       
                                       jq("#SMP_L1").prop("disabled", true);
                                       jq("#SMP_L1").prop("checked", false);
-                                      setValue('L1.value', null);
+                                      setValue('L1.value', 1115);
 
                                       
                                       jq("#SMP_L2").prop("disabled", true);
@@ -3009,7 +3187,7 @@
                                       
                                       jq("#SMP_M1").prop("disabled", true);
                                       jq("#SMP_M1").prop("checked", false);
-                                      setValue('M1.value', null);
+                                      setValue('M1.value', 1115);
 
                                       
                                       jq("#SMP_M2").prop("disabled", true);
@@ -3112,7 +3290,7 @@
                                       
                                       jq("#SMP_N1").prop("disabled", true);
                                       jq("#SMP_N1").prop("checked", false);
-                                      setValue('N1.value', null);
+                                      setValue('N1.value', 1115);
 
                                       
                             } 
@@ -4198,7 +4376,7 @@
 
 
 
-               <fieldset style="border: 1px solid $headerColor; width:95%">
+      <fieldset style="border: 1px solid $headerColor; width:95%">
                <legend>MEDICAL HISTORY</legend>
               <table>
                
@@ -4230,7 +4408,7 @@
                                   </tr>
 
                                    <tr>
-                                      <th> Treatment Type</th>
+                                      <th> Treatment </th>
                                       <th> Facility Where Treated</th>
                                   </tr>
                                   <tr>
@@ -4278,7 +4456,7 @@
                                 <table>
                                  <tr>
                                         <td>
-                                               <obs conceptId="e5f8b80b-30bf-4918-b47c-b33ea05ef14e" labelText="Current Regimen"/> 
+                                               <obs conceptId="162240" style="autocomplete" answerConceptSetIds ="58ecbf4c-3de1-4851-993a-904a04210bb9" labelText="Current Regimen"/> 
                                          </td>
                                    </tr>
              
@@ -4308,7 +4486,7 @@
                                 <tr>
                                    
                                    <td>
-                                       <obs conceptId="c193567a-52f1-4443-b838-4099cc603e1d" labelText="Past Regimen" /> 
+                                       <obs conceptId="c193567a-52f1-4443-b838-4099cc603e1d" style="autocomplete" answerConceptSetIds ="58ecbf4c-3de1-4851-993a-904a04210bb9"  labelText="Past Regimen" /> 
                                    </td>
 
                                      <td rowspan="2"><button id="{n}-addEntry4" class="addEntry4"><i class="icon-plus-sign edit-action" ></i></button><button id="{n}-removeEntry4" class="removeEntry4"><i class="icon-minus-sign edit-action" ></i></button></td>
@@ -4512,7 +4690,7 @@
                                                      </tr>
 
                                                        <tr>
-                                                        <td><obs conceptId="bcba105e-f83d-4fff-a6c2-49c409a4b96b"  labelText="Number of miscarriages"/> </td>
+                                                        <td><obs conceptId="1823"  labelText="Number of miscarriages"/> </td>
                                                          
                                                       </tr>
 
@@ -4523,7 +4701,7 @@
 
 
                                                      <tr>
-                                                       <td><obs conceptId="638b5e8a-c169-477b-b7b4-401c4da876e7"  style="checkbox" labelText="Post-menopausal hormone"/> </td>
+                                                       <td><obs conceptId="160343"  labelText="Post-menopausal hormone"/> </td>
                                                        
                                                      </tr>
 
@@ -4531,6 +4709,9 @@
                                                     <td><obs conceptId="885"  style="checkbox" labelText="Last pap smear"/> </td>
                                                     
                                                   </tr>
+
+
+
 
                                </table>
 
@@ -4540,12 +4721,14 @@
 
         </table>
       </fieldset>
+ 
 
 
-                       <fieldset style="border: 1px solid $headerColor; width:95%">
-                          <legend>Perfomance Score</legend> 
-                           <obs conceptId="f326efa0-77fb-4ddf-8b87-6ced44b2dceb" />                          
-                       </fieldset>
+
+
+
+
+                 
 
                        <fieldset style="border: 1px solid $headerColor; width:95%">
                           <legend>Pain Score</legend> 
@@ -4562,6 +4745,199 @@
                                   </tr>
 
                             </table>
+                       </fieldset>
+
+
+                        <fieldset style="border: 1px solid $headerColor; width:95%">
+                          <legend>PHYSICAL EXAM</legend> 
+                           
+
+                           <table style="border:solid ;border-color: green">
+                                  <tr>
+                                      <th> Last Vitals</th>
+                                      <th> value</th>
+                                        <th> Units</th>
+                                       <th> Date taken</th>
+                                  </tr>
+                                  <tr>
+                                     <td> Height </td>
+                                    <td> <lookup expression="fn.latestObs('CIEL:5090').valueNumeric"/> </td>
+                                     <td> cm  </td>
+                                     <td> <lookup expression="fn.latestObs('CIEL:5090').obsDatetime"/> </td>
+                                  </tr>
+
+                                  <tr>
+                                     <td> Weight </td>
+                                    <td>  <lookup expression="fn.latestObs('CIEL:5089').valueNumeric"/> </td>
+                                     <td> kg  </td>
+                                    <td>  <lookup expression="fn.latestObs('CIEL:5089').obsDatetime"/> </td>
+                                  </tr>
+
+                                   <tr>
+                                     <td> BMI </td>
+                                    <td>  <lookup complexExpression="#set( $wt = $fn.latestObs('5089').valueNumeric ) #set( $ht = $fn.latestObs('5090').valueNumeric ) #set( $bmi =  $wt / ($ht * $ht))  $!{bmi} "/> </td>
+                                    <td> kg/m<sup>2</sup> </td>
+                                    <td>  <lookup expression="fn.latestObs('CIEL:5089').obsDatetime"/> </td>
+                                  </tr>
+
+                                  <tr>
+                                   <td> Body Surface Area </td>
+                                   <td>  <lookup expression="fn.latestObs('CIEL:980').valueNumeric"/> </td>
+                                    <td> m<sup>2</sup> </td>
+                                   <td>  <lookup expression="fn.latestObs('CIEL:980').obsDatetime"/> </td>
+                                  </tr>
+
+                                 <tr>
+                                   <td> Temperature</td>
+                                   <td>  <lookup expression="fn.latestObs('CIEL:5088').valueNumeric"/> </td>
+                                    <td> <sup>0</sup>C </td>
+                                   <td>  <lookup expression="fn.latestObs('CIEL:5088').obsDatetime"/> </td>
+                                 </tr>
+
+                                 <tr>
+                                     <td> Pulse</td>
+                                     <td><lookup expression="fn.latestObs('CIEL:5087').valueNumeric"/> </td>
+                                       <td> /min </td>
+                                      <td><lookup expression="fn.latestObs('CIEL:5087').obsDatetime"/> </td>
+                                 </tr>
+
+                                  <tr>
+                                      <td>  Respiratory Rate</td>
+                                      <td> <lookup expression="fn.latestObs('CIEL:5242').valueNumeric"/> </td>
+                                       <td> /min </td>
+                                      <td> <lookup expression="fn.latestObs('CIEL:5242').obsDatetime"/> </td>
+                                  </tr>
+
+                                  <tr>
+                                     <td> Blood Pressure </td>
+                                     <td> <lookup expression="fn.latestObs('CIEL:5085').valueNumeric"/>/<lookup expression="fn.latestObs('CIEL:5086').valueNumeric"/> </td>
+                                       <td> mmHg </td>
+                                      <td> <lookup expression="fn.latestObs('CIEL:5085').obsDatetime"/> </td>
+                                  </tr>
+
+                                  <tr>
+                                     <td>SpO<sub>2</sub>  </td>
+                                     <td><lookup expression="fn.latestObs('CIEL:5092').valueNumeric"/> </td>
+                                        <td> % </td>
+                                       <td><lookup expression="fn.latestObs('CIEL:5092').obsDatetime"/> </td>
+                                  </tr>
+
+                                  <tr>
+                                    <td>Serum glucose</td>
+                                    <td><lookup expression="fn.latestObs('CIEL:887').valueNumeric"/> </td>
+                                      <td> mmol/L </td>
+                                     <td><lookup expression="fn.latestObs('CIEL:887').obsDatetime"/> </td>
+                                  </tr>
+
+                                  <tr>
+                                    <td>Glasgow Comma Scale </td>
+                                    <td> <lookup expression="fn.latestObs('CIEL:160347').valueNumeric"/> </td>
+                                      <td> .</td>
+                                     <td> <lookup expression="fn.latestObs('CIEL:160347').obsDatetime"/> </td>
+                                  </tr>
+
+
+                            </table>   
+
+
+
+                               <table style="border:solid ;border-color: green">
+
+                                   <tr> <th> Perfomance Score (ECOG)</th> </tr>
+                                   <tr> <td><obs conceptId="f326efa0-77fb-4ddf-8b87-6ced44b2dceb"  
+                                     answerLabels="0-Fully active ,
+                                      1-able to carry out work of a light or sedentary nature,      
+                                      2-Ambulatory and capable of all selfcare ,
+                                      3-Capable of only limited selfcare, 
+                                      4-Completely disabled"/>    </td> </tr>
+                                </table>  
+
+                                  <table style="border:solid ;border-color: green">
+                                                 <tr>
+                                                   <th>Tumor</th>
+                                                  </tr>
+
+                                                 <tr>
+                                                   <td><obs conceptId="163894"   labelText="Swelling"/> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="d4ad7f2e-d87c-4f0a-8891-fc660e5bb370"   labelText="Tumor Size"/> </td>
+                                                  </tr>
+
+                                                 <tr>
+                                                    <td><obs conceptId="3cbd8519-6b87-41eb-8981-17e478e5527f"   labelText="Tumor Location"/> </td>
+                                                  </tr>
+
+                                                  <tr>
+                                                    <td><obs conceptId="bd72e514-5608-456f-a6f4-dfd6bb3492bb"  style="checkbox" labelText="Pain"/> </td>
+                                                  </tr>
+
+                                                   <tr>
+                                                    <td><obs conceptId="77cec839-9d37-45e4-9362-39a11ec8249d"  style="checkbox" labelText="Ulceration"/> </td>
+                                                  </tr>
+                                                  <tr>
+                                                     <td><obs conceptId="98dae26c-b44a-4fed-a9a6-98c400032e7c" style="textarea" labelText="Other Details"/> </td> 
+                                                  </tr>
+                                                  
+                                  </table>
+
+                                  <table style="border:solid ;border-color: green">
+                                      <tr>
+                                        <th colspan ="2" >Systems overview  </th> 
+                                      </tr>
+                                       <tr>
+                                        <td>Sign</td> 
+                                         <td>Detail</td> 
+                                      </tr>
+
+                                      <tr>
+                                          <td><obs id = "SO1" labelText="Jaundice availability" conceptId="38592b1f-f172-41fa-8a17-2b15f4be0bfc "/></td> 
+                                           <td id = "ts1"> <obs id = "SG1"   conceptId="0f4e45c8-7af8-4871-a520-b2873d40df89"/>  </td> 
+                                          
+                                      </tr>
+                                     
+                                       <tr>
+                                          <td><obs id = "SO2" labelText="Anemia availability" conceptId="74d546e8-ea2b-4954-abe8-2b31e82b475f"/></td> 
+                                           <td id = "ts2"> <obs id = "SG2"   conceptId="41cfc5df-684f-4fa1-90ee-90f6c96282eb"/>  </td> 
+                                          
+                                      </tr>
+
+                                      <tr>
+                                          <td><obs id = "SO3" labelText="Cyanosis availability" conceptId="07a55049-20a0-479f-a3dd-98fd12c3421c "/></td> 
+                                           <td id = "ts3"> <obs id = "SG3"   conceptId="41cfc5df-684f-4fa1-90ee-90f6c96282eb"/>  </td> 
+                                          
+                                      </tr>
+
+
+                                       <tr>
+                                          <td><obs id = "SO4" labelText="Clubbing availability" conceptId="8dd2ef0d-8042-4c03-aeb7-6b09e32c182b"/></td> 
+                                           <td id = "ts4"> <obs id = "SG4"   conceptId="b6fd6d81-44d9-4707-8ec9-14e75d1e42a6"/>  </td> 
+                                        </tr>
+
+
+                                         <tr>
+                                          <td><obs id = "SO5" labelText="Oedema availability" conceptId="460"/></td> 
+                                           <td id = "ts4"> 
+                                               <obs id = "SG5"  labelText="Grade"  conceptId="7be002fd-5343-453e-a45c-5f4e39742541"/> 
+                                               <obs id = "SG5B"  labelText="Type" conceptId="4825f8aa-e45c-4217-a93a-d62bb2b60024"/> 
+ 
+                                             </td> 
+                                        </tr>
+
+
+                                         <tr>
+                                          <td><obs id = "SO6" labelText="Lymphadenopathy availability" conceptId="09d55274-1655-44aa-a867-ff7d3a1c10cb"/></td> 
+                                           <td id = "ts6"> <obs id = "SG6"   conceptId="3821796a-f1c0-4446-8c46-bd6758d8d63f"/>  </td> 
+                                        </tr>
+
+
+                                           <tr>
+                                              <td><obs id = "SO7" labelText="Dehydration availability" conceptId="893108b5-4738-4c63-8e0d-ddf7485f7160"/></td> 
+                                              <td id = "ts7"> <obs id = "SG7"   conceptId="275bda54-62d2-4e14-98d3-139af869d72e"/>  </td> 
+                                        </tr>
+                                  </table>
+                                              
                        </fieldset>
 
                                                	

@@ -25,10 +25,20 @@ public class ConceptsInitializer implements Initializer {
 		if (Integer.valueOf(installedVersion.getPropertyValue()) < UCIOnchologyConstants.UCI_METADATA_VERSION) {
 			
 			Context.flushSession(); //Flush so that purges are not deferred until after data import
-			
+			log.info("Started importing concepts........................................");
 			DataImporter dataImporter = Context.getRegisteredComponent("dataImporter", DataImporter.class);
-			dataImporter.importData("UCI_Concepts.xml");
-			dataImporter.importData("system_review_concepts.xml");
+			
+			try {
+				dataImporter.importData("UCI_Concepts.xml");
+				dataImporter.importData("System_review_concepts.xml");
+				dataImporter.importData("Physical_exam_concepts.xml");
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+				//System.out.print(e.toString());
+			}
+			
+			log.info("finished importing concepts........................................");
 			
 			//1.11 requires building the index for the newly added concepts.
 			//Without doing so, cs.getConceptByClassName() will return an empty list.
