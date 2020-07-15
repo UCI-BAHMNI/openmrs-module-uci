@@ -15,7 +15,7 @@ public class OnchologyActivatorTest extends BaseModuleContextSensitiveTest {
 	@Autowired
 	private ConceptService conceptService;
 	
-	//@Test
+	@Test
 	public void testEvery() throws Exception {
 		
 		initializeInMemoryDatabase();
@@ -30,7 +30,7 @@ public class OnchologyActivatorTest extends BaseModuleContextSensitiveTest {
 		activator.willStart();
 		activator.started();
 		
-		System.out.println(conceptService.getAllConcepts().size());
+		//System.out.println(conceptService.getAllConcepts().size());
 		//Assert.assertEquals(conceptService.getAllConcepts().size(), 13); 
 	}
 	
