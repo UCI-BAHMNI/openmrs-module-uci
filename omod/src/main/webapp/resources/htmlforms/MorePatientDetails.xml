@@ -12,7 +12,7 @@
   ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
   -->
 
-<htmlform formUuid="a000cb34-9ec1-4344-a1c8-f692232f6edd" formName="Complete Patient Details" formEncounterType="e22e39fd-7db2-45e7-80f1-60fa0d5a4378" formVersion="1.0" formDescription="More Details" formAddMetadata="yes" formUILocation="patientDashboard.overallActions" formOrder="1" formIcon="icon-stethoscope" formShowIf="" formDisplayStyle="Simple" formLabel="Complete Patient Details">
+<htmlform formUuid="a000cb34-9ec1-4344-a1c8-f692232f6edd" formName="Complete Patient Details" formEncounterType="e22e39fd-7db2-45e7-80f1-60fa0d5a4378" formVersion="1.0" formDescription="More Details" formAddMetadata="yes" formUILocation="patientDashboard.overallActions" formOrder="1" formIcon="icon-stethoscope" formShowIf="" formDisplayStyle="Simple" formLabel="Complete Registration">
 
 
   <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">

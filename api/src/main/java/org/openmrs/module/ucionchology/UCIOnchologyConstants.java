@@ -9,7 +9,7 @@ public class UCIOnchologyConstants {
 	/**
 	 * Should be set to a higher version in case of any changes in bundled metadata
 	 */
-	public static final Integer UCI_METADATA_VERSION = 1;
+	public static final Integer UCI_METADATA_VERSION = 6;
 	
 	public static final String DIAGNOSIS_SET_GP = "emr.concept.diagnosisSetOfSets";
 	

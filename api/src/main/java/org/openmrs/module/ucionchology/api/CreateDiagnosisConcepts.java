@@ -49,7 +49,8 @@ public class CreateDiagnosisConcepts {
 			
 			Concept concept = new Concept();
 			concept.addName(name);
-			concept.addDescription(new ConceptDescription("all ICD-10-WHO Symptoms  Concepts", Locale.ENGLISH));
+			concept.addDescription(new ConceptDescription("all ICD-10-WHO Symptoms  Concepts bteween R00.0 - R99.9",
+			        Locale.ENGLISH));
 			concept.setUuid(UCIOnchologyConstants.SYMPTOMS_SET_CONCEPT_UUID);
 			ConceptClass concept_class = service.getConceptClassByName("ConvSet");
 			ConceptDatatype dataType = service.getConceptDatatypeByName("N/A");
@@ -90,11 +91,12 @@ public class CreateDiagnosisConcepts {
 					}
 					
 					try {
-						Concept icd = service.getConceptByMapping(code.toString(),
+						List<Concept> concepts_2 = service.getConceptsByMapping(code.toString(),
 						    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE, false);
-						if (icd != null) {
-							
-							concept.addSetMember(icd);
+						for (Concept c2 : concepts_2) {
+							if (c2 != null) {
+								concept.addSetMember(c2);
+							}
 						}
 					}
 					catch (Exception e) {
@@ -116,7 +118,8 @@ public class CreateDiagnosisConcepts {
 			
 			Concept concept = new Concept();
 			concept.addName(name);
-			concept.addDescription(new ConceptDescription("all ICD-10-WHO Diagnosis  Concepts", Locale.ENGLISH));
+			concept.addDescription(new ConceptDescription("all ICD-10-WHO Diagnosis  Concepts between C00.0-C99.9",
+			        Locale.ENGLISH));
 			concept.setUuid(UCIOnchologyConstants.DIAGNOSIS_SET_CONCEPT_UUID);
 			ConceptClass concept_class = service.getConceptClassByName("ConvSet");
 			ConceptDatatype dataType = service.getConceptDatatypeByName("N/A");
@@ -157,10 +160,12 @@ public class CreateDiagnosisConcepts {
 					}
 					
 					try {
-						Concept icd = service.getConceptByMapping(code.toString(),
+						List<Concept> concepts_2 = service.getConceptsByMapping(code.toString(),
 						    UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE, false);
-						if (icd != null) {
-							concept.addSetMember(icd);
+						for (Concept c2 : concepts_2) {
+							if (c2 != null) {
+								concept.addSetMember(c2);
+							}
 						}
 					}
 					catch (Exception e) {

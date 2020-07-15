@@ -2,7 +2,6 @@ package org.openmrs.module.ucionchology;
 
 import org.junit.Test;
 import org.openmrs.Concept;
-import org.openmrs.ConceptAnswer;
 import org.openmrs.ConceptMap;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;

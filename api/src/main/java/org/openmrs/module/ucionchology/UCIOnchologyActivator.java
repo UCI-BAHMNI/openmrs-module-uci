@@ -62,7 +62,7 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 			
 		}
 		catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 	}
