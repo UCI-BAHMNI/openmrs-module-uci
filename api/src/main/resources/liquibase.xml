@@ -13,27 +13,57 @@
         for a list of supported elements and attributes
     -->
  
- 	<!-- Uncomment the changeset below if you want to make the Item class persistable, see also Item and UCIOnchologyDaoTest -->
- 	<!--
-	<changeSet id="ucionchology-2016-08-02-12-21" author="raff">
+ 
+    
+    <changeSet id="treatment_protocal1" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="ucionchology_item"/></not>
+			<not><tableExists tableName="drug_dozage"/></not>
 		</preConditions>
 		<comment>
-			Creating the ucionchology_item table
+			Creating the drug_dozage table
 		</comment>
-		<createTable tableName="ucionchology_item">
-			<column name="ucionchology_item_id" type="int" autoIncrement="true">
+		
+		<createTable tableName="drug_dozage">
+			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
+			
 			<column name="uuid" type="char(38)">
 				<constraints nullable="false" unique="true"></constraints>
-			</column>
-			<column name="owner" type="int" />
-			<column name="description" type="varchar(255)" />
+			</column> 
+						
+			<column name="dozeName" type="varchar(255)" >
+			     <constraints nullable="false"/>
+            </column>
+            
+			<column name="units" type="varchar(255)" >
+			<constraints nullable="false"/>
+            </column>
+			
+			 <column name="value" type="int" >
+			    <constraints nullable="false"/>
+            </column>
+            
+			 <column name="age" type="int" />
+			 <column name="weight" type="int" />
+			 <column name="pltCount" type="int" />			
+			<column name="hivStatus" type="varchar(255)"/>		
+
+			<column name="voided_by" type="int"/>
+            <column name="date_voided" type="DATETIME"/>
+            <column name="void_reason" type="varchar(255)"/>
+            <column name="changed_by" type="int"/>
+            <column name="date_changed" type="DATETIME"/>
+            <column name="creator" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="voided" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
 		</createTable>
-        <addForeignKeyConstraint constraintName="ucionchology_item_owner_fk" baseTableName="ucionchology_item" baseColumnNames="owner"  referencedTableName="users"
-                                 referencedColumnNames="user_id" />
-    </changeSet> -->
+    </changeSet>
  
 </databaseChangeLog>
