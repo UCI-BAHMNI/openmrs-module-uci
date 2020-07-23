@@ -14,7 +14,7 @@
     -->
  
  	 
-    <changeSet id="treatment_protocal1" author="Mutesasira Moses">
+    <changeSet id="tp1" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
 			<not><tableExists tableName="drug_dosage"/></not>
 		</preConditions>
@@ -27,9 +27,9 @@
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
 			
-			<column name="uuid" type="char(38)">
-				<constraints nullable="false" unique="true"></constraints>
-			</column> 
+			 <column name="drugId" type="int" >
+			    <constraints nullable="false"/>
+            </column>
 						
 			<column name="doseName" type="varchar(255)" >
 			     <constraints nullable="false"/>
@@ -42,12 +42,11 @@
 			 <column name="value" type="int" >
 			    <constraints nullable="false"/>
             </column>
+	
             
-			 <column name="age" type="int" />
-			 <column name="weight" type="int" />
-			 <column name="pltCount" type="int" />			
-			<column name="hivStatus" type="varchar(255)"/>		
-
+            <column name="uuid" type="char(38)">
+				<constraints nullable="false" unique="true"></constraints>
+			</column> 
 			<column name="voided_by" type="int"/>
             <column name="date_voided" type="DATETIME"/>
             <column name="void_reason" type="varchar(255)"/>
@@ -64,5 +63,167 @@
             </column>
 		</createTable>
     </changeSet>
+    
+    
+     <changeSet id="tp2" author="Mutesasira Moses">
+		<preConditions onFail="MARK_RAN">
+			<not><tableExists tableName="patient_protocal"/></not>
+		</preConditions>
+		<comment>
+			Creating the patient_protocal table
+		</comment>
+		
+		<createTable tableName="patient_protocal">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			
+			<column name="patientId" type="int" >
+			    <constraints nullable="false"/>
+            </column>
+				
+			 <column name="protocalId" type="int" >
+			    <constraints nullable="false"/>
+            </column>
+									 
+		</createTable>
+    </changeSet>
+    
+    
+     <changeSet id="tp3" author="Mutesasira Moses">
+		<preConditions onFail="MARK_RAN">
+			<not><tableExists tableName="phase"/></not>
+		</preConditions>
+		<comment>
+			Creating the phase table
+		</comment>
+		
+		<createTable tableName="phase">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			
+			 <column name="phaseName" type="varchar(255)" >
+			    <constraints nullable="false"/>
+            </column>
+						
+            <column name="satgeDay_id" type="int" />
+	
+            
+            <column name="uuid" type="char(38)">
+				<constraints nullable="false" unique="true"></constraints>
+			</column> 
+			<column name="voided_by" type="int"/>
+            <column name="date_voided" type="DATETIME"/>
+            <column name="void_reason" type="varchar(255)"/>
+            <column name="changed_by" type="int"/>
+            <column name="date_changed" type="DATETIME"/>
+            <column name="creator" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="voided" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+		</createTable>
+		
+		<addForeignKeyConstraint constraintName="satgeDay_id_fk" baseTableName="phase" baseColumnNames="satgeDay_id"  referencedTableName="stage_day"
+                                 referencedColumnNames="id" />
+    </changeSet>
+    
+    
+      <changeSet id="tp4" author="Mutesasira Moses">
+		<preConditions onFail="MARK_RAN">
+			<not><tableExists tableName="stage_day"/></not>
+		</preConditions>
+		<comment>
+			Creating the stage_day table
+		</comment>
+		
+		<createTable tableName="stage_day">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			
+			 <column name="dayNumber" type="int" >
+			    <constraints nullable="false"/>
+            </column>
+						
+            <column name="dosage_id" type="int" />
+	
+            
+            <column name="uuid" type="char(38)">
+				<constraints nullable="false" unique="true"></constraints>
+			</column> 
+			<column name="voided_by" type="int"/>
+            <column name="date_voided" type="DATETIME"/>
+            <column name="void_reason" type="varchar(255)"/>
+            <column name="changed_by" type="int"/>
+            <column name="date_changed" type="DATETIME"/>
+            <column name="creator" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="voided" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+		</createTable>
+		
+		<addForeignKeyConstraint constraintName="dosage_id_fk" baseTableName="stage_day" baseColumnNames="dosage_id"  referencedTableName="drug_dosage"
+                                 referencedColumnNames="id" />
+    </changeSet>
+    
+    
+      <changeSet id="tp5" author="Mutesasira Moses">
+		<preConditions onFail="MARK_RAN">
+			<not><tableExists tableName="protocal"/></not>
+		</preConditions>
+		<comment>
+			Creating the protocal table
+		</comment>
+		
+		<createTable tableName="protocal">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			
+			 <column name="protocalName" type="varchar(255)" >
+			    <constraints nullable="false"/>
+            </column>
+            
+             <column name="diagnosis" type="varchar(255)" >
+			    <constraints nullable="false"/>
+            </column>
+						
+            <column name="phase_id" type="int" />
+	
+            
+            <column name="uuid" type="char(38)">
+				<constraints nullable="false" unique="true"></constraints>
+			</column> 
+			<column name="voided_by" type="int"/>
+            <column name="date_voided" type="DATETIME"/>
+            <column name="void_reason" type="varchar(255)"/>
+            <column name="changed_by" type="int"/>
+            <column name="date_changed" type="DATETIME"/>
+            <column name="creator" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="voided" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+		</createTable>
+		
+		<addForeignKeyConstraint constraintName="phase_id_fk" baseTableName="protocal" baseColumnNames="phase_id"  referencedTableName="phase"
+                                 referencedColumnNames="id" />
+    </changeSet>
  
+     
 </databaseChangeLog>
