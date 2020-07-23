@@ -14,8 +14,8 @@ import org.openmrs.Drug;
 
 @Entity
 @Table(name = "stage_day")
-public class StageDay extends BaseOpenmrsData{
-		
+public class StageDay extends BaseOpenmrsData {
+	
 	@Id
 	@GeneratedValue
 	@Column
@@ -23,44 +23,38 @@ public class StageDay extends BaseOpenmrsData{
 	
 	@Basic
 	@Column
-	private int dayNumber ;
+	private int dayNumber;
 	
 	@OneToMany
-	@JoinColumn(name = "dosage_id" ,nullable = false)
-	private DayDrugDosage dosage ;
-
-	
+	@JoinColumn(name = "dosage_id", nullable = false)
+	private DayDrugDosage dosage;
 	
 	public int getDayNumber() {
 		return dayNumber;
 	}
-
 	
 	public void setDayNumber(int dayNumber) {
 		this.dayNumber = dayNumber;
 	}
-
+	
 	@Override
 	public Integer getId() {
 		
 		return id;
 	}
-
+	
 	@Override
 	public void setId(Integer id) {
 		this.id = id;
 		
 	}
-
 	
 	public DayDrugDosage getDosage() {
 		return dosage;
 	}
-
 	
 	public void setDosage(DayDrugDosage dosage) {
 		this.dosage = dosage;
 	}
-	
 	
 }

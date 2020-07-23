@@ -13,7 +13,7 @@ import org.openmrs.BaseOpenmrsData;
 
 @Entity
 @Table(name = "phase")
-public class Phase extends BaseOpenmrsData{
+public class Phase extends BaseOpenmrsData {
 	
 	// check boneMarrowRemisson 
 	
@@ -27,42 +27,35 @@ public class Phase extends BaseOpenmrsData{
 	private String phaseName;
 	
 	@OneToMany
-	@JoinColumn(name = "satgeDay_id" ,nullable = false)
-	private StageDay stageDay ;
+	@JoinColumn(name = "satgeDay_id", nullable = false)
+	private StageDay stageDay;
 	
-	
-
 	@Override
 	public Integer getId() {
 		
 		return id;
 	}
-
+	
 	@Override
 	public void setId(Integer id) {
 		this.id = id;
 		
 	}
-
 	
 	public String getPhaseName() {
 		return phaseName;
 	}
-
 	
 	public void setPhaseName(String phaseName) {
 		this.phaseName = phaseName;
 	}
-
 	
 	public StageDay getStageDay() {
 		return stageDay;
 	}
-
 	
 	public void setStageDay(StageDay stageDay) {
 		this.stageDay = stageDay;
 	}
-	
 	
 }
