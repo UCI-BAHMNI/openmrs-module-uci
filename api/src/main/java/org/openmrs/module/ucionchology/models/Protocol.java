@@ -29,9 +29,23 @@ public class Protocol extends BaseOpenmrsData {
 	private String diagnosis;
 	
 	@OneToMany
-	@JoinColumn(name = "phase_id", nullable = false)
+	@JoinColumn(name = "phase_id")
 	private Phase phase;
 	
+	@Basic
+	@Column
+	private int numberOfPhases;
+	
+	
+	public int getNumberOfPhases() {
+		return numberOfPhases;
+	}
+
+	
+	public void setNumberOfPhases(int numberOfPhases) {
+		this.numberOfPhases = numberOfPhases;
+	}
+
 	public String getProtocalName() {
 		return protocalName;
 	}

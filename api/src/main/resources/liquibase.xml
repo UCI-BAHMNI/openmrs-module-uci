@@ -85,6 +85,10 @@
 			 <column name="protocalId" type="int" >
 			    <constraints nullable="false"/>
             </column>
+            
+             <column name="dateStarted" type="DATETIME"/>
+             
+              <column name="dateStopped" type="DATETIME"/>
 									 
 		</createTable>
     </changeSet>
@@ -108,8 +112,11 @@
             </column>
 						
             <column name="satgeDay_id" type="int" />
-	
             
+            <column name="numberOfDays" type="int" />
+            
+            <column name="order" type="int" />
+	         
             <column name="uuid" type="char(38)">
 				<constraints nullable="false" unique="true"></constraints>
 			</column> 
@@ -200,8 +207,9 @@
             </column>
 						
             <column name="phase_id" type="int" />
-	
             
+            <column name="numberOfPhases" type="int" />
+	           
             <column name="uuid" type="char(38)">
 				<constraints nullable="false" unique="true"></constraints>
 			</column> 

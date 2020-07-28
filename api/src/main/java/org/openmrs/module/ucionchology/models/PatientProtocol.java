@@ -1,5 +1,7 @@
 package org.openmrs.module.ucionchology.models;
 
+import java.util.Date;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -29,6 +31,33 @@ public class PatientProtocol {
 	@Column(nullable = false)
 	private int protocalId;
 	
+	@Basic
+	@Column
+	private Date dateStarted;
+	
+	@Basic
+	@Column
+	private Date dateStopped;
+		
+	public Date getDateStarted() {
+		return dateStarted;
+	}
+
+	
+	public void setDateStarted(Date dateStarted) {
+		this.dateStarted = dateStarted;
+	}
+
+	
+	public Date getDateStoped() {
+		return dateStopped;
+	}
+
+	
+	public void setDateStoped(Date dateStoped) {
+		this.dateStopped = dateStoped;
+	}
+
 	public Integer getId() {
 		return id;
 	}
