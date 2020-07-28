@@ -30,6 +30,34 @@ public class Phase extends BaseOpenmrsData {
 	@JoinColumn(name = "satgeDay_id", nullable = false)
 	private StageDay stageDay;
 	
+	@Basic
+	@Column
+	private int numberOfDays;
+	
+	@Basic
+	@Column
+	private int order;
+	
+	
+	public int getNumberOfDays() {
+		return numberOfDays;
+	}
+
+	
+	public void setNumberOfDays(int numberOfDays) {
+		this.numberOfDays = numberOfDays;
+	}
+
+	
+	public int getOrder() {
+		return order;
+	}
+
+	
+	public void setOrder(int order) {
+		this.order = order;
+	}
+
 	@Override
 	public Integer getId() {
 		
