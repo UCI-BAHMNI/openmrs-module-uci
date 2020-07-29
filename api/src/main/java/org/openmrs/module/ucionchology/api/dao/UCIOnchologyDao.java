@@ -9,18 +9,25 @@
  */
 package org.openmrs.module.ucionchology.api.dao;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.openmrs.Patient;
 import org.openmrs.api.APIException;
+import org.openmrs.api.context.Context;
 import org.openmrs.api.db.hibernate.DbSession;
 import org.openmrs.api.db.hibernate.DbSessionFactory;
+import org.openmrs.module.ucionchology.models.DayDrugDosage;
+import org.openmrs.module.ucionchology.models.PatientProtocol;
 import org.openmrs.module.ucionchology.models.Phase;
 import org.openmrs.module.ucionchology.models.Protocol;
 import org.openmrs.module.ucionchology.models.StageDay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.hibernate.Query;
 
 @Repository("ucionchology.UCIOnchologyDao")
 public class UCIOnchologyDao {
@@ -95,5 +102,95 @@ public class UCIOnchologyDao {
 		 return stageDay ;
 	}
 	
+	public StageDay getStageDayById(int stageDayId) throws APIException {
+		return (StageDay)getSession().get(Phase.class , stageDayId);
+	}
 	
+	@SuppressWarnings("unchecked")
+	public List<StageDay> getAllStageDay() throws APIException {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(StageDay.class);
+		criteria.add(Restrictions.eq("voided", false));
+		return criteria.list();
+	}
+	
+	public void deleteStageDay(StageDay stageDay) throws APIException {
+		getSession().delete(stageDay);	
+		
+	}
+	
+	public StageDay voidStageDay(StageDay stageDay) throws APIException {
+		stageDay.setVoided(true);
+		getSession().saveOrUpdate(stageDay);
+		return stageDay;
+	}
+	
+	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
+		getSession().saveOrUpdate(drugDayDose);
+		return drugDayDose;
+	}
+	
+	public DayDrugDosage getDayDrugDosageById(int drugDayDoseId) throws APIException {
+		return (DayDrugDosage)getSession().get(Phase.class , drugDayDoseId);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<DayDrugDosage> getAllDayDrugDosage() throws APIException {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(DayDrugDosage.class);
+		criteria.add(Restrictions.eq("voided", false));
+		return criteria.list();
+	}
+	
+	public void deleteDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
+		getSession().delete(drugDayDose);		
+	}
+	
+	public DayDrugDosage voidDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
+		drugDayDose.setVoided(true);
+		getSession().saveOrUpdate(drugDayDose);
+		return drugDayDose;
+	}
+	
+	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol patientProtocal) throws APIException {
+		 getSession().saveOrUpdate(patientProtocal);
+		return patientProtocal;
+	}
+	
+	public PatientProtocol getDayPatientProtocolById(int patientProtocalId) throws APIException {
+		return (PatientProtocol)getSession().get(Phase.class , patientProtocalId);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<PatientProtocol> getAllPatientProtocol() throws APIException {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(PatientProtocol.class);
+		criteria.add(Restrictions.eq("voided", false));
+		return criteria.list();
+	}
+	
+	public void deletePatientProtocol(PatientProtocol patientProtocal) throws APIException {
+		getSession().delete(patientProtocal);		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Patient> getPatienstByProtocal(Protocol protocal) throws APIException {
+		String hql = "SELECT patientId FROM PatientProtocol WHERE protocalId = :protocalId";
+		
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger("protocalId", protocal.getId());
+		
+		List<Integer> patientIds = (List<Integer>)query.list() ;
+		
+		 List<Patient> patients = new ArrayList<Patient>();
+		    for (int id : patientIds) {
+		    	patients.add(Context.getPatientService().getPatient(id));		    	
+		    }
+		return patients;
+	}
+	
+	public Protocol getPatientCurrentProtocal(int patientId) throws APIException {
+		String hql = "SELECT protocalId FROM PatientProtocol WHERE  patientId = :patientId";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger("patientId", patientId);
+		int protocaolId = (Integer)query.uniqueResult() ;
+		return getProtocalById(protocaolId) ;
+	}
 }

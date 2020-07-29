@@ -63,59 +63,57 @@ public interface UCIOnchologyService extends OpenmrsService {
 	// methods to work on a stageDay
 	
 	@Transactional
-	public StageDay saveOrUpdateStageDay(StageDay phase) throws APIException;
+	public StageDay saveOrUpdateStageDay(StageDay stageDay) throws APIException;
 	
 	@Transactional
-	public StageDay getStageDayById(StageDay phase) throws APIException;
+	public StageDay getStageDayById(int stageDayId) throws APIException;
 	
 	@Transactional
 	public List<StageDay> getAllStageDay() throws APIException;
 	
 	@Transactional
-	public void deleteStageDay(StageDay phase) throws APIException;
+	public void deleteStageDay(StageDay stageDay) throws APIException;
 	
 	@Transactional
-	public StageDay voidStageDay(StageDay phase) throws APIException;
+	public StageDay voidStageDay(StageDay stageDay) throws APIException;
 	
 	// methods to work on a dayDrugDosage
 	@Transactional
-	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage phase) throws APIException;
+	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage drugDayDose) throws APIException;
 	
 	@Transactional
-	public DayDrugDosage getDayDrugDosageById(DayDrugDosage phase) throws APIException;
+	public DayDrugDosage getDayDrugDosageById(int drugDayDoseId) throws APIException;
 	
 	@Transactional
 	public List<DayDrugDosage> getAllDayDrugDosage() throws APIException;
 	
 	@Transactional
-	public void deleteDayDrugDosage(DayDrugDosage phase) throws APIException;
+	public void deleteDayDrugDosage(DayDrugDosage drugDayDose) throws APIException;
 	
 	@Transactional
-	public DayDrugDosage voidDayDrugDosage(DayDrugDosage phase) throws APIException;
+	public DayDrugDosage voidDayDrugDosage(DayDrugDosage drugDayDose) throws APIException;
 	
 	// methods to work on a patientProtocal
 	@Transactional
-	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol phase) throws APIException;
+	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol patientProtocal) throws APIException;
 	
 	@Transactional
-	public PatientProtocol getDayPatientProtocolById(PatientProtocol phase) throws APIException;
+	public PatientProtocol getDayPatientProtocolById(int patientProtocalId) throws APIException;
 	
 	@Transactional
 	public List<PatientProtocol> getAllPatientProtocol() throws APIException;
 	
 	@Transactional
-	public void deletePatientProtocol(PatientProtocol phase) throws APIException;
+	public void deletePatientProtocol(PatientProtocol patientProtocal) throws APIException;
 	
-	@Transactional
-	public PatientProtocol voidPatientProtocol(PatientProtocol phase) throws APIException;
-	
+
 	// methods to work on Protocal
 	@Transactional
-	public List<Patient> getPatienstByProtocal(PatientProtocol phase) throws APIException;
+	public List<Patient> getPatienstByProtocal(Protocol protocal) throws APIException;
 	
 	@Transactional
 	public List<Patient> getPatienstByDate(Date date) throws APIException;
 	
-	public Protocol getPatientCurrentProtocal(Patient patient) throws APIException;
+	public Protocol getPatientCurrentProtocal(int patientId) throws APIException;
 	
 }
