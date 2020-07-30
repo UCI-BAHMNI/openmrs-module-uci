@@ -98,106 +98,90 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 	}
 
 	@Override
-	public StageDay getStageDayById(StageDay phase) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+	public StageDay getStageDayById(int stageDayId) throws APIException {
+		return dao.getStageDayById(stageDayId);
 	}
 
 	@Override
 	public List<StageDay> getAllStageDay() throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllStageDay();
 	}
 
 	@Override
-	public void deleteStageDay(StageDay phase) throws APIException {
-		// TODO Auto-generated method stub
+	public void deleteStageDay(StageDay stageDay) throws APIException {
+		dao.deleteStageDay(stageDay);
 		
 	}
 
 	@Override
-	public StageDay voidStageDay(StageDay phase) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+	public StageDay voidStageDay(StageDay stageDay) throws APIException {
+		return dao.voidStageDay(stageDay);
 	}
 
 	@Override
-	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage phase) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
+		return dao.saveOrUpdateDayDrugDosage(drugDayDose);
 	}
 
 	@Override
-	public DayDrugDosage getDayDrugDosageById(DayDrugDosage phase) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+	public DayDrugDosage getDayDrugDosageById(int drugDayDoseId) throws APIException {
+		return dao.getDayDrugDosageById(drugDayDoseId);
 	}
 
 	@Override
 	public List<DayDrugDosage> getAllDayDrugDosage() throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllDayDrugDosage();
 	}
 
 	@Override
-	public void deleteDayDrugDosage(DayDrugDosage phase) throws APIException {
-		// TODO Auto-generated method stub
+	public void deleteDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
+		dao.deleteDayDrugDosage(drugDayDose);
 		
 	}
 
 	@Override
-	public DayDrugDosage voidDayDrugDosage(DayDrugDosage phase) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+	public DayDrugDosage voidDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
+		return dao.voidDayDrugDosage(drugDayDose);
 	}
 
 	@Override
-	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol phase) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol patientProtocal) throws APIException {		
+		return dao.saveOrUpdatePatientProtocol(patientProtocal);
 	}
 
 	@Override
-	public PatientProtocol getDayPatientProtocolById(PatientProtocol phase) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+	public PatientProtocol getDayPatientProtocolById(int patientProtocalId) throws APIException {
+		
+		return dao.getDayPatientProtocolById(patientProtocalId);
 	}
 
 	@Override
 	public List<PatientProtocol> getAllPatientProtocol() throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getAllPatientProtocol();
 	}
 
 	@Override
-	public void deletePatientProtocol(PatientProtocol phase) throws APIException {
-		// TODO Auto-generated method stub
+	public void deletePatientProtocol(PatientProtocol patientProtocal) throws APIException {
+		dao.deletePatientProtocol(patientProtocal);
 		
 	}
 
-	@Override
-	public PatientProtocol voidPatientProtocol(PatientProtocol phase) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	public List<Patient> getPatienstByProtocal(PatientProtocol phase) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Patient> getPatienstByProtocal(Protocol protocal) throws APIException {
+		return dao.getPatienstByProtocal(protocal);
 	}
 
 	@Override
 	public List<Patient> getPatienstByDate(Date date) throws APIException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Protocol getPatientCurrentProtocal(Patient patient) throws APIException {
-		// TODO Auto-generated method stub
-		return null;
+	public Protocol getPatientCurrentProtocal(int patientId) throws APIException {
+		return dao.getPatientCurrentProtocal(patientId);
 	}
+	
 	
 	/**
 	 * Injected in moduleApplicationContext.xml

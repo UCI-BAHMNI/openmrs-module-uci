@@ -35,6 +35,7 @@ public class PatientProtocol {
 	@Column
 	private Date dateStarted;
 	
+	
 	@Basic
 	@Column
 	private Date dateStopped;
