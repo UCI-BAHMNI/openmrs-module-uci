@@ -15,7 +15,7 @@ public class OnchologyActivatorTest extends BaseModuleContextSensitiveTest {
 	@Autowired
 	private ConceptService conceptService;
 	
-	@Test
+	//@Test
 	public void testEvery() throws Exception {
 		
 		initializeInMemoryDatabase();
