@@ -43,15 +43,13 @@ public class UCIOnchologyDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	
 	public Protocol saveOrUpdateProtocal(Protocol protocal) throws APIException {
 		getSession().saveOrUpdate(protocal);
 		return protocal;
 	}
 	
-	
 	public Protocol getProtocalById(int protocalId) throws APIException {
-		return (Protocol) getSession().get(Protocol.class,protocalId);
+		return (Protocol) getSession().get(Protocol.class, protocalId);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -62,14 +60,9 @@ public class UCIOnchologyDao {
 	}
 	
 	public void deleteProtocal(Protocol protocal) throws APIException {
-		getSession().delete(protocal);		
+		getSession().delete(protocal);
 	}
 	
-	public Protocol voidProtocal(Protocol protocal) throws APIException {
-		protocal.setVoided(true);
-		getSession().saveOrUpdate(protocal);
-		return protocal;
-	}
 	
 	public Phase saveOrUpdatePhase(Phase phase) throws APIException {
 		getSession().saveOrUpdate(phase);
@@ -77,9 +70,9 @@ public class UCIOnchologyDao {
 	}
 	
 	public Phase getPhaseById(int phaseId) throws APIException {
-		return (Phase)getSession().get(Phase.class , phaseId);
+		return (Phase) getSession().get(Phase.class, phaseId);
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	public List<Phase> getAllphases() throws APIException {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Phase.class);
@@ -88,7 +81,7 @@ public class UCIOnchologyDao {
 	}
 	
 	public void deletePhase(Phase phase) throws APIException {
-		getSession().delete(phase);		
+		getSession().delete(phase);
 	}
 	
 	public Phase voidPhase(Phase phase) throws APIException {
@@ -96,14 +89,14 @@ public class UCIOnchologyDao {
 		getSession().saveOrUpdate(phase);
 		return phase;
 	}
-
+	
 	public StageDay saveOrUpdateStageDay(StageDay stageDay) throws APIException {
-		 getSession().saveOrUpdate(stageDay);		 
-		 return stageDay ;
+		getSession().saveOrUpdate(stageDay);
+		return stageDay;
 	}
 	
 	public StageDay getStageDayById(int stageDayId) throws APIException {
-		return (StageDay)getSession().get(Phase.class , stageDayId);
+		return (StageDay) getSession().get(StageDay.class, stageDayId);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -114,15 +107,10 @@ public class UCIOnchologyDao {
 	}
 	
 	public void deleteStageDay(StageDay stageDay) throws APIException {
-		getSession().delete(stageDay);	
+		getSession().delete(stageDay);
 		
 	}
 	
-	public StageDay voidStageDay(StageDay stageDay) throws APIException {
-		stageDay.setVoided(true);
-		getSession().saveOrUpdate(stageDay);
-		return stageDay;
-	}
 	
 	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
 		getSession().saveOrUpdate(drugDayDose);
@@ -130,7 +118,7 @@ public class UCIOnchologyDao {
 	}
 	
 	public DayDrugDosage getDayDrugDosageById(int drugDayDoseId) throws APIException {
-		return (DayDrugDosage)getSession().get(Phase.class , drugDayDoseId);
+		return (DayDrugDosage) getSession().get(DayDrugDosage.class, drugDayDoseId);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -141,22 +129,17 @@ public class UCIOnchologyDao {
 	}
 	
 	public void deleteDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
-		getSession().delete(drugDayDose);		
+		getSession().delete(drugDayDose);
 	}
 	
-	public DayDrugDosage voidDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
-		drugDayDose.setVoided(true);
-		getSession().saveOrUpdate(drugDayDose);
-		return drugDayDose;
-	}
 	
 	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol patientProtocal) throws APIException {
-		 getSession().saveOrUpdate(patientProtocal);
+		getSession().saveOrUpdate(patientProtocal);
 		return patientProtocal;
 	}
 	
 	public PatientProtocol getDayPatientProtocolById(int patientProtocalId) throws APIException {
-		return (PatientProtocol)getSession().get(Phase.class , patientProtocalId);
+		return (PatientProtocol) getSession().get(PatientProtocol.class, patientProtocalId);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -167,7 +150,7 @@ public class UCIOnchologyDao {
 	}
 	
 	public void deletePatientProtocol(PatientProtocol patientProtocal) throws APIException {
-		getSession().delete(patientProtocal);		
+		getSession().delete(patientProtocal);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -177,12 +160,27 @@ public class UCIOnchologyDao {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("protocalId", protocal.getId());
 		
-		List<Integer> patientIds = (List<Integer>)query.list() ;
+		List<Integer> patientIds = (List<Integer>) query.list();
 		
-		 List<Patient> patients = new ArrayList<Patient>();
-		    for (int id : patientIds) {
-		    	patients.add(Context.getPatientService().getPatient(id));		    	
-		    }
+		List<Patient> patients = new ArrayList<Patient>();
+		for (int id : patientIds) {
+			patients.add(Context.getPatientService().getPatient(id));
+		}
+		return patients;
+	}
+	
+	public List<Patient> getPatienstByDate(Date date) throws APIException {
+		String hql = "SELECT patientId FROM PatientProtocol WHERE :date BETWEEN dateStarted AND dateStopped";
+		
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setTimestamp("date", date);
+		
+		List<Integer> patientIds = (List<Integer>) query.list();
+		
+		List<Patient> patients = new ArrayList<Patient>();
+		for (int id : patientIds) {
+			patients.add(Context.getPatientService().getPatient(id));
+		}
 		return patients;
 	}
 	
@@ -190,7 +188,7 @@ public class UCIOnchologyDao {
 		String hql = "SELECT protocalId FROM PatientProtocol WHERE  patientId = :patientId";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("patientId", patientId);
-		int protocaolId = (Integer)query.uniqueResult() ;
-		return getProtocalById(protocaolId) ;
+		int protocaolId = (Integer) query.uniqueResult();
+		return getProtocalById(protocaolId);
 	}
 }

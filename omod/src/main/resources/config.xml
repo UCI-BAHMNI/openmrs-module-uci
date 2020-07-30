@@ -62,7 +62,9 @@
 		<aware_of_module>org.openmrs.module.legacyui</aware_of_module>
 	</aware_of_modules>
 	
-	
+	<packagesWithMappedClasses>
+        org.openmrs.module.ucionchology
+    </packagesWithMappedClasses> 
 	<!-- AOP
 	<advice>
 		<point>org.openmrs.api.FormService</point>

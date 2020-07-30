@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.openmrs.BaseOpenmrsData;
@@ -41,6 +43,21 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	@Column(nullable = false)
 	private int value;
 	
+	@ManyToOne
+	@JoinColumn(name = "stageDay_id", nullable = false)
+	private StageDay stageDay;
+	
+	
+	
+	public StageDay getStageDay() {
+		return stageDay;
+	}
+
+	
+	public void setStageDay(StageDay stageDay) {
+		this.stageDay = stageDay;
+	}
+
 	public int getDrugId() {
 		return drugId;
 	}

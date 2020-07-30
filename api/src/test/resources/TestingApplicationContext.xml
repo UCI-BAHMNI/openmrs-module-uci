@@ -19,6 +19,16 @@
             <ref bean="mappingJarResources"/>
         </property>
         <!--  default properties must be set in the hibernate.default.properties -->
+        
+         <property name="packagesToScan">
+            <list>
+                <value>org.openmrs.module.ucionchology</value>
+                 <value>org.openmrs.module.ucionchology.api</value>
+                <value>org.openmrs.module.ucionchology.api.dao</value>
+                <value>org.openmrs.module.ucionchology.api.impl</value>
+                <value>org.openmrs.module.ucionchology.models</value>
+            </list>
+        </property> 
     </bean>
 
 </beans>
