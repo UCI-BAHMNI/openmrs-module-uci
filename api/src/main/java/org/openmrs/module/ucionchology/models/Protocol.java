@@ -1,5 +1,7 @@
 package org.openmrs.module.ucionchology.models;
 
+import java.util.Set;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,9 +30,8 @@ public class Protocol extends BaseOpenmrsData {
 	@Column(length = 255, nullable = false)
 	private String diagnosis;
 	
-	@OneToMany
-	@JoinColumn(name = "phase_id")
-	private Phase phase;
+	@OneToMany(mappedBy="protocol1")
+	private Set<Phase> phase;
 	
 	@Basic
 	@Column
@@ -62,14 +63,6 @@ public class Protocol extends BaseOpenmrsData {
 		this.diagnosis = diagnosis;
 	}
 	
-	public Phase getPhase() {
-		return phase;
-	}
-	
-	public void setPhase(Phase phase) {
-		this.phase = phase;
-	}
-	
 	@Override
 	public Integer getId() {
 		return id;
@@ -80,4 +73,18 @@ public class Protocol extends BaseOpenmrsData {
 		this.id = id;
 		
 	}
+
+
+	
+	public Set<Phase> getPhase() {
+		return phase;
+	}
+
+
+	
+	public void setPhase(Set<Phase> phase) {
+		this.phase = phase;
+	}
+	
+	
 }

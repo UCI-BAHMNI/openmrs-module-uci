@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <protocal id="1" protocalName="prot1" diagnosis="malaria" numberOfPhases="1" uuid="UUID4"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />
+  
+  <protocal id="2" protocalName="prot2" diagnosis="malaria2" numberOfPhases="1" uuid="UUID5"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />
+  
+  <phase_table id="1" phaseName="phase1" numberOfDays="3" phase_order="1"  protocal_id="1" uuid="UUID3"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" /> 
+  
+  <phase_table id="2" phaseName="phase2" numberOfDays="3" phase_order="1"  protocal_id="1" uuid="UUID6"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" /> 
+  
+  <stage_day id="1"   dayNumber="1"   phase_id="1" uuid="UUID2"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />
+  
+  <stage_day id="2"   dayNumber="1"   phase_id="1" uuid="UUID7"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />
+  
+  <drug_dosage id="1"   drugId="1" doseName="drug1" 
+  units="kavuma"  value="3"  stageDay_id="1" uuid="UUID1"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />  
+  
+  <drug_dosage id="2"   drugId="1" doseName="drug1" 
+  units="kavuma"  value="3"  stageDay_id="1" uuid="UUID8"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />  
+  
+  <drug_dosage id="3"   drugId="1" doseName="drug1" 
+  units="kavuma"  value="3"  stageDay_id="1" uuid="UUID9"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="true" />  
+  
+  <patient_protocal id="1" patientId="2"   protocalId="1"  dateStarted="2020-02-22 00:00:00"
+  dateStopped="2020-06-22 00:00:00"  />
+  
+  <patient_protocal id="2" patientId="6"   protocalId="1"  dateStarted="2020-02-22 00:00:00"
+  dateStopped="2020-08-22 00:00:00"  />
+  
+   <patient_protocal id="3" patientId="7"   protocalId="1"  dateStarted="2020-09-22 00:00:00"
+  dateStopped="2020-10-22 00:00:00"  />
+  
+ 
+</dataset>

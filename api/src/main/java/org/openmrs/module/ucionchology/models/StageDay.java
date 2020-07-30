@@ -1,11 +1,14 @@
 package org.openmrs.module.ucionchology.models;
 
+import java.util.Set;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,10 +28,33 @@ public class StageDay extends BaseOpenmrsData {
 	@Column
 	private int dayNumber;
 	
-	@OneToMany
-	@JoinColumn(name = "dosage_id", nullable = false)
-	private DayDrugDosage dosage;
+	@OneToMany(mappedBy="stageDay")
+	private Set<DayDrugDosage> dosage;
 	
+	@ManyToOne
+	@JoinColumn(name = "phase_id", nullable = false)
+	private Phase phase;
+		
+	public Phase getPhase() {
+		return phase;
+	}
+
+
+	
+	public void setPhase(Phase phase) {
+		this.phase = phase;
+	}
+
+
+	public Set<DayDrugDosage> getDosage() {
+		return dosage;
+	}
+
+	
+	public void setDosage(Set<DayDrugDosage> dosage) {
+		this.dosage = dosage;
+	}
+
 	public int getDayNumber() {
 		return dayNumber;
 	}
@@ -49,12 +75,5 @@ public class StageDay extends BaseOpenmrsData {
 		
 	}
 	
-	public DayDrugDosage getDosage() {
-		return dosage;
-	}
-	
-	public void setDosage(DayDrugDosage dosage) {
-		this.dosage = dosage;
-	}
 	
 }

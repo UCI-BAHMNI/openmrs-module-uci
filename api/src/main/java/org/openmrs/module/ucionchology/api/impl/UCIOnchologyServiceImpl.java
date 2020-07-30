@@ -61,10 +61,6 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 		dao.deleteProtocal(protocal);		
 	}
 
-	@Override
-	public Protocol voidProtocal(Protocol protocal) throws APIException {
-		return dao.voidProtocal(protocal);
-	}
 
 	@Override
 	public Phase saveOrUpdatePhase(Phase phase) throws APIException {
@@ -88,11 +84,6 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 	}
 
 	@Override
-	public Phase voidPhase(Phase phase) throws APIException {
-		return dao.voidPhase(phase);
-	}
-
-	@Override
 	public StageDay saveOrUpdateStageDay(StageDay stageDay) throws APIException {
 		return dao.saveOrUpdateStageDay(stageDay);
 	}
@@ -113,10 +104,6 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 		
 	}
 
-	@Override
-	public StageDay voidStageDay(StageDay stageDay) throws APIException {
-		return dao.voidStageDay(stageDay);
-	}
 
 	@Override
 	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
@@ -139,10 +126,6 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 		
 	}
 
-	@Override
-	public DayDrugDosage voidDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
-		return dao.voidDayDrugDosage(drugDayDose);
-	}
 
 	@Override
 	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol patientProtocal) throws APIException {		
@@ -174,7 +157,7 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 
 	@Override
 	public List<Patient> getPatienstByDate(Date date) throws APIException {
-		return null;
+		return dao.getPatienstByDate(date);
 	}
 
 	@Override

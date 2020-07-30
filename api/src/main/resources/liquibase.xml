@@ -43,7 +43,8 @@
 			    <constraints nullable="false"/>
             </column>
 	
-            
+             <column name="satgeDay_id" type="int" />
+             
             <column name="uuid" type="char(38)">
 				<constraints nullable="false" unique="true"></constraints>
 			</column> 
@@ -62,6 +63,9 @@
                 <constraints nullable="false"/>
             </column>
 		</createTable>
+		
+		<addForeignKeyConstraint constraintName="satgeDay_id_fk" baseTableName="drug_dosage" baseColumnNames="satgeDay_id"  referencedTableName="stage_day"
+                                 referencedColumnNames="id" />
     </changeSet>
     
     
@@ -91,18 +95,19 @@
               <column name="dateStopped" type="DATETIME"/>
 									 
 		</createTable>
+		
     </changeSet>
     
     
      <changeSet id="tp3" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="phase"/></not>
+			<not><tableExists tableName="phase_table"/></not>
 		</preConditions>
 		<comment>
-			Creating the phase table
+			Creating the phase_table
 		</comment>
 		
-		<createTable tableName="phase">
+		<createTable tableName="phase_table">
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
@@ -111,11 +116,11 @@
 			    <constraints nullable="false"/>
             </column>
 						
-            <column name="satgeDay_id" type="int" />
+            <column name="protocal_id" type="int" />
             
             <column name="numberOfDays" type="int" />
             
-            <column name="order" type="int" />
+            <column name="phase_order" type="int" />
 	         
             <column name="uuid" type="char(38)">
 				<constraints nullable="false" unique="true"></constraints>
@@ -136,7 +141,7 @@
             </column>
 		</createTable>
 		
-		<addForeignKeyConstraint constraintName="satgeDay_id_fk" baseTableName="phase" baseColumnNames="satgeDay_id"  referencedTableName="stage_day"
+		<addForeignKeyConstraint constraintName="protocol_id_fk" baseTableName="phase" baseColumnNames="protocal_id"  referencedTableName="protocol"
                                  referencedColumnNames="id" />
     </changeSet>
     
@@ -158,7 +163,7 @@
 			    <constraints nullable="false"/>
             </column>
 						
-            <column name="dosage_id" type="int" />
+           <column name="phase_id" type="int" />
 	
             
             <column name="uuid" type="char(38)">
@@ -180,7 +185,7 @@
             </column>
 		</createTable>
 		
-		<addForeignKeyConstraint constraintName="dosage_id_fk" baseTableName="stage_day" baseColumnNames="dosage_id"  referencedTableName="drug_dosage"
+		<addForeignKeyConstraint constraintName="phase_id_fk" baseTableName="stage_day" baseColumnNames="phase_id"  referencedTableName="phase_table"
                                  referencedColumnNames="id" />
     </changeSet>
     
@@ -206,8 +211,6 @@
 			    <constraints nullable="false"/>
             </column>
 						
-            <column name="phase_id" type="int" />
-            
             <column name="numberOfPhases" type="int" />
 	           
             <column name="uuid" type="char(38)">
@@ -229,8 +232,6 @@
             </column>
 		</createTable>
 		
-		<addForeignKeyConstraint constraintName="phase_id_fk" baseTableName="protocal" baseColumnNames="phase_id"  referencedTableName="phase"
-                                 referencedColumnNames="id" />
     </changeSet>
  
      
