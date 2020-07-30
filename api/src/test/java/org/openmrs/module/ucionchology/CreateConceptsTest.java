@@ -12,7 +12,7 @@ import junit.framework.Assert;
 
 public class CreateConceptsTest extends BaseModuleContextSensitiveTest {
 	
-	//@Test
+	@Test
 	public void testCode() {
 		
 		for (int i = 0; i < 100; i++) {
