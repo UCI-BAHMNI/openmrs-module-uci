@@ -32,7 +32,7 @@ public class Phase extends BaseOpenmrsData {
 	
 	@ManyToOne
 	@JoinColumn(name = "protocal_id", nullable = false)
-	private Protocol protocol1;
+	private Protocol protocol;
 	
 
 	@Basic
@@ -45,12 +45,12 @@ public class Phase extends BaseOpenmrsData {
 	
 	// check boneMarrowRemisson 
 	
-	public Protocol getProtocol1() {
-		return protocol1;
+	public Protocol getProtocol() {
+		return protocol;
 	}
 	
-	public void setProtocol1(Protocol protocol1) {
-		this.protocol1 = protocol1;
+	public void setProtocol(Protocol protocol) {
+		this.protocol = protocol;
 	}  
 	
 	public int getNumberOfDays() {
