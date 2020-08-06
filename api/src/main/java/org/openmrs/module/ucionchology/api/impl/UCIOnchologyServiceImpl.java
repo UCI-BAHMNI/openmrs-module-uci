@@ -160,6 +160,12 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 		return dao.getPatientCurrentProtocal(patientId);
 	}
 	
+	@Override
+	public List<Phase> getPhasesByProtocol(int protocolId) throws APIException {
+		// TODO Auto-generated method stub
+		return dao.getPhasesByProtocol(protocolId);
+	}
+	
 	/**
 	 * Injected in moduleApplicationContext.xml
 	 */
