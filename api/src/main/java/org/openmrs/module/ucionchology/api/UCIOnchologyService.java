@@ -68,7 +68,6 @@ public interface UCIOnchologyService extends OpenmrsService {
 	@Transactional
 	public void deleteStageDay(StageDay stageDay) throws APIException;
 	
-	
 	// methods to work on a dayDrugDosage
 	@Transactional
 	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage drugDayDose) throws APIException;
@@ -95,7 +94,6 @@ public interface UCIOnchologyService extends OpenmrsService {
 	@Transactional
 	public void deletePatientProtocol(PatientProtocol patientProtocal) throws APIException;
 	
-
 	// methods to work on Protocal
 	@Transactional
 	public List<Patient> getPatienstByProtocal(Protocol protocal) throws APIException;

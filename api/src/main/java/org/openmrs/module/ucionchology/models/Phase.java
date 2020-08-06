@@ -15,9 +15,9 @@ import javax.persistence.Table;
 import org.openmrs.BaseOpenmrsData;
 
 @Entity
-@Table(name="phase_table")
+@Table(name = "phase_table")
 public class Phase extends BaseOpenmrsData {
-		
+	
 	@Id
 	@GeneratedValue
 	@Column
@@ -27,14 +27,13 @@ public class Phase extends BaseOpenmrsData {
 	@Column(length = 255, nullable = false)
 	private String phaseName;
 	
-	@OneToMany(mappedBy="phase")
+	@OneToMany(mappedBy = "phase")
 	private Set<StageDay> stageDay;
 	
 	@ManyToOne
 	@JoinColumn(name = "protocal_id", nullable = false)
 	private Protocol protocol1;
 	
-
 	@Basic
 	@Column
 	private int numberOfDays;
@@ -51,27 +50,24 @@ public class Phase extends BaseOpenmrsData {
 	
 	public void setProtocol1(Protocol protocol1) {
 		this.protocol1 = protocol1;
-	}  
+	}
 	
 	public int getNumberOfDays() {
 		return numberOfDays;
 	}
-
 	
 	public void setNumberOfDays(int numberOfDays) {
 		this.numberOfDays = numberOfDays;
 	}
-
 	
 	public int getOrder() {
 		return phase_order;
 	}
-
 	
 	public void setOrder(int order) {
 		this.phase_order = order;
 	}
-
+	
 	@Override
 	public Integer getId() {
 		
@@ -91,18 +87,13 @@ public class Phase extends BaseOpenmrsData {
 	public void setPhaseName(String phaseName) {
 		this.phaseName = phaseName;
 	}
-
-
 	
 	public Set<StageDay> getStageDay() {
 		return stageDay;
 	}
-
-
 	
 	public void setStageDay(Set<StageDay> stageDay) {
 		this.stageDay = stageDay;
 	}
-	
 	
 }

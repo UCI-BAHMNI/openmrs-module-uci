@@ -30,141 +30,135 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 	@Autowired
 	UCIOnchologyDao dao;
 	
-	
 	/**
 	 * Injected in moduleApplicationContext.xml
 	 */
 	public void setDao(UCIOnchologyDao dao) {
 		this.dao = dao;
 	}
-
+	
 	@Override
 	public Protocol saveOrUpdateProtocal(Protocol protocal) throws APIException {
 		
 		return dao.saveOrUpdateProtocal(protocal);
 	}
-
+	
 	@Override
 	public Protocol getProtocalById(int protocalId) throws APIException {
 		
 		return dao.getProtocalById(protocalId);
 	}
-
+	
 	@Override
 	public List<Protocol> getAllProtocals() throws APIException {
 		
 		return dao.getAllProtocals();
 	}
-
+	
 	@Override
 	public void deleteProtocal(Protocol protocal) throws APIException {
-		dao.deleteProtocal(protocal);		
+		dao.deleteProtocal(protocal);
 	}
-
-
+	
 	@Override
 	public Phase saveOrUpdatePhase(Phase phase) throws APIException {
 		return dao.saveOrUpdatePhase(phase);
 	}
-
+	
 	@Override
-	public Phase getPhaseById(int phaseId) throws APIException {	
+	public Phase getPhaseById(int phaseId) throws APIException {
 		return dao.getPhaseById(phaseId);
 	}
-
+	
 	@Override
 	public List<Phase> getAllphases() throws APIException {
 		return dao.getAllphases();
 	}
-
+	
 	@Override
 	public void deletePhase(Phase phase) throws APIException {
 		dao.deletePhase(phase);
 		
 	}
-
+	
 	@Override
 	public StageDay saveOrUpdateStageDay(StageDay stageDay) throws APIException {
 		return dao.saveOrUpdateStageDay(stageDay);
 	}
-
+	
 	@Override
 	public StageDay getStageDayById(int stageDayId) throws APIException {
 		return dao.getStageDayById(stageDayId);
 	}
-
+	
 	@Override
 	public List<StageDay> getAllStageDay() throws APIException {
 		return dao.getAllStageDay();
 	}
-
+	
 	@Override
 	public void deleteStageDay(StageDay stageDay) throws APIException {
 		dao.deleteStageDay(stageDay);
 		
 	}
-
-
+	
 	@Override
 	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
 		return dao.saveOrUpdateDayDrugDosage(drugDayDose);
 	}
-
+	
 	@Override
 	public DayDrugDosage getDayDrugDosageById(int drugDayDoseId) throws APIException {
 		return dao.getDayDrugDosageById(drugDayDoseId);
 	}
-
+	
 	@Override
 	public List<DayDrugDosage> getAllDayDrugDosage() throws APIException {
 		return dao.getAllDayDrugDosage();
 	}
-
+	
 	@Override
 	public void deleteDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
 		dao.deleteDayDrugDosage(drugDayDose);
 		
 	}
-
-
+	
 	@Override
-	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol patientProtocal) throws APIException {		
+	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol patientProtocal) throws APIException {
 		return dao.saveOrUpdatePatientProtocol(patientProtocal);
 	}
-
+	
 	@Override
 	public PatientProtocol getDayPatientProtocolById(int patientProtocalId) throws APIException {
 		
 		return dao.getDayPatientProtocolById(patientProtocalId);
 	}
-
+	
 	@Override
 	public List<PatientProtocol> getAllPatientProtocol() throws APIException {
 		return dao.getAllPatientProtocol();
 	}
-
+	
 	@Override
 	public void deletePatientProtocol(PatientProtocol patientProtocal) throws APIException {
 		dao.deletePatientProtocol(patientProtocal);
 		
 	}
-
-
+	
 	@Override
 	public List<Patient> getPatienstByProtocal(Protocol protocal) throws APIException {
 		return dao.getPatienstByProtocal(protocal);
 	}
-
+	
 	@Override
 	public List<Patient> getPatienstByDate(Date date) throws APIException {
 		return dao.getPatienstByDate(date);
 	}
-
+	
 	@Override
 	public Protocol getPatientCurrentProtocal(int patientId) throws APIException {
 		return dao.getPatientCurrentProtocal(patientId);
 	}
-	
 	
 	/**
 	 * Injected in moduleApplicationContext.xml

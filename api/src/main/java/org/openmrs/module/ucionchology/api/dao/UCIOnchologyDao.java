@@ -63,7 +63,6 @@ public class UCIOnchologyDao {
 		getSession().delete(protocal);
 	}
 	
-	
 	public Phase saveOrUpdatePhase(Phase phase) throws APIException {
 		getSession().saveOrUpdate(phase);
 		return phase;
@@ -111,7 +110,6 @@ public class UCIOnchologyDao {
 		
 	}
 	
-	
 	public DayDrugDosage saveOrUpdateDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
 		getSession().saveOrUpdate(drugDayDose);
 		return drugDayDose;
@@ -131,7 +129,6 @@ public class UCIOnchologyDao {
 	public void deleteDayDrugDosage(DayDrugDosage drugDayDose) throws APIException {
 		getSession().delete(drugDayDose);
 	}
-	
 	
 	public PatientProtocol saveOrUpdatePatientProtocol(PatientProtocol patientProtocal) throws APIException {
 		getSession().saveOrUpdate(patientProtocal);
@@ -185,9 +182,11 @@ public class UCIOnchologyDao {
 	}
 	
 	public Protocol getPatientCurrentProtocal(int patientId) throws APIException {
-		String hql = "SELECT protocalId FROM PatientProtocol WHERE  patientId = :patientId";
+		String hql = "SELECT protocalId FROM PatientProtocol WHERE  patientId = :patientId ORDER BY id DESC";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("patientId", patientId);
+		//query.setTimestamp("now_date", new Date());
+		query.setMaxResults(1);
 		int protocaolId = (Integer) query.uniqueResult();
 		return getProtocalById(protocaolId);
 	}

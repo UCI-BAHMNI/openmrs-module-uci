@@ -10,16 +10,20 @@
 package org.openmrs.module.ucionchology.fragment.controller;
 
 import org.openmrs.api.UserService;
+import org.openmrs.api.context.Context;
+import org.openmrs.module.ucionchology.api.UCIOnchologyService;
 import org.openmrs.ui.framework.annotation.SpringBean;
 import org.openmrs.ui.framework.fragment.FragmentModel;
 
 /**
  *  * Controller for a fragment that shows all users  
  */
-public class UsersFragmentController {
+public class ProtocalsFragmentController {
 	
-	public void controller(FragmentModel model, @SpringBean("userService") UserService service) {
-		model.addAttribute("users", service.getAllUsers());
+	public void controller(FragmentModel model) {
+		
+		UCIOnchologyService onchlogyService = Context.getService(UCIOnchologyService.class);
+		model.addAttribute("protocals", onchlogyService.getAllProtocals());
 	}
 	
 }

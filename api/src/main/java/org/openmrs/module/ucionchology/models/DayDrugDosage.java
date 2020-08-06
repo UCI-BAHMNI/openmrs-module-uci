@@ -47,17 +47,14 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	@JoinColumn(name = "stageDay_id", nullable = false)
 	private StageDay stageDay;
 	
-	
-	
 	public StageDay getStageDay() {
 		return stageDay;
 	}
-
 	
 	public void setStageDay(StageDay stageDay) {
 		this.stageDay = stageDay;
 	}
-
+	
 	public int getDrugId() {
 		return drugId;
 	}

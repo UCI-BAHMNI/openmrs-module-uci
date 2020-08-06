@@ -30,23 +30,21 @@ public class Protocol extends BaseOpenmrsData {
 	@Column(length = 255, nullable = false)
 	private String diagnosis;
 	
-	@OneToMany(mappedBy="protocol1")
+	@OneToMany(mappedBy = "protocol1")
 	private Set<Phase> phase;
 	
 	@Basic
 	@Column
 	private int numberOfPhases;
 	
-	
 	public int getNumberOfPhases() {
 		return numberOfPhases;
 	}
-
 	
 	public void setNumberOfPhases(int numberOfPhases) {
 		this.numberOfPhases = numberOfPhases;
 	}
-
+	
 	public String getProtocalName() {
 		return protocalName;
 	}
@@ -73,18 +71,13 @@ public class Protocol extends BaseOpenmrsData {
 		this.id = id;
 		
 	}
-
-
 	
 	public Set<Phase> getPhase() {
 		return phase;
 	}
-
-
 	
 	public void setPhase(Set<Phase> phase) {
 		this.phase = phase;
 	}
-	
 	
 }
