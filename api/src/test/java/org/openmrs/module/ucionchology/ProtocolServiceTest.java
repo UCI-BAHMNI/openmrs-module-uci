@@ -102,10 +102,17 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals("", 2, protocaolId);
 	}
 	
-	//@Test
+	@Test
 	public void getAllProtocalPhases() throws ParseException {
 		Protocol protocal = service.getProtocalById(1);
 		//System.out.println(protocal.getPhase().size());
 		Assert.assertEquals("", 2, protocal.getPhase().size());
+	}
+	
+	@Test
+	public void getAllPhasesByProtocol() throws ParseException {
+		List<Phase> phases = service.getPhasesByProtocol(1);
+		//System.out.println(phases.size());
+		Assert.assertEquals("", 2, phases.size());
 	}
 }

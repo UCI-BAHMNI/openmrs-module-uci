@@ -15,7 +15,7 @@
   <% } %>
 <% } else { %>
 <tr>
-  <td colspan="2">${ ui.message("general.none") }</td>
+  <td colspan="4">${ ui.message("general.none") }</td>
 </tr>
 <% } %>
 </table>

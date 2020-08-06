@@ -190,4 +190,11 @@ public class UCIOnchologyDao {
 		int protocaolId = (Integer) query.uniqueResult();
 		return getProtocalById(protocaolId);
 	}
+	
+	public List<Phase> getPhasesByProtocol(int protocolId) throws APIException {
+		String hql = "FROM Phase WHERE  protocol1.id = :protocoId ";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger("protocoId", protocolId);
+		return (List<Phase>) query.list();
+	}
 }
