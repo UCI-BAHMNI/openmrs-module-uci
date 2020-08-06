@@ -28,33 +28,29 @@ public class StageDay extends BaseOpenmrsData {
 	@Column
 	private int dayNumber;
 	
-	@OneToMany(mappedBy="stageDay")
+	@OneToMany(mappedBy = "stageDay")
 	private Set<DayDrugDosage> dosage;
 	
 	@ManyToOne
 	@JoinColumn(name = "phase_id", nullable = false)
 	private Phase phase;
-		
+	
 	public Phase getPhase() {
 		return phase;
 	}
-
-
 	
 	public void setPhase(Phase phase) {
 		this.phase = phase;
 	}
-
-
+	
 	public Set<DayDrugDosage> getDosage() {
 		return dosage;
 	}
-
 	
 	public void setDosage(Set<DayDrugDosage> dosage) {
 		this.dosage = dosage;
 	}
-
+	
 	public int getDayNumber() {
 		return dayNumber;
 	}
@@ -74,6 +70,5 @@ public class StageDay extends BaseOpenmrsData {
 		this.id = id;
 		
 	}
-	
 	
 }

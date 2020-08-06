@@ -141,7 +141,7 @@
             </column>
 		</createTable>
 		
-		<addForeignKeyConstraint constraintName="protocol_id_fk" baseTableName="phase" baseColumnNames="protocal_id"  referencedTableName="protocol"
+		<addForeignKeyConstraint constraintName="protocol_id_fk" baseTableName="phase_table" baseColumnNames="protocal_id"  referencedTableName="protocol"
                                  referencedColumnNames="id" />
     </changeSet>
     

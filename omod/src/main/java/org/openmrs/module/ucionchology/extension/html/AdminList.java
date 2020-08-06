@@ -45,6 +45,7 @@ public class AdminList extends AdministrationSectionExt {
 		
 		map.put("module/ucionchology/ucionchology.form", "ucionchology.title");
 		map.put("ucionchology/ucionchology.page", "ucionchology.refapp.title");
+		map.put("ucionchology/home.page", "protocals");
 		
 		return map;
 	}

@@ -31,7 +31,10 @@
   date_created="2020-02-22 00:00:00" voided="true" />  
   
   <patient_protocal id="1" patientId="2"   protocalId="1"  dateStarted="2020-02-22 00:00:00"
-  dateStopped="2020-06-22 00:00:00"  />
+  dateStopped="2020-09-22 00:00:00"  />
+  
+   <patient_protocal id="4" patientId="2"   protocalId="2"  dateStarted="2020-06-22 00:00:00"
+  dateStopped="2020-10-22 00:00:00"  />
   
   <patient_protocal id="2" patientId="6"   protocalId="1"  dateStarted="2020-02-22 00:00:00"
   dateStopped="2020-08-22 00:00:00"  />
