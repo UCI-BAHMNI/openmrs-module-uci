@@ -29,11 +29,7 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	
 	@Basic
 	@Column(length = 255, nullable = false)
-	private int drugId;
-	
-	@Basic
-	@Column(length = 255, nullable = false)
-	private String doseName;
+	private String drugName;
 	
 	@Basic
 	@Column(length = 255, nullable = false)
@@ -41,7 +37,15 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	
 	@Basic
 	@Column(nullable = false)
-	private int value;
+	private int dosageValue;
+	
+	@Basic
+	@Column(nullable = false)
+	private String dosageForm;
+	
+	@Basic
+	@Column(nullable = false)
+	private String dosageFrequence;
 	
 	@ManyToOne
 	@JoinColumn(name = "stageDay_id", nullable = false)
@@ -55,21 +59,6 @@ public class DayDrugDosage extends BaseOpenmrsData {
 		this.stageDay = stageDay;
 	}
 	
-	public int getDrugId() {
-		return drugId;
-	}
-	
-	public void setDrugId(int drugId) {
-		this.drugId = drugId;
-	}
-	
-	public String getDoseName() {
-		return doseName;
-	}
-	
-	public void setDoseName(String doseName) {
-		this.doseName = doseName;
-	}
 	
 	public String getUnits() {
 		return units;
@@ -79,14 +68,45 @@ public class DayDrugDosage extends BaseOpenmrsData {
 		this.units = units;
 	}
 	
-	public int getValue() {
-		return value;
+	public String getDrugName() {
+		return drugName;
 	}
+
 	
-	public void setValue(int value) {
-		this.value = value;
+	public void setDrugName(String drugName) {
+		this.drugName = drugName;
 	}
+
 	
+	public int getDosageValue() {
+		return dosageValue;
+	}
+
+	
+	public void setDosageValue(int dosageValue) {
+		this.dosageValue = dosageValue;
+	}
+
+		
+	public String getDosageForm() {
+		return dosageForm;
+	}
+
+	
+	public void setDosageForm(String dosageForm) {
+		this.dosageForm = dosageForm;
+	}
+
+	
+	public String getDosageFrequence() {
+		return dosageFrequence;
+	}
+
+	
+	public void setDosageFrequence(String dosageFrequence) {
+		this.dosageFrequence = dosageFrequence;
+	}
+
 	@Override
 	public Integer getId() {
 		

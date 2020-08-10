@@ -26,12 +26,8 @@
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			
-			 <column name="drugId" type="int" >
-			    <constraints nullable="false"/>
-            </column>
 						
-			<column name="doseName" type="varchar(255)" >
+			<column name="drugName" type="varchar(255)" >
 			     <constraints nullable="false"/>
             </column>
             
@@ -39,8 +35,15 @@
 			<constraints nullable="false"/>
             </column>
 			
-			 <column name="value" type="int" >
+			 <column name="dosageValue" type="int" >
 			    <constraints nullable="false"/>
+            </column>
+            <column name="dosageForm" type="varchar(255)" >
+			<constraints nullable="false"/>
+            </column>
+            
+            <column name="dosageFrequence" type="varchar(255)" >
+			<constraints nullable="false"/>
             </column>
 	
              <column name="satgeDay_id" type="int" />

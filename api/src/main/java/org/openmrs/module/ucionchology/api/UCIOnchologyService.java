@@ -107,4 +107,7 @@ public interface UCIOnchologyService extends OpenmrsService {
 	@Transactional
 	public List<Phase> getPhasesByProtocol(int protocolId) throws APIException;
 	
+	@Transactional
+	public List<StageDay> getDaysByPhase(int phaseId) throws APIException;
+	
 }

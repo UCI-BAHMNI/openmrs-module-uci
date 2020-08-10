@@ -166,12 +166,12 @@ public class UCIOnchologyDao {
 		return patients;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Patient> getPatienstByDate(Date date) throws APIException {
 		String hql = "SELECT patientId FROM PatientProtocol WHERE :date BETWEEN dateStarted AND dateStopped";
 		
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setTimestamp("date", date);
-		
 		List<Integer> patientIds = (List<Integer>) query.list();
 		
 		List<Patient> patients = new ArrayList<Patient>();
@@ -191,10 +191,20 @@ public class UCIOnchologyDao {
 		return getProtocalById(protocaolId);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Phase> getPhasesByProtocol(int protocolId) throws APIException {
 		String hql = "FROM Phase WHERE  protocol1.id = :protocoId ";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("protocoId", protocolId);
 		return (List<Phase>) query.list();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<StageDay> getDaysByPhase(int phaseId) throws APIException {
+		String hql = "FROM StageDay WHERE phase.id = :phaseId";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger("phaseId", phaseId);
+		return (List<StageDay>) query.list();
+	}
+	
 }

@@ -14,8 +14,8 @@ ${ ui.includeFragment("ucionchology", "protocolDetails") }
        ${ ui.includeFragment("uicommons", "field/text", [ "id": "phaseName", "label": "Phase Name", "formFieldName": "phaseName" ])}  
    </p>
    
-   <p> Protocol id</p>
-    <input id='protocol_id'  name='protocol_id' value='${protocol.id}'/>
+ 
+    <input id='protocol_id' type='hidden' name='protocol_id' value='${protocol.id}'/>
    
     <p >
     ${ ui.includeFragment("uicommons", "field/text", [ "id": "numberOfDays", "label": "Number Of Days", "formFieldName": "numberOfDays" ]) } 
