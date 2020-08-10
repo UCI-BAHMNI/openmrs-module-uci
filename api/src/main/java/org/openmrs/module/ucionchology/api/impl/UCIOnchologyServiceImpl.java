@@ -162,8 +162,12 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 	
 	@Override
 	public List<Phase> getPhasesByProtocol(int protocolId) throws APIException {
-		// TODO Auto-generated method stub
 		return dao.getPhasesByProtocol(protocolId);
+	}
+	
+	@Override
+	public List<StageDay> getDaysByPhase(int phaseId) throws APIException {
+		return dao.getDaysByPhase(phaseId);
 	}
 	
 	/**

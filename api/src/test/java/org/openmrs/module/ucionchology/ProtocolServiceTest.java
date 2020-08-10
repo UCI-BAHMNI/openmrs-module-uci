@@ -37,7 +37,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		Phase phase = new Phase();
 		DayDrugDosage drug = service.getDayDrugDosageById(1);
 		//System.out.println(drug.getDoseName());
-		Assert.assertEquals("", "drug1", drug.getDoseName());
+		Assert.assertEquals("", "drug1", drug.getDrugName());
 	}
 	
 	@Test
@@ -46,16 +46,16 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		StageDay day = service.getStageDayById(2);
 		
 		DayDrugDosage dose = new DayDrugDosage();
-		dose.setDrugId(2);
-		;
-		dose.setDoseName("asplin");
+		dose.setDrugName("asplin");
 		dose.setUnits("spoon");
-		dose.setValue(3);
+		dose.setDosageValue(3);
+		dose.setDosageForm("Tabs");
+		dose.setDosageFrequence("OD");
 		dose.setStageDay(day);
 		
 		DayDrugDosage saved_dose = service.saveOrUpdateDayDrugDosage(dose);
 		//System.out.println(dose.getDoseName());
-		Assert.assertEquals("", "asplin", dose.getDoseName());
+		Assert.assertEquals("", "asplin", dose.getDrugName());
 	}
 	
 	@Test
@@ -114,5 +114,12 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		List<Phase> phases = service.getPhasesByProtocol(1);
 		//System.out.println(phases.size());
 		Assert.assertEquals("", 2, phases.size());
+	}
+	
+	@Test
+	public void getDaysByPhase() throws ParseException {
+		List<StageDay> days = service.getDaysByPhase(1);
+		//System.out.println(phases.size());
+		Assert.assertEquals("", 2, days.size());
 	}
 }

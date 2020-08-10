@@ -18,16 +18,16 @@
   <stage_day id="2"   dayNumber="1"   phase_id="1" uuid="UUID7"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />
   
-  <drug_dosage id="1"   drugId="1" doseName="drug1" 
-  units="kavuma"  value="3"  stageDay_id="1" uuid="UUID1"  creator="1"
+ <drug_dosage id="1"  drugName="drug1" 
+  units="kavuma"  dosageValue="3"  dosageForm = "oral" dosageFrequence="OD" stageDay_id="1" uuid="UUID8D1"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" /> 
+  
+  <drug_dosage id="2"  drugName="drug2" 
+  units="kavuma"  dosageValue="3"  dosageForm = "oral" dosageFrequence="OD" stageDay_id="1" uuid="UUID8D2"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />  
   
-  <drug_dosage id="2"   drugId="1" doseName="drug1" 
-  units="kavuma"  value="3"  stageDay_id="1" uuid="UUID8"  creator="1"
-  date_created="2020-02-22 00:00:00" voided="false" />  
-  
-  <drug_dosage id="3"   drugId="1" doseName="drug1" 
-  units="kavuma"  value="3"  stageDay_id="1" uuid="UUID9"  creator="1"
+   <drug_dosage id="3"  drugName="drug3" 
+  units="kavuma"  dosageValue="3"  dosageForm = "oral" dosageFrequence="OD" stageDay_id="1" uuid="UUID8D3"  creator="1"
   date_created="2020-02-22 00:00:00" voided="true" />  
   
   <patient_protocal id="1" patientId="2"   protocalId="1"  dateStarted="2020-02-22 00:00:00"

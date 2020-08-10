@@ -12,9 +12,6 @@ public class PhasePageController {
 	
 	UCIOnchologyService onchlogyService;
 	
-	public void get(PageModel model) {
-	}
-	
 	public void post(PageModel model, @RequestParam(required = true, value = "phaseName") String phaseName,
 	        @RequestParam(required = true, value = "protocol_id") Integer protocol_id,
 	        @RequestParam(required = true, value = "numberOfDays") Integer numberOfDays,
@@ -31,6 +28,9 @@ public class PhasePageController {
 		phase.setOrder(phase_order);
 		phase.setCreator(creator);
 		onchlogyService.saveOrUpdatePhase(phase);
+	}
+	
+	public void get(PageModel model) {
 	}
 	
 }
