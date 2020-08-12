@@ -170,6 +170,11 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 		return dao.getDaysByPhase(phaseId);
 	}
 	
+	@Override
+	public List<DayDrugDosage> getDrugsByDay(int dayId) throws APIException {
+		return dao.getDrugsByDay(dayId);
+	}
+	
 	/**
 	 * Injected in moduleApplicationContext.xml
 	 */

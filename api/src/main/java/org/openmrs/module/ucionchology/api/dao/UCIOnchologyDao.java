@@ -207,4 +207,12 @@ public class UCIOnchologyDao {
 		return (List<StageDay>) query.list();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<DayDrugDosage> getDrugsByDay(int dayId) throws APIException {
+		String hql = "FROM DayDrugDosage WHERE stageDay.id = :dayId";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger("dayId", dayId);
+		return (List<DayDrugDosage>) query.list();
+	}
+	
 }

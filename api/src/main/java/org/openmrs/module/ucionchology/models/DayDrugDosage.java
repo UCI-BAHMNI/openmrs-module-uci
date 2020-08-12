@@ -59,7 +59,6 @@ public class DayDrugDosage extends BaseOpenmrsData {
 		this.stageDay = stageDay;
 	}
 	
-	
 	public String getUnits() {
 		return units;
 	}
@@ -71,42 +70,35 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	public String getDrugName() {
 		return drugName;
 	}
-
 	
 	public void setDrugName(String drugName) {
 		this.drugName = drugName;
 	}
-
 	
 	public int getDosageValue() {
 		return dosageValue;
 	}
-
 	
 	public void setDosageValue(int dosageValue) {
 		this.dosageValue = dosageValue;
 	}
-
-		
+	
 	public String getDosageForm() {
 		return dosageForm;
 	}
-
 	
 	public void setDosageForm(String dosageForm) {
 		this.dosageForm = dosageForm;
 	}
-
 	
 	public String getDosageFrequence() {
 		return dosageFrequence;
 	}
-
 	
 	public void setDosageFrequence(String dosageFrequence) {
 		this.dosageFrequence = dosageFrequence;
 	}
-
+	
 	@Override
 	public Integer getId() {
 		

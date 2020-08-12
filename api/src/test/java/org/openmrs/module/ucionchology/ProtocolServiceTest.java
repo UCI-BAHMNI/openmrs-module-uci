@@ -122,4 +122,11 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		//System.out.println(phases.size());
 		Assert.assertEquals("", 2, days.size());
 	}
+	
+	@Test
+	public void getDrugsByDay() throws ParseException {
+		List<DayDrugDosage> drugs = service.getDrugsByDay(1);
+		//System.out.println(phases.size());
+		Assert.assertEquals("", 3, drugs.size());
+	}
 }
