@@ -46,7 +46,7 @@
 			<constraints nullable="false"/>
             </column>
 	
-             <column name="satgeDay_id" type="int" />
+             <column name="stageDay_id" type="int" />
              
             <column name="uuid" type="char(38)">
 				<constraints nullable="false" unique="true"></constraints>
@@ -67,7 +67,7 @@
             </column>
 		</createTable>
 		
-		<addForeignKeyConstraint constraintName="satgeDay_id_fk" baseTableName="drug_dosage" baseColumnNames="satgeDay_id"  referencedTableName="stage_day"
+		<addForeignKeyConstraint constraintName="satgeDay_id_fk" baseTableName="drug_dosage" baseColumnNames="stageDay_id"  referencedTableName="stage_day"
                                  referencedColumnNames="id" />
     </changeSet>
     
