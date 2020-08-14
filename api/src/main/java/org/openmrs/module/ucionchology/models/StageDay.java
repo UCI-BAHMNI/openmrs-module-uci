@@ -13,12 +13,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.openmrs.BaseOpenmrsData;
-import org.openmrs.Drug;
 
 @Entity
 @Table(name = "stage_day")
 public class StageDay extends BaseOpenmrsData {
 	
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	@Column
