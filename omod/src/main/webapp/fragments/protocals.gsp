@@ -10,7 +10,8 @@
       <td>${ ui.format(it.id) }</td>
       <td>${ ui.format(it.protocalName) }</td>
       <td>${ ui.format(it.diagnosis) }</td>
-      <td><a target="_blank" href='${ ui.pageLink("ucionchology","phase") }?id=${ ui.format(it.id)}'><i class="icon-plus-sign edit-action" > </i></a></td>
+      <td><a target="_blank" href='${ ui.pageLink("ucionchology","phase") }?id=${ ui.format(it.id)}' title="Complete Protocal"><i class="icon-share edit-action" > </i></a></td>
+       <td><a target="_blank" href='${ ui.pageLink("ucionchology","viewProtocal")}?protocalId=${ ui.format(it.id)}' title="View Protocal"><i class="icon-eye-open edit-action" > </i></a></td>
     </tr>
   <% } %>
 <% } else { %>

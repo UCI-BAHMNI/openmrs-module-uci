@@ -10,7 +10,7 @@
       <td>${ ui.format(it.id) }</td>
       <td>${ ui.format(it.phaseName) }</td>
       <td>${ ui.format(it.protocol1.protocalName) }</td>
-      <td><a target="_blank" href='${ ui.pageLink("ucionchology","day") }?phaseId=${ ui.format(it.id)}'><i class="icon-plus-sign edit-action" > </i></a></td>
+      <td><a target="_blank" href='${ ui.pageLink("ucionchology","day") }?phaseId=${ ui.format(it.id)}' title="Complete Phase"><i class="icon-share edit-action" > </i></a></td>
     </tr>
   <% } %>
 <% } else { %>
