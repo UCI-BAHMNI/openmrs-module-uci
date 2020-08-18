@@ -20,7 +20,7 @@ public class Protocol extends BaseOpenmrsData {
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue
 	@Column

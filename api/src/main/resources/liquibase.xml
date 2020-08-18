@@ -38,7 +38,10 @@
 			 <column name="dosageValue" type="int" >
 			    <constraints nullable="false"/>
             </column>
-            <column name="dosageForm" type="varchar(255)" >
+
+             <column name="maxDoseValue" type="int" />
+			
+            <column name="dosageRoute" type="varchar(255)" >
 			<constraints nullable="false"/>
             </column>
             

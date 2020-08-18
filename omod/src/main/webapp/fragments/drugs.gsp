@@ -5,7 +5,7 @@
  <th>drug units</th>
  <th>drug dose value</th>
  <th>Protocol Name</th>
- <th>drug Name</th>
+ <th>Phase Name</th>
  </tr>
  <% if (drugs) { %>
     <% drugs.each { %>
