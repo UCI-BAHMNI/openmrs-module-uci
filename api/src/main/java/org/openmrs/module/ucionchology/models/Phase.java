@@ -18,6 +18,11 @@ import org.openmrs.BaseOpenmrsData;
 @Table(name = "phase_table")
 public class Phase extends BaseOpenmrsData {
 	
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
 	@Column

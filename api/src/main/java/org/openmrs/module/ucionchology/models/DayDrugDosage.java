@@ -41,11 +41,15 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	
 	@Basic
 	@Column(nullable = false)
-	private String dosageForm;
+	private String dosageRoute;
 	
 	@Basic
 	@Column(nullable = false)
 	private String dosageFrequence;
+	
+	@Basic
+	@Column
+	private int maxDoseValue;
 	
 	@ManyToOne
 	@JoinColumn(name = "stageDay_id", nullable = false)
@@ -83,14 +87,6 @@ public class DayDrugDosage extends BaseOpenmrsData {
 		this.dosageValue = dosageValue;
 	}
 	
-	public String getDosageForm() {
-		return dosageForm;
-	}
-	
-	public void setDosageForm(String dosageForm) {
-		this.dosageForm = dosageForm;
-	}
-	
 	public String getDosageFrequence() {
 		return dosageFrequence;
 	}
@@ -109,6 +105,22 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	public void setId(Integer id) {
 		this.id = id;
 		
+	}
+	
+	public String getDosageRoute() {
+		return dosageRoute;
+	}
+	
+	public void setDosageRoute(String dosageRoute) {
+		this.dosageRoute = dosageRoute;
+	}
+	
+	public int getMaxDoseValue() {
+		return maxDoseValue;
+	}
+	
+	public void setMaxDoseValue(int maxDoseValue) {
+		this.maxDoseValue = maxDoseValue;
 	}
 	
 }

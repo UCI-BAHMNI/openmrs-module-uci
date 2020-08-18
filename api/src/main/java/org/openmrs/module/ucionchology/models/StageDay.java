@@ -22,7 +22,7 @@ public class StageDay extends BaseOpenmrsData {
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue
 	@Column

@@ -14,11 +14,8 @@ import java.util.List;
 
 import org.openmrs.Concept;
 import org.openmrs.api.ConceptService;
-import org.openmrs.api.UserService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.UCIOnchologyConstants;
-import org.openmrs.module.ucionchology.api.UCIOnchologyService;
-import org.openmrs.ui.framework.annotation.SpringBean;
 import org.openmrs.ui.framework.fragment.FragmentModel;
 
 /**

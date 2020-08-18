@@ -2,7 +2,6 @@ package org.openmrs.module.ucionchology;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.api.UCIOnchologyService;
 import org.openmrs.module.ucionchology.models.DayDrugDosage;
@@ -34,7 +33,6 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 	
 	@Test
 	public void should_getDrugDosageById() throws Exception {
-		Phase phase = new Phase();
 		DayDrugDosage drug = service.getDayDrugDosageById(1);
 		//System.out.println(drug.getDoseName());
 		Assert.assertEquals("", "drug1", drug.getDrugName());
@@ -49,13 +47,14 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		dose.setDrugName("asplin");
 		dose.setUnits("spoon");
 		dose.setDosageValue(3);
-		dose.setDosageForm("Tabs");
+		dose.setDosageRoute("Mouth");
+		dose.setMaxDoseValue(3);
 		dose.setDosageFrequence("OD");
 		dose.setStageDay(day);
 		
 		DayDrugDosage saved_dose = service.saveOrUpdateDayDrugDosage(dose);
 		//System.out.println(dose.getDoseName());
-		Assert.assertEquals("", "asplin", dose.getDrugName());
+		Assert.assertEquals("", "asplin", saved_dose.getDrugName());
 	}
 	
 	@Test
@@ -74,7 +73,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		service.saveOrUpdateDayDrugDosage(drug);
 		DayDrugDosage voided_drug = service.getDayDrugDosageById(1);
 		//System.out.println(voided_drug.getVoided().toString());
-		Assert.assertTrue(drug.getVoided());
+		Assert.assertTrue(voided_drug.getVoided());
 	}
 	
 	@Test

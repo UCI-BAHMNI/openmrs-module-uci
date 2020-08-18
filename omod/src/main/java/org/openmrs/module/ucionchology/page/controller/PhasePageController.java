@@ -5,6 +5,7 @@ import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.api.UCIOnchologyService;
 import org.openmrs.module.ucionchology.models.Phase;
 import org.openmrs.module.ucionchology.models.Protocol;
+import org.openmrs.module.ucionchology.models.StageDay;
 import org.openmrs.ui.framework.page.PageModel;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,7 +28,17 @@ public class PhasePageController {
 		phase.setProtocol1(protocol1);
 		phase.setOrder(phase_order);
 		phase.setCreator(creator);
+		phase.setNumberOfDays(numberOfDays);
 		onchlogyService.saveOrUpdatePhase(phase);
+		
+		for (int day = 1; day <= numberOfDays; day++) {
+			StageDay newDay = new StageDay();
+			newDay.setDayNumber(day);
+			newDay.setPhase(onchlogyService.saveOrUpdatePhase(phase));
+			newDay.setCreator(creator);
+			onchlogyService.saveOrUpdateStageDay(newDay);
+		}
+		
 	}
 	
 	public void get(PageModel model) {

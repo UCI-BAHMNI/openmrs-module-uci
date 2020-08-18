@@ -7,6 +7,7 @@ import org.openmrs.Concept;
 import org.openmrs.ConceptClass;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;
+import org.openmrs.module.ucionchology.UCIOnchologyConstants;
 import org.openmrs.ui.framework.fragment.FragmentModel;
 
 public class DrugListFragmentController {
@@ -17,14 +18,42 @@ public class DrugListFragmentController {
 		
 		conceptService = Context.getConceptService();
 		
-		ConceptClass drugClass = conceptService.getConceptClassByName("Drug");
+		ConceptClass drugClass = conceptService.getConceptClassByName(UCIOnchologyConstants.CONCEPT_CLASS_DRUG);
 		List<Concept> concepts = conceptService.getConceptsByClass(drugClass);
-		
-		List<String> names = new ArrayList<String>();
+		List<String> drugNames = new ArrayList<String>();
 		for (Concept c : concepts) {
-			names.add(c.getName().getName());
+			drugNames.add(c.getName().getName());
 		}
 		
-		model.addAttribute("drugList", names);
+		model.addAttribute("drugList", drugNames);
+		
+		ConceptClass unitsClass = conceptService.getConceptClassByName(UCIOnchologyConstants.CONCEPT_CLASS_UNITS);
+		List<Concept> unitsConcepts = conceptService.getConceptsByClass(unitsClass);
+		List<String> unitsNames = new ArrayList<String>();
+		for (Concept c : unitsConcepts) {
+			unitsNames.add(c.getName().getName());
+		}
+		
+		model.addAttribute("unitsList", unitsNames);
+		
+		List<Concept> routeConcepts = conceptService.getConcept(UCIOnchologyConstants.CONCEPT_ID_ROUTES).getSetMembers();
+		
+		List<String> routes = new ArrayList<String>();
+		for (Concept c : routeConcepts) {
+			routes.add(c.getName().getName());
+		}
+		
+		model.addAttribute("routesList", routes);
+		
+		ConceptClass frequenceClass = conceptService
+		        .getConceptClassByName(UCIOnchologyConstants.CONCEPT_CLASS_DRUG_FREQUENCE);
+		List<Concept> frequenceConcepts = conceptService.getConceptsByClass(frequenceClass);
+		List<String> frequenceList = new ArrayList<String>();
+		for (Concept c : frequenceConcepts) {
+			frequenceList.add(c.getName().getName());
+		}
+		
+		model.addAttribute("frequecyList", frequenceList);
 	}
+	
 }
