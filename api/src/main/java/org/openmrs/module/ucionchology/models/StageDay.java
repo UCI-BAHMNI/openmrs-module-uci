@@ -3,13 +3,15 @@ package org.openmrs.module.ucionchology.models;
 import java.util.Set;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.openmrs.BaseOpenmrsData;
@@ -32,7 +34,8 @@ public class StageDay extends BaseOpenmrsData {
 	@Column
 	private int dayNumber;
 	
-	@OneToMany(mappedBy = "stageDay")
+	@ManyToMany(cascade = { CascadeType.ALL })
+	@JoinTable(name = "day_doze", joinColumns = { @JoinColumn(name = "day_id") }, inverseJoinColumns = { @JoinColumn(name = "drug_id") })
 	private Set<DayDrugDosage> dosage;
 	
 	@ManyToOne

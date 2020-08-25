@@ -50,7 +50,6 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		dose.setDosageRoute("Mouth");
 		dose.setMaxDoseValue(3);
 		dose.setDosageFrequence("OD");
-		dose.setStageDay(day);
 		
 		DayDrugDosage saved_dose = service.saveOrUpdateDayDrugDosage(dose);
 		//System.out.println(dose.getDoseName());
@@ -123,9 +122,14 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 	}
 	
 	@Test
-	public void getDrugsByDay() throws ParseException {
-		List<DayDrugDosage> drugs = service.getDrugsByDay(1);
+	public void getDaysForAdrug() throws ParseException {
 		//System.out.println(phases.size());
-		Assert.assertEquals("", 3, drugs.size());
+		Assert.assertEquals("", 2, service.getDayDrugDosageById(1).getStageDays().size());
+	}
+	
+	@Test
+	public void getdrugsForAday() throws ParseException {
+		//System.out.println(phases.size());
+		Assert.assertEquals("", 2, service.getStageDayById(1).getDosage().size());
 	}
 }

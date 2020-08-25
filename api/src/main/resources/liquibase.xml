@@ -48,9 +48,7 @@
             <column name="dosageFrequence" type="varchar(255)" >
 			<constraints nullable="false"/>
             </column>
-	
-             <column name="stageDay_id" type="int" />
-             
+	         
             <column name="uuid" type="char(38)">
 				<constraints nullable="false" unique="true"></constraints>
 			</column> 
@@ -69,9 +67,6 @@
                 <constraints nullable="false"/>
             </column>
 		</createTable>
-		
-		<addForeignKeyConstraint constraintName="satgeDay_id_fk" baseTableName="drug_dosage" baseColumnNames="stageDay_id"  referencedTableName="stage_day"
-                                 referencedColumnNames="id" />
     </changeSet>
     
     
@@ -103,9 +98,52 @@
 		</createTable>
 		
     </changeSet>
+
+	 <changeSet id="tp3" author="Mutesasira Moses">
+		<preConditions onFail="MARK_RAN">
+			<not><tableExists tableName="protocal"/></not>
+		</preConditions>
+		<comment>
+			Creating the protocal table
+		</comment>
+		
+		<createTable tableName="protocal">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			
+			 <column name="protocalName" type="varchar(255)" >
+			    <constraints nullable="false"/>
+            </column>
+            
+             <column name="diagnosis" type="varchar(255)" >
+			    <constraints nullable="false"/>
+            </column>
+						
+            <column name="numberOfPhases" type="int" />
+	           
+            <column name="uuid" type="char(38)">
+				<constraints nullable="false" unique="true"></constraints>
+			</column> 
+			<column name="voided_by" type="int"/>
+            <column name="date_voided" type="DATETIME"/>
+            <column name="void_reason" type="varchar(255)"/>
+            <column name="changed_by" type="int"/>
+            <column name="date_changed" type="DATETIME"/>
+            <column name="creator" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="voided" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+		</createTable>	
+    </changeSet>
     
     
-     <changeSet id="tp3" author="Mutesasira Moses">
+     <changeSet id="tp4" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
 			<not><tableExists tableName="phase_table"/></not>
 		</preConditions>
@@ -147,12 +185,12 @@
             </column>
 		</createTable>
 		
-		<addForeignKeyConstraint constraintName="protocol_id_fk" baseTableName="phase_table" baseColumnNames="protocal_id"  referencedTableName="protocol"
+		<addForeignKeyConstraint constraintName="protocol_id_fk" baseTableName="phase_table" baseColumnNames="protocal_id"  referencedTableName="protocal"
                                  referencedColumnNames="id" />
     </changeSet>
     
     
-      <changeSet id="tp4" author="Mutesasira Moses">
+      <changeSet id="tp5" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
 			<not><tableExists tableName="stage_day"/></not>
 		</preConditions>
@@ -196,49 +234,28 @@
     </changeSet>
     
     
-      <changeSet id="tp5" author="Mutesasira Moses">
+     
+ 
+      <changeSet id="tp6" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="protocal"/></not>
+			<not><tableExists tableName="day_doze"/></not>
 		</preConditions>
 		<comment>
-			Creating the protocal table
-		</comment>
-		
-		<createTable tableName="protocal">
-			<column name="id" type="int" autoIncrement="true">
+			Creating the day_doze table
+		</comment>		
+		<createTable tableName="day_doze">
+			<column name="drug_id" type="int" >
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
 			
-			 <column name="protocalName" type="varchar(255)" >
-			    <constraints nullable="false"/>
-            </column>
-            
-             <column name="diagnosis" type="varchar(255)" >
-			    <constraints nullable="false"/>
-            </column>
-						
-            <column name="numberOfPhases" type="int" />
-	           
-            <column name="uuid" type="char(38)">
-				<constraints nullable="false" unique="true"></constraints>
-			</column> 
-			<column name="voided_by" type="int"/>
-            <column name="date_voided" type="DATETIME"/>
-            <column name="void_reason" type="varchar(255)"/>
-            <column name="changed_by" type="int"/>
-            <column name="date_changed" type="DATETIME"/>
-            <column name="creator" type="int">
-                <constraints nullable="false"/>
-            </column>
-            <column name="date_created" type="DATETIME">
-                <constraints nullable="false"/>
-            </column>
-            <column defaultValueBoolean="false" name="voided" type="BOOLEAN">
-                <constraints nullable="false"/>
-            </column>
+            <column name="day_id" type="int" >
+				<constraints primaryKey="true" nullable="false"/>
+			</column>									 
 		</createTable>
-		
+        
+		<addForeignKeyConstraint constraintName="drug_id_fk" baseTableName="day_doze" baseColumnNames="drug_id"  referencedTableName="drug_dosage"
+                                 referencedColumnNames="id" />
+        <addForeignKeyConstraint constraintName="day_id_fk" baseTableName="day_doze" baseColumnNames="day_id"  referencedTableName="stage_day"
+                                 referencedColumnNames="id" />	
     </changeSet>
- 
-     
 </databaseChangeLog>
