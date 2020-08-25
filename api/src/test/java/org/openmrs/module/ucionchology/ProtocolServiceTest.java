@@ -2,6 +2,7 @@ package org.openmrs.module.ucionchology;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.openmrs.User;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.api.UCIOnchologyService;
 import org.openmrs.module.ucionchology.models.DayDrugDosage;
@@ -13,7 +14,9 @@ import org.openmrs.test.BaseModuleContextSensitiveTest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Assert;
 
@@ -132,4 +135,110 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		//System.out.println(phases.size());
 		Assert.assertEquals("", 2, service.getStageDayById(1).getDosage().size());
 	}
+	
+	@Test
+	public void addDaystoDrug() throws ParseException {
+		Set<StageDay> days = new HashSet();
+		
+		StageDay day1 = new StageDay();
+		day1.setId(10);
+		day1.setPhase(service.getPhaseById(1));
+		
+		StageDay day2 = new StageDay();
+		day2.setId(10);
+		day2.setPhase(service.getPhaseById(1));
+		
+		days.add(day1);
+		days.add(day2);
+		
+		//DayDrugDosage drug1 = service.getDayDrugDosageById(1);
+		DayDrugDosage drug = new DayDrugDosage();
+		drug.setId(2);
+		drug.setDrugName("drugName");
+		drug.setUnits("units");
+		drug.setDosageValue(3);
+		drug.setDosageRoute("oute");
+		drug.setDosageFrequence("dosageFrequence");
+		drug.setMaxDoseValue(8);
+		drug.setCreator(new User());
+		drug.setStageDays(days);
+		//System.out.println("all drugs.......................");
+		//System.out.println(drug.getStageDays().size());
+		
+		Assert.assertEquals("", 2, drug.getStageDays().size());
+		
+	}
+	
+	@Test
+	public void addDaystoPersistedDrug() throws ParseException {
+		Set<StageDay> days = new HashSet();
+		
+		StageDay day1 = new StageDay();
+		day1.setId(10);
+		day1.setPhase(service.getPhaseById(1));
+		
+		StageDay day2 = new StageDay();
+		day2.setId(11);
+		day2.setPhase(service.getPhaseById(1));
+		
+		StageDay day3 = new StageDay();
+		day3.setId(12);
+		day3.setPhase(service.getPhaseById(1));
+		
+		days.add(day1);
+		days.add(day2);
+		days.add(day3);
+		
+		DayDrugDosage drug = service.getDayDrugDosageById(1);
+		
+		drug.setStageDays(days);
+		
+		//System.out.println("before: all drugs.......................");
+		//System.out.println(drug.getStageDays().size());//3
+		Assert.assertEquals("", 3, drug.getStageDays().size());
+		
+		service.saveOrUpdateDayDrugDosage(drug);
+		
+		//After persisting
+		Assert.assertEquals("", 3, service.getDayDrugDosageById(1).getStageDays().size());
+	}
+	
+	@Test
+	public void addMoreDaystoPersistedDrug() throws ParseException {
+		Set<StageDay> days = new HashSet();
+		
+		StageDay day1 = new StageDay();
+		day1.setId(10);
+		day1.setPhase(service.getPhaseById(1));
+		
+		StageDay day2 = new StageDay();
+		day2.setId(11);
+		day2.setPhase(service.getPhaseById(1));
+		
+		StageDay day3 = new StageDay();
+		day3.setId(12);
+		day3.setPhase(service.getPhaseById(1));
+		
+		days.add(day1);
+		days.add(day2);
+		days.add(day3);
+		
+		DayDrugDosage drug = service.getDayDrugDosageById(1);
+		//before adding days
+		Assert.assertEquals("", 2, drug.getStageDays().size());
+		
+		//append more days
+		days.addAll(drug.getStageDays());
+		drug.setStageDays(days);
+		
+		//System.out.println("after adding days.......................");
+		//System.out.println(drug.getStageDays().size());//3
+		Assert.assertEquals("", 5, drug.getStageDays().size());
+		
+		service.saveOrUpdateDayDrugDosage(drug);
+		
+		//After persisting
+		Assert.assertEquals("", 5, service.getDayDrugDosageById(1).getStageDays().size());
+	}
+	
 }
