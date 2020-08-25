@@ -1,6 +1,5 @@
 package org.openmrs.module.ucionchology.page.controller;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -23,25 +22,26 @@ public class DrugPageController {
 	        @RequestParam(required = false, value = "maxDoseValue") Integer maxDoseValue,
 	        @RequestParam(required = true, value = "routes") String route,
 	        @RequestParam(required = true, value = "dosageFrequence") String dosageFrequence,
-	        @RequestParam(required = true, value = "dayId") Integer dayId,
-	        @RequestParam(required = true, value = "otherDays") List<Integer> otherDaysId) {
+	        @RequestParam(required = true, value = "days") List<Integer> allDaysId) {
 		
 		onchlogyService = Context.getService(UCIOnchologyService.class);
 		
-		User creator = Context.getUserContext().getAuthenticatedUser();
-		for (Integer otherDayId : otherDaysId) {
-			StageDay day = onchlogyService.getStageDayById(otherDayId);
-			DayDrugDosage drug = new DayDrugDosage();
-			drug.setDrugName(drugName);
-			drug.setUnits(units);
-			drug.setDosageValue(dosageValue);
-			drug.setDosageRoute(route);
-			drug.setDosageFrequence(dosageFrequence);
-			drug.setMaxDoseValue(maxDoseValue);
-			drug.setStageDay(day);
-			drug.setCreator(creator);
-			onchlogyService.saveOrUpdateDayDrugDosage(drug);
+		Set<StageDay> days = new HashSet();
+		for (Integer dayId : allDaysId) {
+			StageDay day = onchlogyService.getStageDayById(dayId);
+			days.add(day);
 		}
+		User creator = Context.getUserContext().getAuthenticatedUser();
+		DayDrugDosage drug = new DayDrugDosage();
+		drug.setDrugName(drugName);
+		drug.setUnits(units);
+		drug.setDosageValue(dosageValue);
+		drug.setDosageRoute(route);
+		drug.setDosageFrequence(dosageFrequence);
+		drug.setMaxDoseValue(maxDoseValue);
+		drug.setCreator(creator);
+		drug.setStageDays(days);
+		onchlogyService.saveOrUpdateDayDrugDosage(drug);
 	}
 	
 	public void get(PageModel model) {

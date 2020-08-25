@@ -110,7 +110,4 @@ public interface UCIOnchologyService extends OpenmrsService {
 	@Transactional
 	public List<StageDay> getDaysByPhase(int phaseId) throws APIException;
 	
-	@Transactional
-	public List<DayDrugDosage> getDrugsByDay(int dayId) throws APIException;
-	
 }

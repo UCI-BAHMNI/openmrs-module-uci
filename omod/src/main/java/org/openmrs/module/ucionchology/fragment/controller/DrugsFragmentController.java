@@ -10,6 +10,6 @@ public class DrugsFragmentController {
 	public void controller(FragmentModel model, @RequestParam(required = true, value = "dayId") Integer dayId) {
 		
 		UCIOnchologyService onchlogyService = Context.getService(UCIOnchologyService.class);
-		model.addAttribute("drugs", onchlogyService.getDrugsByDay(dayId));
+		model.addAttribute("drugs", onchlogyService.getStageDayById(dayId).getDosage());
 	}
 }

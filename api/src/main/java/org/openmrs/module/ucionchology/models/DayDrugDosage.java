@@ -1,12 +1,13 @@
 package org.openmrs.module.ucionchology.models;
 
+import java.util.Set;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.openmrs.BaseOpenmrsData;
@@ -51,17 +52,8 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	@Column
 	private int maxDoseValue;
 	
-	@ManyToOne
-	@JoinColumn(name = "stageDay_id", nullable = false)
-	private StageDay stageDay;
-	
-	public StageDay getStageDay() {
-		return stageDay;
-	}
-	
-	public void setStageDay(StageDay stageDay) {
-		this.stageDay = stageDay;
-	}
+	@ManyToMany(mappedBy = "dosage")
+	private Set<StageDay> stageDays;
 	
 	public String getUnits() {
 		return units;
@@ -121,6 +113,14 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	
 	public void setMaxDoseValue(int maxDoseValue) {
 		this.maxDoseValue = maxDoseValue;
+	}
+	
+	public Set<StageDay> getStageDays() {
+		return stageDays;
+	}
+	
+	public void setStageDays(Set<StageDay> stageDays) {
+		this.stageDays = stageDays;
 	}
 	
 }

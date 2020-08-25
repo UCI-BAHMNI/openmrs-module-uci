@@ -3,8 +3,6 @@
 %>
 
 
-${ ui.includeFragment("ucionchology", "dayDetails") }
-
 <form id="drugForm" method="post">
 
 <fieldset id="create_drug" >
@@ -20,13 +18,10 @@ ${ ui.includeFragment("ucionchology", "dayDetails") }
    <p >
    ${ ui.includeFragment("uicommons", "field/text", [ "id": "maxdosageValue", "label": "Maximum doze value", "formFieldName": "maxDoseValue" ])}  
   </p>
+ 
     <p>
-    <input id='dayId'  name='dayId' value='${day.id}' readonly/>
-   </p>
-
-    <p>
-     <p>Select Other days</p>
-  <select name="otherDays" id="cars" multiple>
+     <p>Select days</p>
+  <select name="days" id="days" multiple>
      <%phaseDays.each {otherDay -> %> 
           <option value="${otherDay.id}">${otherDay.dayNumber}</option>
         <% } %>
@@ -36,5 +31,3 @@ ${ ui.includeFragment("ucionchology", "dayDetails") }
 <button id="submit" type="submit">Add Drug</button>
 </fieldset>
 </form>
-
-${ ui.includeFragment("ucionchology", "drugs") }

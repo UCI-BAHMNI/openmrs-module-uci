@@ -19,15 +19,15 @@
   date_created="2020-02-22 00:00:00" voided="false" />
   
  <drug_dosage id="1"  drugName="drug1" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1' stageDay_id="1" uuid="UUID8D1"  creator="1"
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  uuid="UUID8D1"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" /> 
   
   <drug_dosage id="2"  drugName="drug2" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1' stageDay_id="1" uuid="UUID8D2"  creator="1"
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  uuid="UUID8D2"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />  
   
    <drug_dosage id="3"  drugName="drug3" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1' stageDay_id="1" uuid="UUID8D3"  creator="1"
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  uuid="UUID8D3"  creator="1"
   date_created="2020-02-22 00:00:00" voided="true" />  
   
   <patient_protocal id="1" patientId="2"   protocalId="1"  dateStarted="2020-02-22 00:00:00"
@@ -42,5 +42,7 @@
    <patient_protocal id="3" patientId="7"   protocalId="1"  dateStarted="2020-09-22 00:00:00"
   dateStopped="2020-10-22 00:00:00"  />
   
- 
+ <day_doze  drug_id = "1" day_id= "1" />
+ <day_doze  drug_id = "1" day_id= "2" />
+ <day_doze  drug_id = "2" day_id= "1" />
 </dataset>
