@@ -26,11 +26,8 @@ public class DrugPageController {
 		
 		onchlogyService = Context.getService(UCIOnchologyService.class);
 		
-		Set<StageDay> days = new HashSet();
-		for (Integer dayId : allDaysId) {
-			StageDay day = onchlogyService.getStageDayById(dayId);
-			days.add(day);
-		}
+		Set<DayDrugDosage> drugs = new HashSet();
+		
 		User creator = Context.getUserContext().getAuthenticatedUser();
 		DayDrugDosage drug = new DayDrugDosage();
 		drug.setDrugName(drugName);
@@ -40,8 +37,15 @@ public class DrugPageController {
 		drug.setDosageFrequence(dosageFrequence);
 		drug.setMaxDoseValue(maxDoseValue);
 		drug.setCreator(creator);
-		drug.setStageDays(days);
 		onchlogyService.saveOrUpdateDayDrugDosage(drug);
+		
+		for (Integer dayId : allDaysId) {
+			StageDay day = onchlogyService.getStageDayById(dayId);
+			drugs.addAll(day.getDosage());
+			drugs.add(drug);
+			day.setDosage(drugs);
+			onchlogyService.saveOrUpdateStageDay(day);
+		}
 	}
 	
 	public void get(PageModel model) {

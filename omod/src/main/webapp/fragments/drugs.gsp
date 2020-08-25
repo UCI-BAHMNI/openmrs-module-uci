@@ -4,8 +4,8 @@
  <th>drug Name</th>
  <th>drug units</th>
  <th>drug dose value</th>
- <th>Protocol Name</th>
- <th>Phase Name</th>
+ <th>Route</th>
+ <th>Frequence</th>
  </tr>
  <% if (drugs) { %>
     <% drugs.each { %>
@@ -14,8 +14,8 @@
        <td>${ ui.format(it.drugName) }</td>
        <td>${ ui.format(it.units)}</td>
        <td>${ ui.format(it.dosageValue) }</td>
-       <td>${ ui.format(it.stageDay.phase.protocol1.protocalName) }</td>
-       <td>${ ui.format(it.stageDay.phase.phaseName) }</td>
+       <td>${ ui.format(it.dosageRoute) }</td>
+       <td>${ ui.format(it.dosageFrequence) }</td>
      </tr>
    <% } %>
  <% } else { %>
