@@ -21,11 +21,10 @@
  
     <p>
      <p>Select days</p>
-  <select name="days" id="days" multiple>
      <%phaseDays.each {otherDay -> %> 
-          <option value="${otherDay.id}">${otherDay.dayNumber}</option>
+          <input type="checkbox" id="${otherDay.id}" name="days" value="${otherDay.id}">
+         <label for="vehicle1">${otherDay.dayNumber}</label><br>
         <% } %>
-   </select>
     </p>
 
 <button id="submit" type="submit">Add Drug</button>
