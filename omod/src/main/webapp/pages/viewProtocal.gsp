@@ -17,27 +17,47 @@ var breadcrumbs = [
 <table>
    <% if (protocol.phase) { %>
    <% protocol.phase.each { %>
-    <tr>
-      
+    <tr>  
       <th><h4> ${ ui.format(it.phaseName) } </h4> </th>
-      <th><h4> ${ ui.format(it.protocol1.protocalName) } </h4> </th>
     </tr>
      <tr>
-      <td colspan ="2"> 
+      <td > 
         
                <table>
+                <tr>                  
+                     <td>
+                     <div>
+                     <p>Days</p>                
+                 
                 <% if (it.stageDay) { %>
                <% it.stageDay.each { %>
-                  <tr>
-                     <td>${ ui.format(it.id) }</td>
-                      <td>${ ui.format(it.dayNumber) }</td>                 
-                  </tr>
+               <div style="margin-left:20px">
+                  <ul style="list-style-type:disc">                  
+                      <li>${ ui.format(it.dayNumber)}</li>                 
+                  </ul> 
+                         <% if (it.dosage) { %>
+                         <% it.dosage.each { %>  
+                                <div style="margin-left:20px">
+                                   <ul style="list-style-type:square">                  
+                                       <li>${ ui.format(it.drugName)}</li>                 
+                                  </ul> 
+                                 </div> 
+                          <% } %>
+                           <% } else { %>
+                           <ul>
+                                    No drug
+                            </ul>
+                             <% } %>
+                </div>
               <% } %>
               <% } else { %>
-               <tr>
+               <ul>
                  <td colspan="3">${ ui.message("no day") }</td>
-              </tr>
+              </ul>
              <% } %>
+              </div>
+               </td> 
+              </tr>
          </table>
          
       </td>

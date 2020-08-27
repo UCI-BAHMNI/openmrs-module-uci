@@ -9,7 +9,6 @@ import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.UCIOnchologyConstants;
 import org.openmrs.module.ucionchology.api.UCIOnchologyService;
-import org.openmrs.module.ucionchology.models.Phase;
 import org.openmrs.ui.framework.page.PageModel;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,7 +16,7 @@ public class DrugListFragmentController {
 	
 	ConceptService conceptService;
 	
-	public void controller(PageModel model, @RequestParam(required = true, value = "dayId") Integer dayId) {
+	public void controller(PageModel model, @RequestParam(required = true, value = "phaseId") Integer phaseId) {
 		
 		conceptService = Context.getConceptService();
 		
@@ -59,9 +58,11 @@ public class DrugListFragmentController {
 		model.addAttribute("frequecyList", frequenceList);
 		
 		UCIOnchologyService onchlogyService = Context.getService(UCIOnchologyService.class);
-		Phase phase = onchlogyService.getStageDayById(dayId).getPhase();
 		
-		model.addAttribute("phaseDays", onchlogyService.getDaysByPhase(phase.getId()));
+		model.addAttribute("phaseDays", onchlogyService.getDaysByPhase(phaseId));
+
+		model.addAttribute("phase", onchlogyService.getPhaseById(phaseId));
+
 	}
 	
 }
