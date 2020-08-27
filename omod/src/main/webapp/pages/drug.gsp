@@ -3,11 +3,14 @@
 %>
 
 
+Protocoal : ${phase.protocol1.protocalName}
+Phase :  : ${phase.phaseName}
+Diagnosis : ${phase.protocol1.diagnosis}
 <form id="drugForm" method="post">
 
 <fieldset id="create_drug" >
     <legend>
-      <p>Add Drug</p>
+      <p>Add Drug Dose</p>
       </legend>
       ${ ui.includeFragment("ucionchology", "drugList") }
     
@@ -23,7 +26,7 @@
      <p>Select days</p>
      <%phaseDays.each {otherDay -> %> 
           <input type="checkbox" id="${otherDay.id}" name="days" value="${otherDay.id}">
-         <label for="vehicle1">${otherDay.dayNumber}</label><br>
+          <label for="${otherDay.id}">${otherDay.dayNumber}</label><br>
         <% } %>
     </p>
 
