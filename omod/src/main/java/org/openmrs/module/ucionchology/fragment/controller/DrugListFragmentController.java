@@ -60,9 +60,9 @@ public class DrugListFragmentController {
 		UCIOnchologyService onchlogyService = Context.getService(UCIOnchologyService.class);
 		
 		model.addAttribute("phaseDays", onchlogyService.getDaysByPhase(phaseId));
-
-		model.addAttribute("phase", onchlogyService.getPhaseById(phaseId));
-
+		
+		model.addAttribute("day_phase", onchlogyService.getPhaseById(phaseId));
+		
 	}
 	
 }
