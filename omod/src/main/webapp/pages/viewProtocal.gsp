@@ -10,8 +10,8 @@ var breadcrumbs = [
 </script>
 
 <div>
-<p>Protocal :<h2>${protocol.protocalName}</h2> </p>
-<p> Diagnosis :<h2>${protocol.diagnosis}</h2> </p>
+<p> Protocal : <b>${protocol.protocalName}</b> </p>
+<p> Diagnosis : <b>${protocol.diagnosis}</b> </p>
 </div>
 
 <table>
@@ -19,6 +19,7 @@ var breadcrumbs = [
    <% protocol.phase.each { %>
     <tr>  
       <th><h4> ${ ui.format(it.phaseName) } </h4> </th>
+      <th><a target="_blank" href='${ ui.pageLink("ucionchology","drug") }?phaseId=${ ui.format(it.id)}' title="Add drugs"> <i class="icon-share edit-action" > </i></a></th>
     </tr>
      <tr>
       <td > 
@@ -29,11 +30,13 @@ var breadcrumbs = [
                      <div>
                      <p>Days</p>                
                  
-                <% if (it.stageDay) { %>
-               <% it.stageDay.each { %>
+                <% if (it.sortedDays) { %>
+               <% it.sortedDays.each { %>
                <div style="margin-left:20px">
                   <ul style="list-style-type:disc">                  
-                      <li>${ ui.format(it.dayNumber)}</li>                 
+                      <li>
+                      <a target="_blank" href='${ ui.pageLink("ucionchology","viewDay") }?dayId=${ ui.format(it.id)}' title="View day"> ${ ui.format(it.dayNumber)} </a>
+                      </li>                 
                   </ul> 
                          <% if (it.dosage) { %>
                          <% it.dosage.each { %>  

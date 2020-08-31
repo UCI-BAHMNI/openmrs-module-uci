@@ -1,9 +1,9 @@
 <table>
 <tr>
- <th>drug Id</th>
- <th>drug Name</th>
- <th>drug units</th>
- <th>drug dose value</th>
+ <th>Drug Id</th>
+ <th>Drug Name</th>
+ <th>Drug units</th>
+ <th>Drug dose value</th>
  <th>Route</th>
  <th>Frequence</th>
  </tr>

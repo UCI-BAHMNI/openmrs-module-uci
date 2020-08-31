@@ -1,5 +1,5 @@
    <p>
-   diagnosis
+   Diagnosis
    <input type="text" list="list" name ="diagnosis" >
    </p>
    
