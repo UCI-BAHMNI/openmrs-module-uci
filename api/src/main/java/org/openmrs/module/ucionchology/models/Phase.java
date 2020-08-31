@@ -1,5 +1,8 @@
 package org.openmrs.module.ucionchology.models;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Basic;
@@ -47,7 +50,14 @@ public class Phase extends BaseOpenmrsData {
 	@Column
 	private int phase_order;
 	
-	// check boneMarrowRemisson 
+	// check boneMarrowRemisson
+	
+	public List<StageDay> getSortedDays() {
+		List<StageDay> list = new ArrayList<StageDay>();
+		list = convertToList(getStageDay());
+		Collections.sort(list);
+		return list;
+	}
 	
 	public Protocol getProtocol1() {
 		return protocol1;
@@ -101,4 +111,10 @@ public class Phase extends BaseOpenmrsData {
 		this.stageDay = stageDay;
 	}
 	
+	public <T> List<T> convertToList(Set<T> set) {
+		List<T> items = new ArrayList<T>();
+		for (T e : set)
+			items.add(e);
+		return items;
+	}
 }

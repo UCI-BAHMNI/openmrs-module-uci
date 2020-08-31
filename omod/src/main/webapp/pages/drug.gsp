@@ -2,7 +2,7 @@
     ui.decorateWith("appui", "standardEmrPage")
 %>
 
-
+ ${ ui.includeFragment("ucionchology", "drugProtocalDetails") }
 
 <form id="drugForm" method="post">
 
@@ -31,8 +31,3 @@
 <button id="submit" type="submit">Add Drug</button>
 </fieldset>
 </form>
-<div>
-<p>Protocoal : <h2>${day_phase.protocol1.protocalName} </h2> </p>
-<p> Phase   : <h2> ${day_phase.phaseName} </h2> </p>
-<p> Diagnosis : <h2> ${day_phase.protocol1.diagnosis} </h2> </p>
-</div>

@@ -18,7 +18,7 @@ import org.openmrs.BaseOpenmrsData;
 
 @Entity
 @Table(name = "stage_day")
-public class StageDay extends BaseOpenmrsData {
+public class StageDay extends BaseOpenmrsData implements Comparable<StageDay> {
 	
 	/**
 	 *
@@ -76,6 +76,11 @@ public class StageDay extends BaseOpenmrsData {
 	public void setId(Integer id) {
 		this.id = id;
 		
+	}
+	
+	@Override
+	public int compareTo(StageDay day) {
+		return new Integer(this.getDayNumber()).compareTo(new Integer(day.getDayNumber()));
 	}
 	
 }

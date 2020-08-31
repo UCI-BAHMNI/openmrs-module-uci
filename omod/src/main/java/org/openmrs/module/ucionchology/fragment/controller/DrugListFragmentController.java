@@ -61,8 +61,6 @@ public class DrugListFragmentController {
 		
 		model.addAttribute("phaseDays", onchlogyService.getDaysByPhase(phaseId));
 		
-		model.addAttribute("day_phase", onchlogyService.getPhaseById(phaseId));
-		
 	}
 	
 }

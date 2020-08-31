@@ -1,4 +1,4 @@
 <div>
-<p>Protocal :<h2>${protocol.protocalName}</h2> </p>
-<p> Diagnosis :<h2>${protocol.diagnosis}</h2> </p>
+<p> Protocal : <b>${protocol.protocalName}</b> </p>
+<p> Diagnosis : <b>${protocol.diagnosis}</b> </p>
 </div>
