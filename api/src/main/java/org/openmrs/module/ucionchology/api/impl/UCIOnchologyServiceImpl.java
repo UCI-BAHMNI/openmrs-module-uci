@@ -14,11 +14,12 @@ import java.util.List;
 
 import org.openmrs.Patient;
 import org.openmrs.api.APIException;
-import org.openmrs.api.UserService;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.ucionchology.api.UCIOnchologyService;
 import org.openmrs.module.ucionchology.api.dao.UCIOnchologyDao;
+import org.openmrs.module.ucionchology.models.Action;
 import org.openmrs.module.ucionchology.models.DayDrugDosage;
+import org.openmrs.module.ucionchology.models.ProtocalDiagnosis;
 import org.openmrs.module.ucionchology.models.PatientProtocol;
 import org.openmrs.module.ucionchology.models.Phase;
 import org.openmrs.module.ucionchology.models.Protocol;
@@ -168,6 +169,46 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 	@Override
 	public List<StageDay> getDaysByPhase(int phaseId) throws APIException {
 		return dao.getDaysByPhase(phaseId);
+	}
+	
+	@Override
+	public Action saveOrUpdateAction(Action action) throws APIException {
+		return dao.saveOrUpdateAction(action);
+	}
+	
+	@Override
+	public Action getActionsById(int actionId) throws APIException {
+		return dao.getActionsById(actionId);
+	}
+	
+	@Override
+	public List<Action> getActions() throws APIException {
+		return dao.getActions();
+	}
+	
+	@Override
+	public void deleteAction(Action action) throws APIException {
+		dao.deleteAction(action);
+	}
+	
+	@Override
+	public ProtocalDiagnosis saveOrUpdateDiagnosis(ProtocalDiagnosis diagnosis) throws APIException {
+		return dao.saveOrUpdateDiagnosis(diagnosis);
+	}
+	
+	@Override
+	public ProtocalDiagnosis getDiagnosisById(int diagnosisId) throws APIException {
+		return dao.getDiagnosisById(diagnosisId);
+	}
+	
+	@Override
+	public List<ProtocalDiagnosis> getDiagnoses() throws APIException {
+		return dao.getDiagnoses();
+	}
+	
+	@Override
+	public void deleteDiagnosis(ProtocalDiagnosis diagnosis) throws APIException {
+		dao.deleteDiagnosis(diagnosis);
 	}
 	
 	/**

@@ -30,9 +30,8 @@ public class Protocol extends BaseOpenmrsData {
 	@Column(length = 255, nullable = false)
 	private String protocalName;
 	
-	@Basic
-	@Column(length = 255, nullable = false)
-	private String diagnosis;
+	@OneToMany(mappedBy = "protocol2")
+	private Set<ProtocalDiagnosis> diagnoses;
 	
 	@OneToMany(mappedBy = "protocol1")
 	private Set<Phase> phase;
@@ -57,14 +56,6 @@ public class Protocol extends BaseOpenmrsData {
 		this.protocalName = protocalName;
 	}
 	
-	public String getDiagnosis() {
-		return diagnosis;
-	}
-	
-	public void setDiagnosis(String diagnosis) {
-		this.diagnosis = diagnosis;
-	}
-	
 	@Override
 	public Integer getId() {
 		return id;
@@ -82,6 +73,14 @@ public class Protocol extends BaseOpenmrsData {
 	
 	public void setPhase(Set<Phase> phase) {
 		this.phase = phase;
+	}
+	
+	public Set<ProtocalDiagnosis> getDiagnoses() {
+		return diagnoses;
+	}
+	
+	public void setDiagnoses(Set<ProtocalDiagnosis> diagnoses) {
+		this.diagnoses = diagnoses;
 	}
 	
 }

@@ -15,7 +15,9 @@ import java.util.List;
 import org.openmrs.Patient;
 import org.openmrs.api.APIException;
 import org.openmrs.api.OpenmrsService;
+import org.openmrs.module.ucionchology.models.Action;
 import org.openmrs.module.ucionchology.models.DayDrugDosage;
+import org.openmrs.module.ucionchology.models.ProtocalDiagnosis;
 import org.openmrs.module.ucionchology.models.PatientProtocol;
 import org.openmrs.module.ucionchology.models.Phase;
 import org.openmrs.module.ucionchology.models.Protocol;
@@ -109,5 +111,31 @@ public interface UCIOnchologyService extends OpenmrsService {
 	
 	@Transactional
 	public List<StageDay> getDaysByPhase(int phaseId) throws APIException;
+	
+	//service methods to transact an action
+	@Transactional
+	public Action saveOrUpdateAction(Action action) throws APIException;
+	
+	@Transactional
+	public Action getActionsById(int actionId) throws APIException;
+	
+	@Transactional
+	public List<Action> getActions() throws APIException;
+	
+	@Transactional
+	public void deleteAction(Action action) throws APIException;
+	
+	//service methods to transact a Diagnosis
+	@Transactional
+	public ProtocalDiagnosis saveOrUpdateDiagnosis(ProtocalDiagnosis diagnosis) throws APIException;
+	
+	@Transactional
+	public ProtocalDiagnosis getDiagnosisById(int diagnosisId) throws APIException;
+	
+	@Transactional
+	public List<ProtocalDiagnosis> getDiagnoses() throws APIException;
+	
+	@Transactional
+	public void deleteDiagnosis(ProtocalDiagnosis diagnosis) throws APIException;
 	
 }

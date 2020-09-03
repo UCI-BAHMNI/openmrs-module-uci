@@ -1,15 +1,10 @@
 package org.openmrs.module.ucionchology.page.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
-import org.openmrs.Concept;
 import org.openmrs.User;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;
-import org.openmrs.module.ucionchology.UCIOnchologyConstants;
 import org.openmrs.module.ucionchology.api.UCIOnchologyService;
 import org.openmrs.module.ucionchology.models.Protocol;
 import org.openmrs.ui.framework.page.PageModel;
@@ -29,7 +24,7 @@ public class HomePageController {
 		User creator = Context.getUserContext().getAuthenticatedUser();
 		Protocol protocol = new Protocol();
 		protocol.setProtocalName(protocalName);
-		protocol.setDiagnosis(diagnosis);
+		//protocol.setDiagnosis(diagnosis);
 		protocol.setNumberOfPhases(numberOfPhases);
 		protocol.setCreator(creator);
 		onchlogyService.saveOrUpdateProtocal(protocol);
