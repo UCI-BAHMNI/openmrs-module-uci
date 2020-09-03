@@ -20,7 +20,9 @@ import org.openmrs.api.APIException;
 import org.openmrs.api.context.Context;
 import org.openmrs.api.db.hibernate.DbSession;
 import org.openmrs.api.db.hibernate.DbSessionFactory;
+import org.openmrs.module.ucionchology.models.Action;
 import org.openmrs.module.ucionchology.models.DayDrugDosage;
+import org.openmrs.module.ucionchology.models.ProtocalDiagnosis;
 import org.openmrs.module.ucionchology.models.PatientProtocol;
 import org.openmrs.module.ucionchology.models.Phase;
 import org.openmrs.module.ucionchology.models.Protocol;
@@ -142,7 +144,6 @@ public class UCIOnchologyDao {
 	@SuppressWarnings("unchecked")
 	public List<PatientProtocol> getAllPatientProtocol() throws APIException {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(PatientProtocol.class);
-		criteria.add(Restrictions.eq("voided", false));
 		return criteria.list();
 	}
 	
@@ -205,5 +206,43 @@ public class UCIOnchologyDao {
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("phaseId", phaseId);
 		return (List<StageDay>) query.list();
+	}
+	
+	public Action saveOrUpdateAction(Action action) throws APIException {
+		getSession().saveOrUpdate(action);
+		return action;
+	}
+	
+	public Action getActionsById(int actionId) throws APIException {
+		return (Action) getSession().get(Action.class, actionId);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Action> getActions() throws APIException {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Action.class);
+		return criteria.list();
+	}
+	
+	public void deleteAction(Action action) throws APIException {
+		getSession().delete(action);
+	}
+	
+	public ProtocalDiagnosis saveOrUpdateDiagnosis(ProtocalDiagnosis diagnosis) throws APIException {
+		getSession().saveOrUpdate(diagnosis);
+		return diagnosis;
+	}
+	
+	public ProtocalDiagnosis getDiagnosisById(int diagnosisId) throws APIException {
+		return (ProtocalDiagnosis) getSession().get(ProtocalDiagnosis.class, diagnosisId);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<ProtocalDiagnosis> getDiagnoses() throws APIException {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(ProtocalDiagnosis.class);
+		return criteria.list();
+	}
+	
+	public void deleteDiagnosis(ProtocalDiagnosis diagnosis) throws APIException {
+		getSession().delete(diagnosis);
 	}
 }

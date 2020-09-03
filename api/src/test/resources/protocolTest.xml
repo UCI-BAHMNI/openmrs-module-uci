@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-  <protocal id="1" protocalName="prot1" diagnosis="malaria" numberOfPhases="1" uuid="UUID4"  creator="1"
+  <protocal id="1" protocalName="prot1"  numberOfPhases="1" uuid="UUID4"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />
   
-  <protocal id="2" protocalName="prot2" diagnosis="malaria2" numberOfPhases="1" uuid="UUID5"  creator="1"
+  <protocal id="2" protocalName="prot2"  numberOfPhases="1" uuid="UUID5"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />
   
   <phase_table id="1" phaseName="phase1" numberOfDays="3" phase_order="1"  protocal_id="1" uuid="UUID3"  creator="1"
@@ -19,17 +19,24 @@
   date_created="2020-02-22 00:00:00" voided="false" />
   
  <drug_dosage id="1"  drugName="drug1" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  uuid="UUID8D1"  creator="1"
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  instructions="take water" uuid="UUID8D1"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" /> 
   
   <drug_dosage id="2"  drugName="drug2" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  uuid="UUID8D2"  creator="1"
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  instructions="take water" uuid="UUID8D2"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />  
   
    <drug_dosage id="3"  drugName="drug3" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  uuid="UUID8D3"  creator="1"
-  date_created="2020-02-22 00:00:00" voided="true" />  
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  instructions="take water" uuid="UUID8D3"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="true" /> 
+
+   <diagnosis_table id="1" diagnosis="malaria"   protocal_id="1"  />
+   <diagnosis_table id="2" diagnosis="HIV"   protocal_id="1"  />
   
+  <action id="1" actionName="act1"   description="check Blood"  />
+  <action id="2" actionName="act2"   description="check Blood"  />
+  <action id="3" actionName="act3"   description="check HIV"  />
+
   <patient_protocal id="1" patientId="2"   protocalId="1"  dateStarted="2020-02-22 00:00:00"
   dateStopped="2020-09-22 00:00:00"  />
   
@@ -45,4 +52,8 @@
  <day_doze  drug_id = "1" day_id= "1" />
  <day_doze  drug_id = "1" day_id= "2" />
  <day_doze  drug_id = "2" day_id= "1" />
+
+ <day_actions  action_id = "1" day_id= "1" />
+ <day_actions action_id = "1" day_id= "2" />
+ <day_actions action_id = "3" day_id= "1" />
 </dataset>

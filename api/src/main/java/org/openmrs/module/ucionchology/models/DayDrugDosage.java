@@ -52,6 +52,10 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	@Column
 	private int maxDoseValue;
 	
+	@Basic
+	@Column(length = 1000)
+	private String instructions;
+	
 	@ManyToMany(mappedBy = "dosage")
 	private Set<StageDay> stageDays;
 	
@@ -121,6 +125,14 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	
 	public void setStageDays(Set<StageDay> stageDays) {
 		this.stageDays = stageDays;
+	}
+	
+	public String getInstructions() {
+		return instructions;
+	}
+	
+	public void setInstructions(String instructions) {
+		this.instructions = instructions;
 	}
 	
 }

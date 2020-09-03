@@ -38,6 +38,10 @@ public class StageDay extends BaseOpenmrsData implements Comparable<StageDay> {
 	@JoinTable(name = "day_doze", joinColumns = { @JoinColumn(name = "day_id") }, inverseJoinColumns = { @JoinColumn(name = "drug_id") })
 	private Set<DayDrugDosage> dosage;
 	
+	@ManyToMany(cascade = { CascadeType.ALL })
+	@JoinTable(name = "day_actions", joinColumns = { @JoinColumn(name = "day_id") }, inverseJoinColumns = { @JoinColumn(name = "action_id") })
+	private Set<Action> dayActions;
+	
 	@ManyToOne
 	@JoinColumn(name = "phase_id", nullable = false)
 	private Phase phase;
@@ -81,6 +85,14 @@ public class StageDay extends BaseOpenmrsData implements Comparable<StageDay> {
 	@Override
 	public int compareTo(StageDay day) {
 		return new Integer(this.getDayNumber()).compareTo(new Integer(day.getDayNumber()));
+	}
+	
+	public Set<Action> getDayActions() {
+		return dayActions;
+	}
+	
+	public void setDayActions(Set<Action> dayActions) {
+		this.dayActions = dayActions;
 	}
 	
 }

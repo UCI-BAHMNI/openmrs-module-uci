@@ -53,6 +53,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		dose.setDosageRoute("Mouth");
 		dose.setMaxDoseValue(3);
 		dose.setDosageFrequence("OD");
+		dose.setInstructions("take juice");
 		
 		DayDrugDosage saved_dose = service.saveOrUpdateDayDrugDosage(dose);
 		//System.out.println(dose.getDoseName());
@@ -239,6 +240,37 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		
 		//After persisting
 		Assert.assertEquals("", 5, service.getDayDrugDosageById(1).getStageDays().size());
+	}
+	
+	@Test
+	public void getallActions() throws ParseException {
+		System.out.println(service.getActions().size());
+		//System.out.println(service.getActionsById(3).getDescription());
+		Assert.assertEquals("", 3, service.getActions().size());
+	}
+	
+	@Test
+	public void getallActionForAday() throws ParseException {
+		//System.out.println(service.getStageDayById(1).getDayActions().size());
+		Assert.assertEquals("", 2, service.getStageDayById(1).getDayActions().size());
+	}
+	
+	@Test
+	public void getallDaysForAnAction() throws ParseException {
+		//System.out.println(service.getStageDayById(1).getDayActions().size());
+		Assert.assertEquals("", 2, service.getActionsById(1).getStageDays().size());
+	}
+	
+	@Test
+	public void getallDiagnosesforProtocal() throws ParseException {
+		//System.out.println(service.getProtocalById(1).getDiagnoses().size());
+		Assert.assertEquals("", 2, service.getProtocalById(1).getDiagnoses().size());
+	}
+	
+	@Test
+	public void getProtocalForAdiagnosis() throws ParseException {
+		System.out.println(service.getDiagnosisById(1).getProtocol2().getProtocalName());
+		//Assert.assertEquals("", 2, service.getProtocalById(1).getDiagnoses().size());
 	}
 	
 }
