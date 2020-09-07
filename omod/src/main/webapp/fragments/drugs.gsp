@@ -6,6 +6,7 @@
  <th>Drug dose value</th>
  <th>Route</th>
  <th>Frequence</th>
+ <th>Instruction</th>
  </tr>
  <% if (drugs) { %>
     <% drugs.each { %>
@@ -16,6 +17,7 @@
        <td>${ ui.format(it.dosageValue) }</td>
        <td>${ ui.format(it.dosageRoute) }</td>
        <td>${ ui.format(it.dosageFrequence) }</td>
+       <td>${ ui.format(it.instructions) }</td>
      </tr>
    <% } %>
  <% } else { %>

@@ -1,5 +1,8 @@
 package org.openmrs.module.ucionchology.fragment.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.api.UCIOnchologyService;
 import org.openmrs.module.ucionchology.models.Protocol;
@@ -15,5 +18,11 @@ public class ProtocolDetailsFragmentController {
 		
 		Protocol protocol = onchlogyService.getProtocalById(id);
 		model.addAttribute("protocol", protocol);
+		
+		List<Integer> orders = new ArrayList<Integer>();
+		for (Integer order = 1; order <= protocol.getNumberOfPhases(); order++) {
+			orders.add(order);
+		}
+		model.addAttribute("orders", orders);
 	}
 }

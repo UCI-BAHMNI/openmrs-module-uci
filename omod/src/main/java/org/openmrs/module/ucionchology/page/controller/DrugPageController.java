@@ -18,15 +18,14 @@ public class DrugPageController {
 	
 	public void post(PageModel model, @RequestParam(required = true, value = "drugName") String drugName,
 	        @RequestParam(required = true, value = "units") String units,
-	        @RequestParam(required = true, value = "dosageValue") Integer dosageValue,
-	        @RequestParam(required = false, value = "maxDoseValue") Integer maxDoseValue,
+	        @RequestParam(required = true, value = "dosageValue") float dosageValue,
+	        @RequestParam(required = false, value = "maxDoseValue") float maxDoseValue,
 	        @RequestParam(required = true, value = "routes") String route,
 	        @RequestParam(required = true, value = "dosageFrequence") String dosageFrequence,
+	        @RequestParam(required = false, value = "instruction") String instructions,
 	        @RequestParam(required = true, value = "days") List<Integer> allDaysId) {
 		
 		onchlogyService = Context.getService(UCIOnchologyService.class);
-		
-		Set<DayDrugDosage> drugs = new HashSet();
 		
 		User creator = Context.getUserContext().getAuthenticatedUser();
 		DayDrugDosage drug = new DayDrugDosage();
@@ -36,10 +35,12 @@ public class DrugPageController {
 		drug.setDosageRoute(route);
 		drug.setDosageFrequence(dosageFrequence);
 		drug.setMaxDoseValue(maxDoseValue);
+		drug.setInstructions(instructions);
 		drug.setCreator(creator);
 		onchlogyService.saveOrUpdateDayDrugDosage(drug);
 		
 		for (Integer dayId : allDaysId) {
+			Set<DayDrugDosage> drugs = new HashSet();
 			StageDay day = onchlogyService.getStageDayById(dayId);
 			drugs.addAll(day.getDosage());
 			drugs.add(drug);

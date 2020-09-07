@@ -1,5 +1,8 @@
 package org.openmrs.module.ucionchology.models;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Basic;
@@ -39,6 +42,13 @@ public class Protocol extends BaseOpenmrsData {
 	@Basic
 	@Column
 	private int numberOfPhases;
+	
+	public List<Phase> getSortedPhases() {
+		List<Phase> list = new ArrayList<Phase>();
+		list = convertToList(getPhase());
+		Collections.sort(list);
+		return list;
+	}
 	
 	public int getNumberOfPhases() {
 		return numberOfPhases;
@@ -81,6 +91,13 @@ public class Protocol extends BaseOpenmrsData {
 	
 	public void setDiagnoses(Set<ProtocalDiagnosis> diagnoses) {
 		this.diagnoses = diagnoses;
+	}
+	
+	public <T> List<T> convertToList(Set<T> set) {
+		List<T> items = new ArrayList<T>();
+		for (T e : set)
+			items.add(e);
+		return items;
 	}
 	
 }

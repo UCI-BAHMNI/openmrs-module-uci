@@ -32,11 +32,11 @@
 			<column name="units" type="varchar(255)" >
 			<constraints nullable="false"/>
             </column>			
-			 <column name="dosageValue" type="int" >
+			 <column name="dosageValue" type="float" >
 			    <constraints nullable="false"/>
             </column>
 
-             <column name="maxDoseValue" type="int" />			
+             <column name="maxDoseValue" type="float" />			
             <column name="dosageRoute" type="varchar(255)" >
 			<constraints nullable="false"/>
             </column>          
@@ -288,7 +288,7 @@
             <column name="protocal_id" type="int" />           
 		</createTable>
 
-		<addForeignKeyConstraint constraintName="protocol_id_fk2" baseTableName="diagnosis" baseColumnNames="protocal_id"  referencedTableName="protocal"
+		<addForeignKeyConstraint constraintName="protocol_id_fk2" baseTableName="diagnosis_table" baseColumnNames="protocal_id"  referencedTableName="protocal"
                                  referencedColumnNames="id" />
       </changeSet>
 

@@ -19,7 +19,7 @@ import org.openmrs.BaseOpenmrsData;
 
 @Entity
 @Table(name = "phase_table")
-public class Phase extends BaseOpenmrsData {
+public class Phase extends BaseOpenmrsData implements Comparable<Phase> {
 	
 	/**
 	 *
@@ -116,5 +116,10 @@ public class Phase extends BaseOpenmrsData {
 		for (T e : set)
 			items.add(e);
 		return items;
+	}
+	
+	@Override
+	public int compareTo(Phase phase) {
+		return new Integer(this.getOrder()).compareTo(new Integer(phase.getOrder()));
 	}
 }
