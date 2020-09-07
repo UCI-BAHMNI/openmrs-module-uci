@@ -244,7 +244,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 	
 	@Test
 	public void getallActions() throws ParseException {
-		System.out.println(service.getActions().size());
+		//	System.out.println(service.getActions().size());
 		//System.out.println(service.getActionsById(3).getDescription());
 		Assert.assertEquals("", 3, service.getActions().size());
 	}
@@ -270,7 +270,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 	@Test
 	public void getProtocalForAdiagnosis() throws ParseException {
 		System.out.println(service.getDiagnosisById(1).getProtocol2().getProtocalName());
-		//Assert.assertEquals("", 2, service.getProtocalById(1).getDiagnoses().size());
+		Assert.assertEquals("", "prot1", service.getDiagnosisById(1).getProtocol2().getProtocalName());
 	}
 	
 }

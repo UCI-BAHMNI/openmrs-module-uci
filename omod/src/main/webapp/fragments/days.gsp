@@ -10,8 +10,9 @@
       <td>${ ui.format(it.dayNumber)}</td>
       <td>${ ui.format(it.phase.phaseName) }</td>
       <td>${ ui.format(it.phase.protocol1.protocalName) }</td>
-       <td><a target="_blank" href='${ ui.pageLink("ucionchology","viewDay") }?dayId=${ ui.format(it.id)}' title="View day"><i class="icon-eye-open edit-action" > </i></a></td>
+      <td><a target="_blank" href='${ ui.pageLink("ucionchology","viewDay") }?dayId=${ ui.format(it.id)}' title="View day"><i class="icon-eye-open edit-action" > </i></a></td>
       <td><a target="_blank" href='${ ui.pageLink("ucionchology","drug") }?phaseId=${ ui.format(it.phase.id)}' title="Add drugs"><i class="icon-share edit-action" > </i></a></td>
+      <td><a target="_blank" href='${ ui.pageLink("ucionchology","action") }?phaseId=${ ui.format(it.phase.id)}' title="Add Action"><i class="icon-share edit-action" > </i></a></td>
     </tr>
   <% } %>
 <% } else { %>

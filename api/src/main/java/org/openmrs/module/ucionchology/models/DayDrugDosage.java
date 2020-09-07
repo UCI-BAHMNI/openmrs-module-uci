@@ -38,7 +38,7 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	
 	@Basic
 	@Column(nullable = false)
-	private int dosageValue;
+	private float dosageValue;
 	
 	@Basic
 	@Column(nullable = false)
@@ -50,7 +50,7 @@ public class DayDrugDosage extends BaseOpenmrsData {
 	
 	@Basic
 	@Column
-	private int maxDoseValue;
+	private float maxDoseValue;
 	
 	@Basic
 	@Column(length = 1000)
@@ -75,11 +75,11 @@ public class DayDrugDosage extends BaseOpenmrsData {
 		this.drugName = drugName;
 	}
 	
-	public int getDosageValue() {
+	public float getDosageValue() {
 		return dosageValue;
 	}
 	
-	public void setDosageValue(int dosageValue) {
+	public void setDosageValue(float dosageValue) {
 		this.dosageValue = dosageValue;
 	}
 	
@@ -111,11 +111,11 @@ public class DayDrugDosage extends BaseOpenmrsData {
 		this.dosageRoute = dosageRoute;
 	}
 	
-	public int getMaxDoseValue() {
+	public float getMaxDoseValue() {
 		return maxDoseValue;
 	}
 	
-	public void setMaxDoseValue(int maxDoseValue) {
+	public void setMaxDoseValue(float maxDoseValue) {
 		this.maxDoseValue = maxDoseValue;
 	}
 	

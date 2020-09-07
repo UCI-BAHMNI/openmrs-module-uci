@@ -1,10 +1,8 @@
    <p>
-   Diagnosis
-   <input type="text" list="list" name ="diagnosis" >
-   </p>
-   
-   <datalist id="list">
+   Diagnoses
+   <select name="diagnoses" id="diagnoses" size="10" multiple>
        <% diagnoses.each { dg -> %> 
-          <option value="${dg}">
+          <option value="${dg}"> ${dg} </option>
         <% } %>
-    </datalist>
+   </select>
+    </p>

@@ -20,6 +20,9 @@
    ${ ui.includeFragment("uicommons", "field/text", [ "id": "maxdosageValue", "label": "Maximum doze value", "formFieldName": "maxDoseValue" ])}  
   </p>
  
+  <p >
+   ${ ui.includeFragment("uicommons", "field/text", [ "id": "instructions", "label": "Instructions", "formFieldName": "instruction" ])}  
+  </p>
     <p>
      <p>Select days</p>
      <%phaseDays.each {otherDay -> %> 

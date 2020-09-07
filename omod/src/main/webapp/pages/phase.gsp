@@ -21,9 +21,13 @@ ${ ui.includeFragment("ucionchology", "protocolDetails") }
     ${ ui.includeFragment("uicommons", "field/text", [ "id": "numberOfDays", "label": "Number Of Days", "formFieldName": "numberOfDays" ]) } 
    </p>
    
-   <p >
-   ${ ui.includeFragment("uicommons", "field/text", [ "id": "phase_order", "label": "Phase Order", "formFieldName": "phase_order" ]) } 
-  </p>
+    <p>
+     <p>Set Order</p>
+     <%orders.each {order -> %> 
+          <input type="radio" id="${order}" name="phase_order" value="${order}">
+          <label for="${order}">${order}</label><br>
+        <% } %>
+    </p>
 
 <button id="submit" type="submit">Create Phase</button>
 </fieldset>
