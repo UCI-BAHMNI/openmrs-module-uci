@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.persistence.Entity;
 
 @Entity
-@Table(name = "patient_protocal")
+@Table(name = "p_patient_protocal")
 public class PatientProtocol {
 	
 	@Id

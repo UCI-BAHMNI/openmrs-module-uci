@@ -184,7 +184,7 @@ public class CreateDiagnosisConcepts {
 		concept.setDatatype(CodedDataType);
 		service.saveConcept(concept);
 	}
-
+	
 	public static void CreateUnitConcept() {
 		ConceptService service = Context.getConceptService();
 		
@@ -198,7 +198,7 @@ public class CreateDiagnosisConcepts {
 			ConceptDatatype dataType = service.getConceptDatatypeByName("N/A");
 			unitConcept.setDatatype(dataType);
 			unitConcept.setConceptClass(concept_class);
-		
+			
 			service.saveConcept(unitConcept);
 		}
 		

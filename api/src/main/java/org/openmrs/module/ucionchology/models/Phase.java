@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import org.openmrs.BaseOpenmrsData;
 
 @Entity
-@Table(name = "phase_table")
+@Table(name = "p_phase_table")
 public class Phase extends BaseOpenmrsData implements Comparable<Phase> {
 	
 	/**

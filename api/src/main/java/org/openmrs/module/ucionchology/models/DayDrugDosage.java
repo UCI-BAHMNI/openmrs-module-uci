@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.openmrs.BaseOpenmrsData;
 
 @Entity
-@Table(name = "drug_dosage")
+@Table(name = "p_drug_dosage")
 public class DayDrugDosage extends BaseOpenmrsData {
 	
 	// check patient age , weight , plt count ,hiv status
