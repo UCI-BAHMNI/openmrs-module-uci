@@ -15,16 +15,15 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.Concept;
-import org.openmrs.GlobalProperty;
 import org.openmrs.api.AdministrationService;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.BaseModuleActivator;
+import org.openmrs.module.appframework.service.AppFrameworkService;
 import org.openmrs.module.ucionchology.api.CreateDiagnosisConcepts;
 import org.openmrs.module.ucionchology.inntializer.ConceptsInitializer;
 import org.openmrs.module.ucionchology.inntializer.HtmlFormsInitializer;
 import org.openmrs.module.ucionchology.inntializer.Initializer;
-import org.openmrs.module.appframework.service.AppFrameworkService;
 
 /**
  * This class contains the logic that is run every time this module is either started or shutdown
@@ -58,6 +57,7 @@ public class UCIOnchologyActivator extends BaseModuleActivator {
 			CreateDiagnosisConcepts.CreateSymptomsConceptSet();
 			CreateDiagnosisConcepts.ConvertMedicationConcept();
 			CreateDiagnosisConcepts.CreateDiagnosisSetofSetsConcept();
+			CreateDiagnosisConcepts.CreateUnitConcept();
 			setConceptsSetGp();
 			
 		}

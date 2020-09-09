@@ -6,12 +6,10 @@ import java.util.Locale;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.Concept;
-import org.openmrs.ConceptAnswer;
 import org.openmrs.ConceptClass;
 import org.openmrs.ConceptDatatype;
 import org.openmrs.ConceptDescription;
 import org.openmrs.ConceptName;
-import org.openmrs.api.APIException;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.UCIOnchologyConstants;
@@ -185,5 +183,24 @@ public class CreateDiagnosisConcepts {
 		ConceptDatatype CodedDataType = service.getConceptDatatypeByName("Coded");
 		concept.setDatatype(CodedDataType);
 		service.saveConcept(concept);
+	}
+
+	public static void CreateUnitConcept() {
+		ConceptService service = Context.getConceptService();
+		
+		if (service.getConceptByName(UCIOnchologyConstants.MG_PER_SQ_METER_NAME) == null) {
+			ConceptName unitName = new ConceptName(UCIOnchologyConstants.MG_PER_SQ_METER_NAME, Locale.ENGLISH);
+			
+			Concept unitConcept = new Concept();
+			unitConcept.addName(unitName);
+			
+			ConceptClass concept_class = service.getConceptClassByName(UCIOnchologyConstants.CONCEPT_CLASS_UNITS);
+			ConceptDatatype dataType = service.getConceptDatatypeByName("N/A");
+			unitConcept.setDatatype(dataType);
+			unitConcept.setConceptClass(concept_class);
+		
+			service.saveConcept(unitConcept);
+		}
+		
 	}
 }
