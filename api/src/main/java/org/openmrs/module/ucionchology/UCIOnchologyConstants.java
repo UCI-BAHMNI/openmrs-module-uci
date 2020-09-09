@@ -33,4 +33,6 @@ public class UCIOnchologyConstants {
 	
 	public static final int CONCEPT_ID_ROUTES = 162394;
 	
+	public static final String MG_PER_SQ_METER_NAME = "Milligramms Per Square Meter";
+	
 }

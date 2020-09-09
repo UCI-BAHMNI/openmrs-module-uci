@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import org.openmrs.BaseOpenmrsData;
 
 @Entity
-@Table(name = "stage_day")
+@Table(name = "p_stage_day")
 public class StageDay extends BaseOpenmrsData implements Comparable<StageDay> {
 	
 	/**
@@ -35,11 +35,11 @@ public class StageDay extends BaseOpenmrsData implements Comparable<StageDay> {
 	private int dayNumber;
 	
 	@ManyToMany(cascade = { CascadeType.ALL })
-	@JoinTable(name = "day_doze", joinColumns = { @JoinColumn(name = "day_id") }, inverseJoinColumns = { @JoinColumn(name = "drug_id") })
+	@JoinTable(name = "p_day_doze", joinColumns = { @JoinColumn(name = "day_id") }, inverseJoinColumns = { @JoinColumn(name = "drug_id") })
 	private Set<DayDrugDosage> dosage;
 	
 	@ManyToMany(cascade = { CascadeType.ALL })
-	@JoinTable(name = "day_actions", joinColumns = { @JoinColumn(name = "day_id") }, inverseJoinColumns = { @JoinColumn(name = "action_id") })
+	@JoinTable(name = "p_day_actions", joinColumns = { @JoinColumn(name = "day_id") }, inverseJoinColumns = { @JoinColumn(name = "action_id") })
 	private Set<Action> dayActions;
 	
 	@ManyToOne

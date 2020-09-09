@@ -16,13 +16,13 @@
  	 
     <changeSet id="tp1" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="drug_dosage"/></not>
+			<not><tableExists tableName="p_drug_dosage"/></not>
 		</preConditions>
 		<comment>
-			Creating the drug_dosage table
+			Creating the p_drug_dosage table
 		</comment>
 		
-		<createTable tableName="drug_dosage">
+		<createTable tableName="p_drug_dosage">
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>					
@@ -67,13 +67,13 @@
     
      <changeSet id="tp2" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="patient_protocal"/></not>
+			<not><tableExists tableName="p_patient_protocal"/></not>
 		</preConditions>
 		<comment>
 			Creating the patient_protocal table
 		</comment>
 		
-		<createTable tableName="patient_protocal">
+		<createTable tableName="p_patient_protocal">
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>			
@@ -90,13 +90,13 @@
 
 	 <changeSet id="tp3" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="protocal"/></not>
+			<not><tableExists tableName="p_protocal"/></not>
 		</preConditions>
 		<comment>
 			Creating the protocal table
 		</comment>
 		
-		<createTable tableName="protocal">
+		<createTable tableName="p_protocal">
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
@@ -130,13 +130,13 @@
     
      <changeSet id="tp4" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="phase_table"/></not>
+			<not><tableExists tableName="p_phase_table"/></not>
 		</preConditions>
 		<comment>
 			Creating the phase_table
 		</comment>
 		
-		<createTable tableName="phase_table">
+		<createTable tableName="p_phase_table">
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>			
@@ -165,19 +165,19 @@
             </column>
 		</createTable>
 
-		<addForeignKeyConstraint constraintName="protocol_id_fk" baseTableName="phase_table" baseColumnNames="protocal_id"  referencedTableName="protocal"
+		<addForeignKeyConstraint constraintName="protocol_id_fk" baseTableName="p_phase_table" baseColumnNames="protocal_id"  referencedTableName="p_protocal"
                                  referencedColumnNames="id" />
       </changeSet>
        
       <changeSet id="tp5" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="stage_day"/></not>
+			<not><tableExists tableName="p_stage_day"/></not>
 		</preConditions>
 		<comment>
 			Creating the stage_day table
 		</comment>
 		
-		<createTable tableName="stage_day">
+		<createTable tableName="p_stage_day">
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>			
@@ -203,7 +203,7 @@
                 <constraints nullable="false"/>
             </column>
 		</createTable>		
-		<addForeignKeyConstraint constraintName="phase_id_fk" baseTableName="stage_day" baseColumnNames="phase_id"  referencedTableName="phase_table"
+		<addForeignKeyConstraint constraintName="phase_id_fk" baseTableName="p_stage_day" baseColumnNames="phase_id"  referencedTableName="p_phase_table"
                                  referencedColumnNames="id" />
     </changeSet>
     
@@ -212,12 +212,12 @@
 
      <changeSet id="tp6" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="action"/></not>
+			<not><tableExists tableName="p_action"/></not>
 		</preConditions>
 		<comment>
 			Creating the actions table
 		</comment>	
-		<createTable tableName="action">
+		<createTable tableName="p_action">
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>			
@@ -230,12 +230,12 @@
      
       <changeSet id="tp7" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="day_doze"/></not>
+			<not><tableExists tableName="p_day_doze"/></not>
 		</preConditions>
 		<comment>
 			Creating the day_doze table
 		</comment>		
-		<createTable tableName="day_doze">
+		<createTable tableName="p_day_doze">
 			<column name="drug_id" type="int" >
 				<constraints primaryKey="true" nullable="false"/>
 			</column>			
@@ -243,20 +243,20 @@
 				<constraints primaryKey="true" nullable="false"/>
 			</column>									 
 		</createTable>      
-		<addForeignKeyConstraint constraintName="drug_id_fk" baseTableName="day_doze" baseColumnNames="drug_id"  referencedTableName="drug_dosage"
+		<addForeignKeyConstraint constraintName="drug_id_fk" baseTableName="p_day_doze" baseColumnNames="drug_id"  referencedTableName="p_drug_dosage"
                                  referencedColumnNames="id" />
-        <addForeignKeyConstraint constraintName="day_id_fk" baseTableName="day_doze" baseColumnNames="day_id"  referencedTableName="stage_day"
+        <addForeignKeyConstraint constraintName="day_id_fk" baseTableName="p_day_doze" baseColumnNames="day_id"  referencedTableName="p_stage_day"
                                  referencedColumnNames="id" />	
     </changeSet>
 
 	 <changeSet id="tp8" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="day_actions"/></not>
+			<not><tableExists tableName="p_day_actions"/></not>
 		</preConditions>
 		<comment>
 			Creating the day_doze table
 		</comment>		
-		<createTable tableName="day_actions">
+		<createTable tableName="p_day_actions">
 			<column name="action_id" type="int" >
 				<constraints primaryKey="true" nullable="false"/>
 			</column>			
@@ -264,21 +264,21 @@
 				<constraints primaryKey="true" nullable="false"/>
 			</column>									 
 		</createTable>      
-		<addForeignKeyConstraint constraintName="action_id_fk" baseTableName="day_actions" baseColumnNames="action_id"  referencedTableName="action"
+		<addForeignKeyConstraint constraintName="action_id_fk" baseTableName="p_day_actions" baseColumnNames="action_id"  referencedTableName="p_action"
                                  referencedColumnNames="id" />
-        <addForeignKeyConstraint constraintName="day_id_fk2" baseTableName="day_actions" baseColumnNames="day_id"  referencedTableName="stage_day"
+        <addForeignKeyConstraint constraintName="day_id_fk2" baseTableName="p_day_actions" baseColumnNames="day_id"  referencedTableName="p_stage_day"
                                  referencedColumnNames="id" />	
     </changeSet>
      
 	   <changeSet id="tp9" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="diagnosis_table"/></not>
+			<not><tableExists tableName="p_diagnosis_table"/></not>
 		</preConditions>
 		<comment>
 			Creating the diagnosis_table
 		</comment>
 		
-		<createTable tableName="diagnosis_table">
+		<createTable tableName="p_diagnosis_table">
 			<column name="id" type="int" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>			
@@ -288,7 +288,7 @@
             <column name="protocal_id" type="int" />           
 		</createTable>
 
-		<addForeignKeyConstraint constraintName="protocol_id_fk2" baseTableName="diagnosis_table" baseColumnNames="protocal_id"  referencedTableName="protocal"
+		<addForeignKeyConstraint constraintName="protocol_id_fk2" baseTableName="p_diagnosis_table" baseColumnNames="protocal_id"  referencedTableName="p_protocal"
                                  referencedColumnNames="id" />
       </changeSet>
 

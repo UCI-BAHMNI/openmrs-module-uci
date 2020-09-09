@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import org.openmrs.BaseOpenmrsData;
 
 @Entity
-@Table(name = "protocal")
+@Table(name = "p_protocal")
 public class Protocol extends BaseOpenmrsData {
 	
 	/**
