@@ -43,6 +43,10 @@ public class Protocol extends BaseOpenmrsData {
 	@Column
 	private int numberOfPhases;
 	
+	@Basic
+	@Column(columnDefinition = "BOOLEAN DEFAULT false")
+	private boolean isCyclic;
+	
 	public List<Phase> getSortedPhases() {
 		List<Phase> list = new ArrayList<Phase>();
 		list = convertToList(getPhase());
@@ -98,6 +102,14 @@ public class Protocol extends BaseOpenmrsData {
 		for (T e : set)
 			items.add(e);
 		return items;
+	}
+	
+	public boolean isCyclic() {
+		return isCyclic;
+	}
+	
+	public void setCyclic(boolean isCyclic) {
+		this.isCyclic = isCyclic;
 	}
 	
 }

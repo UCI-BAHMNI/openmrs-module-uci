@@ -1,5 +1,8 @@
 package org.openmrs.module.ucionchology;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.openmrs.Concept;
 import org.openmrs.ConceptMap;
@@ -8,11 +11,22 @@ import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.api.CreateDiagnosisConcepts;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 
-import junit.framework.Assert;
+import org.junit.Assert;
+import org.junit.Before;
 
 public class CreateConceptsTest extends BaseModuleContextSensitiveTest {
 	
-	@Test
+	ConceptService conceptService;
+	
+	@Before
+	public void init() throws Exception {
+		initializeInMemoryDatabase();
+		executeDataSet("TestDataset.xml");
+		authenticate();
+		conceptService = Context.getConceptService();
+	}
+	
+	//@Test
 	public void testCode() {
 		
 		for (int i = 0; i < 100; i++) {
@@ -24,7 +38,7 @@ public class CreateConceptsTest extends BaseModuleContextSensitiveTest {
 				code2.replace(1, 2, var2);
 			}
 			
-			System.out.println(code2.toString());
+			//System.out.println(code2.toString());
 			for (int x = 0; x < 10; x += 1) {
 				String var = i + "." + x;
 				
@@ -35,37 +49,55 @@ public class CreateConceptsTest extends BaseModuleContextSensitiveTest {
 				} else {
 					code.replace(1, 4, var);
 				}
-				System.out.println(code.toString());
+				//System.out.println(code.toString());
 				
 			}
 		}
 	}
 	
-	//@Test
+	@Test
 	public void testcreateConcept() throws Exception {
-		initializeInMemoryDatabase();
-		executeDataSet("TestDataset.xml");
-		authenticate();
 		
 		String name = UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_NAME;
 		CreateDiagnosisConcepts.CreateWorkingDiagnosisConceptSet();
 		
-		ConceptService service = Context.getConceptService();
-		Concept c = service.getConceptByName(name);
+		Concept c = conceptService.getConceptByName(name);
 		System.out.println(c.getDisplayString());
 		System.out.println(c.getSetMembers().size());
 		
-		Assert.assertEquals(15, c.getSetMembers().size());
+		Assert.assertEquals(11, c.getSetMembers().size());
 		Assert.assertEquals("Working Cancer Diagnosis (set)", c.getDisplayString());
 		for (Concept x : c.getSetMembers()) {
-			System.out.println(x.getDisplayString());
+			System.out.println(x.getDisplayString() + ">>>>>>>>>>>>>>>");
 			for (ConceptMap map : x.getConceptMappings()) {
-				System.out.println(map.getConceptReferenceTerm().getCode());
-				System.out.println(map.getConceptReferenceTerm().getConceptSource().getName());
-				System.out.println(".................");
+				//System.out.println(map.getConceptReferenceTerm().getCode());
+				//System.out.println(map.getConceptReferenceTerm().getConceptSource().getName());
+				//System.out.println(".................");
 			}
 		}
 		
+	}
+	
+	@Test
+	public void testGetCoceptCodes() throws Exception {
+		
+		CreateDiagnosisConcepts.CreateWorkingDiagnosisConceptSet();
+		List<Concept> concepts = conceptService.getConceptByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SET_NAME)
+		        .getSetMembers();
+		
+		List<String> names = new ArrayList<String>();
+		for (Concept c : concepts) {
+			for (ConceptMap map : c.getConceptMappings()) {
+				if (map.getConceptReferenceTerm().getConceptSource() == conceptService
+				        .getConceptSourceByName("ICD-10-WHO-1")) {
+					String code = map.getConceptReferenceTerm().getCode();
+					names.add(code + " - " + c.getName().getName());
+				}
+			}
+			
+		}
+		//System.out.println(names.toString());
+		Assert.assertEquals(4, names.size());
 	}
 	
 }

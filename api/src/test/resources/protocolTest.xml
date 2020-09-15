@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-  <p_protocal id="1" protocalName="prot1"  numberOfPhases="1" uuid="UUID4"  creator="1"
+  <p_protocal id="1" protocalName="prot1" isCyclic="false" numberOfPhases="1" uuid="UUID4"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />
   
-  <p_protocal id="2" protocalName="prot2"  numberOfPhases="1" uuid="UUID5"  creator="1"
+  <p_protocal id="2" protocalName="prot2"  isCyclic="false" numberOfPhases="1" uuid="UUID5"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />
   
   <p_phase_table id="1" phaseName="phase1" numberOfDays="3" phase_order="1"  protocal_id="1" uuid="UUID3"  creator="1"

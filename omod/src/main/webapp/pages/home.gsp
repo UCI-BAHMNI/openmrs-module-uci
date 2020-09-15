@@ -24,8 +24,16 @@ var breadcrumbs = [
     ${ ui.includeFragment("ucionchology", "diagnosis") }
    
     <p >
-    ${ ui.includeFragment("uicommons", "field/text", [ "id": "numberOfPhases", "label": "Number Of Phases", "formFieldName": "numberOfPhases" ]) } 
+    ${ ui.includeFragment("uicommons", "field/text", [ "id": "numberOfPhases", "label": "Number Of Phases/Cycles", "formFieldName": "numberOfPhases" ]) } 
    </p>
+
+  <p>  
+          <input type="radio" id="cyclic" name="isCyclic" value="true">
+          <label for="cyclic">Cyclic </label><br>   
+
+          <input type="radio" id="phase" name="isCyclic" value="false">
+          <label for="phase">By Phase</label><br>      
+    </p>
 
 <button id="submit" type="submit">Create Protocol</button>
 </fieldset>
