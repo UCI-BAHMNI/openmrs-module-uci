@@ -22,7 +22,24 @@
    <% } %>
  <% } else { %>
  <tr>
-   <td colspan="6">${ ui.message("general.none") }</td>
+   <td colspan="7">${ ui.message("No drugs") }</td>
  </tr>
  <% } %>
 </table>
+
+<br>
+<b>ACTIONS </b>
+<p>
+<% if (actions) { %>
+    <% actions.each { %>
+       <div style="margin-left:20px">
+                    <ul style="list-style-type:square">                  
+                          <li>${ ui.format(it.description)}</li>                 
+                     </ul> 
+       </div> 
+   <% } %>
+ <% } else { %>
+   ${ ui.message("No Actions") }
+ <% } %>
+
+ </p>

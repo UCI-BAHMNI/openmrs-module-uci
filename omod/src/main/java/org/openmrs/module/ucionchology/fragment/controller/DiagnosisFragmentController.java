@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openmrs.Concept;
+import org.openmrs.ConceptMap;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.UCIOnchologyConstants;
@@ -34,7 +35,14 @@ public class DiagnosisFragmentController {
 		
 		List<String> names = new ArrayList<String>();
 		for (Concept c : concepts) {
-			names.add(c.getName().getName());
+			for (ConceptMap map : c.getConceptMappings()) {
+				if (map.getConceptReferenceTerm().getConceptSource() == conceptService
+				        .getConceptSourceByName(UCIOnchologyConstants.DIAGNOSIS_CONCEPT_SOURCE)) {
+					String code = map.getConceptReferenceTerm().getCode();
+					names.add(code + " - " + c.getName().getName());
+				}
+			}
+			
 		}
 		
 		model.addAttribute("diagnoses", names);

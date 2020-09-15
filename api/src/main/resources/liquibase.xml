@@ -106,6 +106,10 @@
             </column>
 						
             <column name="numberOfPhases" type="int" />
+
+			<column defaultValueBoolean="false" name="isCyclic" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
 	           
             <column name="uuid" type="char(38)">
 				<constraints nullable="false" unique="true"></constraints>
