@@ -9,6 +9,17 @@ var breadcrumbs = [
 ];
 </script>
 
+<script>
+		function printDiv(divName){
+			var printContents = document.getElementById(divName).innerHTML;
+			var originalContents = document.body.innerHTML;
+			document.body.innerHTML = printContents;
+			window.print();
+			document.body.innerHTML = originalContents;
+		}
+	</script>
+
+<div id='print'>
 <div style="margin-left:20px">
 <p> Protocal : <b>${protocol.protocalName}</b> </p>
 <p > Diagnosis : <b> <% protocol.diagnoses.each { %>
@@ -26,11 +37,11 @@ var breadcrumbs = [
               <% protocol.sortedPhases.each { %>
                 <tr>  
                   <td> Name : Cycle ${cycles}  </td>
-                  <th><a target="_blank" href='${ ui.pageLink("ucionchology","drug") }?phaseId=${ ui.format(it.id)}' title="Add drugs"> <i class="icon-medkit edit-action" > </i></a></th>
-                  <th><a target="_blank" href='${ ui.pageLink("ucionchology","action") }?phaseId=${ ui.format(it.id)}' title="Add Action"> <i class="icon-cogs edit-action" > </i></a></th>
+                  <th style="width: 1%;"><a target="_blank" href='${ ui.pageLink("ucionchology","drug") }?phaseId=${ ui.format(it.id)}' title="Add drugs"> <i class="icon-medkit edit-action" > </i></a></th>
+                  <th style="width: 1%;"><a target="_blank" href='${ ui.pageLink("ucionchology","action") }?phaseId=${ ui.format(it.id)}' title="Add Action"> <i class="icon-cogs edit-action" > </i></a></th>
                 </tr>
                 <tr>
-                  <td > 
+                  <td colspan='3'> 
                     
                           <table>
                             <tr>                  
@@ -111,11 +122,11 @@ var breadcrumbs = [
               <% protocol.sortedPhases.each { %>
                 <tr>  
                   <td> Name : ${ ui.format(it.phaseName) }  &nbsp;&nbsp;&nbsp;&nbsp;  Order  :  ${ ui.format(it.phase_order) } </td>
-                  <th><a target="_blank" href='${ ui.pageLink("ucionchology","drug") }?phaseId=${ ui.format(it.id)}' title="Add drugs"> <i class="icon-medkit edit-action" > </i></a></th>
-                  <th><a target="_blank" href='${ ui.pageLink("ucionchology","action") }?phaseId=${ ui.format(it.id)}' title="Add Action"> <i class="icon-cogs edit-action" > </i></a></th>
+                  <th style="width: 1%;" ><a target="_blank" href='${ ui.pageLink("ucionchology","drug") }?phaseId=${ ui.format(it.id)}' title="Add drugs"> <i class="icon-medkit edit-action" > </i></a></th>
+                  <th style="width: 1%;"><a target="_blank" href='${ ui.pageLink("ucionchology","action") }?phaseId=${ ui.format(it.id)}' title="Add Action"> <i class="icon-cogs edit-action" > </i></a></th>
                 </tr>
                 <tr>
-                  <td > 
+                  <td colspan='3'> 
                     
                           <table>
                             <tr>                  
@@ -195,3 +206,6 @@ var breadcrumbs = [
          
      <% } %>
 </table>
+</div>
+<br>
+<button onclick="printDiv('print')">Print Protocal</button>
