@@ -211,6 +211,11 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 		dao.deleteDiagnosis(diagnosis);
 	}
 	
+	@Override
+	public PatientProtocol getPatientProtocalByPatient(int patientId) throws APIException {
+		return dao.getPatientProtocalByPatient(patientId);
+	}
+	
 	/**
 	 * Injected in moduleApplicationContext.xml
 	 */

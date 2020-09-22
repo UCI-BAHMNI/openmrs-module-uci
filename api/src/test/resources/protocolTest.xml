@@ -37,16 +37,16 @@
   <p_action id="2" actionName="act2"   description="check Blood"  />
   <p_action id="3" actionName="act3"   description="check HIV"  />
 
-  <p_patient_protocal id="1" patientId="2"   protocalId="1"  dateStarted="2020-02-22 00:00:00"
+  <p_patient_protocal id="1" patientId="2"   protocal_id="1"  dateStarted="2020-02-22 00:00:00"
   dateStopped="2020-09-22 00:00:00"  />
   
-   <p_patient_protocal id="4" patientId="2"   protocalId="2"  dateStarted="2020-06-22 00:00:00"
+   <p_patient_protocal id="4" patientId="2"   protocal_id="2"  dateStarted="2020-06-22 00:00:00"
   dateStopped="2020-10-22 00:00:00"  />
   
-  <p_patient_protocal id="2" patientId="6"   protocalId="1"  dateStarted="2020-02-22 00:00:00"
+  <p_patient_protocal id="2" patientId="6"   protocal_id="1"  dateStarted="2020-02-22 00:00:00"
   dateStopped="2020-08-22 00:00:00"  />
   
-  <p_patient_protocal id="3" patientId="7"   protocalId="1"  dateStarted="2020-09-22 00:00:00"
+  <p_patient_protocal id="3" patientId="7"   protocal_id="1"  dateStarted="2020-09-22 00:00:00"
   dateStopped="2020-10-22 00:00:00"  />
   
  <p_day_doze  drug_id = "1" day_id= "1" />

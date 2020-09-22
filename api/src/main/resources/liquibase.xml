@@ -64,29 +64,6 @@
 		</createTable>
     </changeSet>
     
-    
-     <changeSet id="tp2" author="Mutesasira Moses">
-		<preConditions onFail="MARK_RAN">
-			<not><tableExists tableName="p_patient_protocal"/></not>
-		</preConditions>
-		<comment>
-			Creating the patient_protocal table
-		</comment>
-		
-		<createTable tableName="p_patient_protocal">
-			<column name="id" type="int" autoIncrement="true">
-				<constraints primaryKey="true" nullable="false"/>
-			</column>			
-			<column name="patientId" type="int" >
-			    <constraints nullable="false"/>
-            </column>				
-			 <column name="protocalId" type="int" >
-			    <constraints nullable="false"/>
-            </column>            
-             <column name="dateStarted" type="DATETIME"/>            
-            <column name="dateStopped" type="DATETIME"/>								 
-		</createTable>		
-    </changeSet>
 
 	 <changeSet id="tp3" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">
@@ -131,6 +108,28 @@
 		</createTable>	
     </changeSet>
     
+	    <changeSet id="tp2" author="Mutesasira Moses">
+		<preConditions onFail="MARK_RAN">
+			<not><tableExists tableName="p_patient_protocal"/></not>
+		</preConditions>
+		<comment>
+			Creating the patient_protocal table
+		</comment>
+		
+		<createTable tableName="p_patient_protocal">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>			
+			<column name="patientId" type="int" >
+			    <constraints nullable="false"/>
+            </column>				
+			 <column name="protocal_id" type="int" />              
+             <column name="dateStarted" type="DATETIME"/>            
+            <column name="dateStopped" type="DATETIME"/>								 
+		</createTable>	
+        <addForeignKeyConstraint constraintName="protocol_id_fk3" baseTableName="p_patient_protocal" baseColumnNames="protocal_id"  referencedTableName="p_protocal"
+                                 referencedColumnNames="id" />
+    </changeSet>
     
      <changeSet id="tp4" author="Mutesasira Moses">
 		<preConditions onFail="MARK_RAN">

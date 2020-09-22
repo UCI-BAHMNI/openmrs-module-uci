@@ -153,7 +153,7 @@ public class UCIOnchologyDao {
 	
 	@SuppressWarnings("unchecked")
 	public List<Patient> getPatienstByProtocal(Protocol protocal) throws APIException {
-		String hql = "SELECT patientId FROM PatientProtocol WHERE protocalId = :protocalId";
+		String hql = "SELECT patientId FROM PatientProtocol WHERE protocol3.id = :protocalId";
 		
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("protocalId", protocal.getId());
@@ -183,13 +183,23 @@ public class UCIOnchologyDao {
 	}
 	
 	public Protocol getPatientCurrentProtocal(int patientId) throws APIException {
-		String hql = "SELECT protocalId FROM PatientProtocol WHERE  patientId = :patientId ORDER BY id DESC";
+		String hql = "SELECT protocol3.id FROM PatientProtocol WHERE  patientId = :patientId ORDER BY id DESC";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("patientId", patientId);
 		//query.setTimestamp("now_date", new Date());
 		query.setMaxResults(1);
 		int protocaolId = (Integer) query.uniqueResult();
 		return getProtocalById(protocaolId);
+	}
+	
+	public PatientProtocol getPatientProtocalByPatient(int patientId) throws APIException {
+		String hql = "FROM PatientProtocol WHERE  patientId = :patientId ORDER BY id DESC";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger("patientId", patientId);
+		//query.setTimestamp("now_date", new Date());
+		query.setMaxResults(1);
+		return (PatientProtocol) query.uniqueResult();
+		
 	}
 	
 	@SuppressWarnings("unchecked")
