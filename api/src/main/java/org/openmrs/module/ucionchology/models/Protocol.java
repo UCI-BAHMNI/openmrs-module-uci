@@ -39,6 +39,9 @@ public class Protocol extends BaseOpenmrsData {
 	@OneToMany(mappedBy = "protocol1")
 	private Set<Phase> phase;
 	
+	@OneToMany(mappedBy = "protocol3")
+	private Set<PatientProtocol> patientProtocals;
+	
 	@Basic
 	@Column
 	private int numberOfPhases;
@@ -110,6 +113,14 @@ public class Protocol extends BaseOpenmrsData {
 	
 	public void setCyclic(boolean isCyclic) {
 		this.isCyclic = isCyclic;
+	}
+	
+	public Set<PatientProtocol> getPatientProtocals() {
+		return patientProtocals;
+	}
+	
+	public void setPatientProtocals(Set<PatientProtocol> patientProtocals) {
+		this.patientProtocals = patientProtocals;
 	}
 	
 }

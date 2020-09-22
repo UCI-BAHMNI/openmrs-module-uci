@@ -107,6 +107,9 @@ public interface UCIOnchologyService extends OpenmrsService {
 	public Protocol getPatientCurrentProtocal(int patientId) throws APIException;
 	
 	@Transactional
+	public PatientProtocol getPatientProtocalByPatient(int patientId) throws APIException;
+	
+	@Transactional
 	public List<Phase> getPhasesByProtocol(int protocolId) throws APIException;
 	
 	@Transactional

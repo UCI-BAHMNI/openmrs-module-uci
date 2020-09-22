@@ -7,5 +7,14 @@
           "url": "ucionchology/home.page",
           "icon": "icon-stethoscope",
           "order": 10
-     }
+     } ,
+     {
+        "id": "${project.parent.groupId}.${project.parent.artifactId}.ucionchologyPatient",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "innitiate Protocal",
+        "url": "ucionchology/patientProtocal.page?patientId={{patient.uuid}}",
+        "icon": "icon-stethoscope",
+        "order": 11
+   }
   ]

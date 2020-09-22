@@ -11,6 +11,5 @@ public class PhasesFragmentController {
 		
 		UCIOnchologyService onchlogyService = Context.getService(UCIOnchologyService.class);
 		model.addAttribute("phases", onchlogyService.getPhasesByProtocol(protocolId));
-		
 	}
 }
