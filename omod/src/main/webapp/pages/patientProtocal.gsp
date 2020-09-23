@@ -20,12 +20,17 @@
  <% patient.names.each { name -> %> 
            ${name} 
         <% } %>
-${ ui.includeFragment("ucionchology", "createPatientProtocal") }
+
+     
+
 
 ${ ui.includeFragment("ucionchology", "viewPatientProtocal") }
 
-${ ui.includeFragment("ucionchology", "patientCalender") }
-
+<% if (innitialisedProtocal) { %>
+  ${ ui.includeFragment("ucionchology", "patientCalender") }
+<% } else { %>
+  ${ ui.includeFragment("ucionchology", "createPatientProtocal") }
+<% } %>   
 
 
 
