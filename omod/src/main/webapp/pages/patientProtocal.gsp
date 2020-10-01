@@ -21,16 +21,12 @@
            ${name} 
         <% } %>
 
-     
-
-
-${ ui.includeFragment("ucionchology", "viewPatientProtocal") }
-
-<% if (innitialisedProtocal) { %>
-  ${ ui.includeFragment("ucionchology", "patientCalender") }
-<% } else { %>
   ${ ui.includeFragment("ucionchology", "createPatientProtocal") }
-<% } %>   
+
+ ${ ui.includeFragment("ucionchology", "viewPatientProtocal") }
+
+
+ 
 
 
 

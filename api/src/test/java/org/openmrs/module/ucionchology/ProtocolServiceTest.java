@@ -84,7 +84,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		Protocol protocal = service.getProtocalById(1);
 		//System.out.println(service.getPatienstByProtocal(protocal).size());
 		int patientSize = service.getPatienstByProtocal(protocal).size();
-		Assert.assertEquals("", 3, patientSize);
+		Assert.assertEquals("", 2, patientSize);
 	}
 	
 	@Test
@@ -93,7 +93,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		Date date = sdf.parse("2020-05-10");
 		int patientSize = service.getPatienstByDate(date).size();
 		//System.out.println(patientSize);
-		Assert.assertEquals("", 2, patientSize);
+		Assert.assertEquals("", 1, patientSize);
 	}
 	
 	@Test
@@ -108,21 +108,21 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 	public void getAllProtocalPhases() throws ParseException {
 		Protocol protocal = service.getProtocalById(1);
 		//System.out.println(protocal.getPhase().size());
-		Assert.assertEquals("", 2, protocal.getPhase().size());
+		Assert.assertEquals("", 1, protocal.getPhase().size());
 	}
 	
 	@Test
 	public void getAllPhasesByProtocol() throws ParseException {
 		List<Phase> phases = service.getPhasesByProtocol(1);
 		//System.out.println(phases.size());
-		Assert.assertEquals("", 2, phases.size());
+		Assert.assertEquals("", 1, phases.size());
 	}
 	
 	@Test
 	public void getDaysByPhase() throws ParseException {
 		List<StageDay> days = service.getDaysByPhase(1);
 		//System.out.println(phases.size());
-		Assert.assertEquals("", 2, days.size());
+		Assert.assertEquals("", 3, days.size());
 	}
 	
 	@Test
@@ -269,7 +269,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 	
 	@Test
 	public void getProtocalForAdiagnosis() throws ParseException {
-		System.out.println(service.getDiagnosisById(1).getProtocol2().getProtocalName());
+		//System.out.println(service.getDiagnosisById(1).getProtocol2().getProtocalName());
 		Assert.assertEquals("", "prot1", service.getDiagnosisById(1).getProtocol2().getProtocalName());
 	}
 	
