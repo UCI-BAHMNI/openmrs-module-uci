@@ -5,17 +5,29 @@
   
   <p_protocal id="2" protocalName="prot2"  isCyclic="false" numberOfPhases="1" uuid="UUID5"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />
+
+  <p_protocal id="3" protocalName="prot3"  isCyclic="true" numberOfPhases="3" uuid="UUIDP"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />
   
-  <p_phase_table id="1" phaseName="phase1" numberOfDays="3" phase_order="1"  protocal_id="1" uuid="UUID3"  creator="1"
+  <p_phase_table id="1" phaseName="phase1" numberOfDays="3" phase_order="1"  protocal_id="3" uuid="UUID3"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" /> 
   
-  <p_phase_table id="2" phaseName="phase2" numberOfDays="3" phase_order="1"  protocal_id="1" uuid="UUID6"  creator="1"
+  <p_phase_table id="2" phaseName="phase2" numberOfDays="2" phase_order="2"  protocal_id="1" uuid="UUID6"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" /> 
   
   <p_stage_day id="1"   dayNumber="1"   phase_id="1" uuid="UUID2"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />
   
-  <p_stage_day id="2"   dayNumber="1"   phase_id="1" uuid="UUID7"  creator="1"
+  <p_stage_day id="2"   dayNumber="2"   phase_id="1" uuid="UUID7"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />
+
+   <p_stage_day id="3"   dayNumber="3"   phase_id="1" uuid="UUID71"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />
+
+  <p_stage_day id="4"   dayNumber="1"   phase_id="2" uuid="UUID711"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="false" />
+
+   <p_stage_day id="5"   dayNumber="2"   phase_id="2" uuid="UUID713"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />
   
  <p_drug_dosage id="1"  drugName="drug1" 
@@ -48,10 +60,18 @@
   
   <p_patient_protocal id="3" patientId="7"   protocal_id="1"  dateStarted="2020-09-22 00:00:00"
   dateStopped="2020-10-22 00:00:00"  />
+
+    <p_patient_protocal id="1" patientId="9"   protocal_id="1"  dateStarted="2020-01-01 00:00:00"
+  dateStopped="2020-01-01 00:00:00"  />
+
+   <p_patient_protocal id="3" patientId="10"   protocal_id="3"  dateStarted="2020-01-01 00:00:00"
+  dateStopped="2020-01-01 00:00:00"  />
   
  <p_day_doze  drug_id = "1" day_id= "1" />
- <p_day_doze  drug_id = "1" day_id= "2" />
  <p_day_doze  drug_id = "2" day_id= "1" />
+ <p_day_doze  drug_id = "1" day_id= "2" />
+ <p_day_doze  drug_id = "3" day_id= "2" />
+  <p_day_doze  drug_id = "3" day_id= "3" />
 
  <p_day_actions  action_id = "1" day_id= "1" />
  <p_day_actions action_id = "1" day_id= "2" />

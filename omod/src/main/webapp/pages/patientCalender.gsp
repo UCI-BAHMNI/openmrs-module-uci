@@ -1,4 +1,36 @@
 
+<% ui.decorateWith("appui", "standardEmrPage")
+    ui.includeJavascript("uicommons", "fullcalendar/fullcalendar.min.js")
+    ui.includeJavascript("uicommons", "fullcalendar/gcal.js")
+    ui.includeCss("uicommons", "fullcalendar/fullcalendar.css")
+    ui.includeJavascript("uicommons", "moment-with-locales.min.js")
+   %>
+   
+
+<script type="text/javascript">
+  var breadcrumbs = [
+        { icon: "icon-home", link: '/' + OPENMRS_CONTEXT_PATH + '/index.htm' },
+        { label: "${ ui.escapeJs(ui.encodeHtmlContent(ui.format(patient.names))) }" ,
+            link: "/" + OPENMRS_CONTEXT_PATH + '/coreapps/clinicianfacing/patient.page?patientId=${patient.uuid}'} ,
+        { label: "${ ui.message("Protocal Calender Page")}" }
+    ];
+
+</script>
+
+
+ <% patient.names.each { name -> %> 
+           ${name} 
+        <% } %>
+
+<% if (innitialisedProtocal) { %>
+
+<div style="margin-left:20px">
+<p> Protocal :<b> ${innitialisedProtocal.protocol3.protocalName}</b></p>
+<p> Start Date : <b> ${innitialisedProtocal.dateStarted} </b></p>
+<p> End date : <b> ${innitialisedProtocal.dateStopped} </b> </p>
+</div>
+
+
 <script type="text/javascript">
   // var tes = '${patient.allergyStatus}';
   var dateStarted = '${innitialisedProtocal.dateStarted}';
@@ -40,6 +72,7 @@
         if (title) {
           eventData = {
             title: title,
+            color: "green",
             start: start,
             end: end
           };
@@ -61,14 +94,12 @@
 <style>
 
   body {
-    margin: 40px 10px;
-    padding: 0;
     font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
     font-size: 14px;
   }
 
   #calendar {
-    max-width: 900px;
+    max-width: 980px;
     margin: 0 auto;
   }
 
@@ -77,3 +108,8 @@
 <body>
 <div id='calendar'></div>
 </body>
+
+<% } else { %>
+<br>   <br>
+Patient Not Innitialised A protocal
+<% } %>
