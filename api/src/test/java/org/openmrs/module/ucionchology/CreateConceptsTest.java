@@ -62,19 +62,19 @@ public class CreateConceptsTest extends BaseModuleContextSensitiveTest {
 		CreateDiagnosisConcepts.CreateWorkingDiagnosisConceptSet();
 		
 		Concept c = conceptService.getConceptByName(name);
-		System.out.println(c.getDisplayString());
-		System.out.println(c.getSetMembers().size());
+		//System.out.println(c.getDisplayString());
+		//System.out.println(c.getSetMembers().size());
 		
 		Assert.assertEquals(11, c.getSetMembers().size());
 		Assert.assertEquals("Working Cancer Diagnosis (set)", c.getDisplayString());
-		for (Concept x : c.getSetMembers()) {
-			System.out.println(x.getDisplayString() + ">>>>>>>>>>>>>>>");
-			for (ConceptMap map : x.getConceptMappings()) {
-				//System.out.println(map.getConceptReferenceTerm().getCode());
-				//System.out.println(map.getConceptReferenceTerm().getConceptSource().getName());
-				//System.out.println(".................");
-			}
-		}
+		/* 	for (Concept x : c.getSetMembers()) {
+				System.out.println(x.getDisplayString() + ">>>>>>>>>>>>>>>");
+				for (ConceptMap map : x.getConceptMappings()) {
+					System.out.println(map.getConceptReferenceTerm().getCode());
+					System.out.println(map.getConceptReferenceTerm().getConceptSource().getName());
+					System.out.println(".................");
+				}
+			} */
 		
 	}
 	

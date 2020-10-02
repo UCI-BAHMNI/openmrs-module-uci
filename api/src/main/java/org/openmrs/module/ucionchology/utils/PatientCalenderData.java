@@ -1,5 +1,11 @@
 package org.openmrs.module.ucionchology.utils;
 
+import org.openmrs.Concept;
+import org.openmrs.Obs;
+import org.openmrs.Person;
+import org.openmrs.api.ObsService;
+import org.openmrs.api.context.Context;
+import org.openmrs.module.ucionchology.UCIOnchologyConstants;
 import org.openmrs.module.ucionchology.models.Action;
 import org.openmrs.module.ucionchology.models.DayDrugDosage;
 import org.openmrs.module.ucionchology.models.PatientProtocol;
@@ -44,7 +50,7 @@ public class PatientCalenderData {
 		}
 		
 		Date startDate = patientProtocal.getDateStarted();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String formatedStartDate = sdf.format(startDate);
 		
 		StageDay[] daysArray = new StageDay[daysList.size()];
@@ -62,7 +68,12 @@ public class PatientCalenderData {
 					
 					for (DayDrugDosage drug : day.getDosage()) {
 						JSONObject event = new JSONObject();
-						event.put("title", drug.getDrugName());
+						event.put(
+						    "title",
+						    drug.getDrugName()
+						            + " - "
+						            + calculatePatientDose(getLatestBsa(patientProtocal.getPatientId()),
+						                drug.getDosageValue(), drug.getMaxDoseValue()) + '(' + drug.getUnits() + ')');
 						event.put("start", sdf.format(c.getTime()));
 						event.put("rendering", "background");
 						eventsArray.put(event);
@@ -83,6 +94,30 @@ public class PatientCalenderData {
 			
 		}
 		return eventsArray;
+	}
+	
+	public static float getLatestBsa(Integer patientId) {
+		ObsService obsSerivice = Context.getObsService();
+		Person person = Context.getPersonService().getPerson(patientId);
+		
+		Concept concept = Context.getConceptService().getConcept(UCIOnchologyConstants.CONCEPT_ID_BSA);
+		List<Obs> obs = obsSerivice.getObservationsByPersonAndConcept(person, concept);
+		
+		float bsa = 0;
+		if (obs != null && obs.size() > 0) {
+			Obs lastObs = obs.get(0);
+			bsa = lastObs.getValueNumeric().intValue();
+		}
+		return bsa;
+	}
+	
+	public static float calculatePatientDose(float bsa, float drugDoze, float MaxValue) {
+		float patientDose = bsa * drugDoze;
+		if (patientDose > MaxValue) {
+			return MaxValue;
+		} else {
+			return patientDose;
+		}
 	}
 	
 }

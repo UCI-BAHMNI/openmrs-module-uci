@@ -31,15 +31,15 @@
   date_created="2020-02-22 00:00:00" voided="false" />
   
  <p_drug_dosage id="1"  drugName="drug1" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  instructions="take water" uuid="UUID8D1"  creator="1"
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='100'  instructions="take water" uuid="UUID8D1"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" /> 
   
   <p_drug_dosage id="2"  drugName="drug2" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  instructions="take water" uuid="UUID8D2"  creator="1"
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='2'  instructions="take water" uuid="UUID8D2"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />  
   
    <p_drug_dosage id="3"  drugName="drug3" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='1'  instructions="take water" uuid="UUID8D3"  creator="1"
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='100'  instructions="take water" uuid="UUID8D3"  creator="1"
   date_created="2020-02-22 00:00:00" voided="true" /> 
 
    <p_diagnosis_table id="1" diagnosis="malaria"   protocal_id="1"  />
@@ -76,4 +76,11 @@
  <p_day_actions  action_id = "1" day_id= "1" />
  <p_day_actions action_id = "1" day_id= "2" />
  <p_day_actions action_id = "3" day_id= "1" />
+
+
+ <concept concept_id="980" retired="false" datatype_id="1" class_id="1" is_set="false" creator="1" date_created="2005-01-01 00:00:00.0" uuid="4a5048b1-cf85-4c64-9339-7cab41e5e364"/>
+  <concept_numeric concept_id="980" hi_absolute="50.0" low_absolute="2.0" allow_decimal="false"/>
+  <concept_description concept_description_id="1" concept_id="980" description="this is a description" locale="en" creator="1" date_created="2005-01-01 00:00:00.0" uuid="8b46218d-8dcf-4f45-91b5-837d11486a53"/>
+  <concept_name concept_id="980" name="Some concept name" locale="en" creator="1" date_created="2005-01-01 00:00:00.0" concept_name_id="1" voided="false" uuid="8add472b-156b-468f-ad62-d9333fb86976" concept_name_type="FULLY_SPECIFIED" locale_preferred="0"/>
+  <obs obs_id="1" person_id="2" concept_id="980" status="FINAL" obs_datetime="2006-02-09 00:00:00.0" location_id="1" value_numeric="1.0" creator="1" date_created="2006-02-10 15:57:35.0" voided="false" uuid="be3a4d7a-f9ab-47bb-aaad-bc0b452fcda4" accession_number="AN1"/>
 </dataset>
