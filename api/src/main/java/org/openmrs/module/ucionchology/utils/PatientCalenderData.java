@@ -1,28 +1,23 @@
 package org.openmrs.module.ucionchology.utils;
 
-import org.openmrs.Concept;
-import org.openmrs.Obs;
-import org.openmrs.Person;
-import org.openmrs.api.ObsService;
-import org.openmrs.api.context.Context;
-import org.openmrs.module.ucionchology.UCIOnchologyConstants;
-import org.openmrs.module.ucionchology.models.Action;
-import org.openmrs.module.ucionchology.models.DayDrugDosage;
-import org.openmrs.module.ucionchology.models.PatientProtocol;
-import org.openmrs.module.ucionchology.models.Phase;
-
-import org.openmrs.module.ucionchology.models.StageDay;
-
 import java.text.ParseException;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import java.util.Calendar;
+import org.openmrs.Obs;
+import org.openmrs.api.context.Context;
+import org.openmrs.module.ucionchology.UCIOnchologyConstants;
+import org.openmrs.module.ucionchology.api.UCIOnchologyService;
+import org.openmrs.module.ucionchology.models.Action;
+import org.openmrs.module.ucionchology.models.DayDrugDosage;
+import org.openmrs.module.ucionchology.models.PatientProtocol;
+import org.openmrs.module.ucionchology.models.Phase;
+import org.openmrs.module.ucionchology.models.StageDay;
 
 public class PatientCalenderData {
 	
@@ -73,7 +68,8 @@ public class PatientCalenderData {
 						    drug.getDrugName()
 						            + " - "
 						            + calculatePatientDose(getLatestBsa(patientProtocal.getPatientId()),
-						                drug.getDosageValue(), drug.getMaxDoseValue()) + '(' + drug.getUnits() + ')');
+						                drug.getDosageValue(), drug.getMaxDoseValue()) + " " + drug.getUnits() + " " + "("
+						            + drug.getDosageFrequence() + ")");
 						event.put("start", sdf.format(c.getTime()));
 						event.put("rendering", "background");
 						eventsArray.put(event);
@@ -97,16 +93,13 @@ public class PatientCalenderData {
 	}
 	
 	public static float getLatestBsa(Integer patientId) {
-		ObsService obsSerivice = Context.getObsService();
-		Person person = Context.getPersonService().getPerson(patientId);
+		UCIOnchologyService onchlogyService = Context.getService(UCIOnchologyService.class);
 		
-		Concept concept = Context.getConceptService().getConcept(UCIOnchologyConstants.CONCEPT_ID_BSA);
-		List<Obs> obs = obsSerivice.getObservationsByPersonAndConcept(person, concept);
+		Obs obs = onchlogyService.getLastObsForPerson(patientId, UCIOnchologyConstants.CONCEPT_ID_BSA);
 		
 		float bsa = 0;
-		if (obs != null && obs.size() > 0) {
-			Obs lastObs = obs.get(0);
-			bsa = lastObs.getValueNumeric().intValue();
+		if (obs != null) {
+			bsa = obs.getValueNumeric().floatValue();
 		}
 		return bsa;
 	}
@@ -114,9 +107,9 @@ public class PatientCalenderData {
 	public static float calculatePatientDose(float bsa, float drugDoze, float MaxValue) {
 		float patientDose = bsa * drugDoze;
 		if (patientDose > MaxValue) {
-			return MaxValue;
+			return Math.round(MaxValue * 100f) / 100f;
 		} else {
-			return patientDose;
+			return Math.round(patientDose * 100f) / 100f;
 		}
 	}
 	

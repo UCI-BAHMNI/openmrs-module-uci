@@ -30,7 +30,7 @@ public class CreatePatientProtocalFragmentController {
 		for (Phase phase : onchlogyService.getProtocalById(protocalId).getSortedPhases()) {
 			totalDays += phase.getNumberOfDays();
 		}
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String today = sdf.format(new Date());
 		
 		Date date = sdf.parse(today);

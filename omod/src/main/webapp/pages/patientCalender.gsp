@@ -66,20 +66,17 @@
       selectable: true ,
       weekends: true ,
       selectHelper: true,
-      select: function(start, end) {
-        var title = prompt('Enter Title');
-        var eventData;
-        if (title) {
-          eventData = {
-            title: title,
-            color: "green",
-            start: start,
-            end: end
-          };
-          jq('#calendar').fullCalendar('renderEvent', eventData, true); 
-        }
-        jq('#calendar').fullCalendar('unselect');
-      }      
+      dayClick: function(date, allDay, jsEvent, view) {
+
+              if (allDay) {
+                  // Clicked on the entire day
+                  jq('#calendar')
+                      .fullCalendar('changeView', 'agendaDay'/* or 'basicDay' */)
+                      .fullCalendar('gotoDate',
+                          date.getFullYear(), date.getMonth(), date.getDate());
+              }
+          }
+
     });
 
     var event= {id:1 , title: 'New event', start: new Date()};
@@ -87,6 +84,8 @@
     for(let i = 0; i < eventsArray.length; i++){ 
         jq('#calendar').fullCalendar( 'renderEvent',eventsArray[i], true); 
      }
+
+
   });
 
 </script>

@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.openmrs.Obs;
 import org.openmrs.Patient;
 import org.openmrs.api.APIException;
 import org.openmrs.api.context.Context;
@@ -254,5 +255,14 @@ public class UCIOnchologyDao {
 	
 	public void deleteDiagnosis(ProtocalDiagnosis diagnosis) throws APIException {
 		getSession().delete(diagnosis);
+	}
+	
+	public Obs getLastObsForPerson(int personId, int conceptId) throws APIException {
+		String hql = "FROM Obs WHERE  concept.conceptId = :conceptId  AND person.personId = :personId ORDER BY obsId DESC";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setInteger("personId", personId);
+		query.setInteger("conceptId", conceptId);
+		query.setMaxResults(1);
+		return (Obs) query.uniqueResult();
 	}
 }
