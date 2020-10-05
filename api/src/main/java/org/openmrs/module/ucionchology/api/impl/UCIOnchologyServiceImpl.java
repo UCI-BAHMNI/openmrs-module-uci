@@ -12,6 +12,7 @@ package org.openmrs.module.ucionchology.api.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.openmrs.Obs;
 import org.openmrs.Patient;
 import org.openmrs.api.APIException;
 import org.openmrs.api.impl.BaseOpenmrsService;
@@ -214,6 +215,11 @@ public class UCIOnchologyServiceImpl extends BaseOpenmrsService implements UCIOn
 	@Override
 	public PatientProtocol getPatientProtocalByPatient(int patientId) throws APIException {
 		return dao.getPatientProtocalByPatient(patientId);
+	}
+	
+	@Override
+	public Obs getLastObsForPerson(int personId, int conceptId) throws APIException {
+		return dao.getLastObsForPerson(personId, conceptId);
 	}
 	
 	/**

@@ -93,7 +93,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		Date date = sdf.parse("2020-05-10");
 		int patientSize = service.getPatienstByDate(date).size();
 		//System.out.println(patientSize);
-		Assert.assertEquals("", 1, patientSize);
+		Assert.assertEquals("", 2, patientSize);
 	}
 	
 	@Test
@@ -101,7 +101,7 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		Protocol protocal = service.getPatientCurrentProtocal(2);
 		int protocaolId = protocal.getId();
 		//System.out.println(protocaolId);
-		Assert.assertEquals("", 2, protocaolId);
+		Assert.assertEquals("", 1, protocaolId);
 	}
 	
 	@Test
@@ -271,6 +271,12 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 	public void getProtocalForAdiagnosis() throws ParseException {
 		//System.out.println(service.getDiagnosisById(1).getProtocol2().getProtocalName());
 		Assert.assertEquals("", "prot1", service.getDiagnosisById(1).getProtocol2().getProtocalName());
+	}
+	
+	@Test
+	public void getLatObs() throws ParseException {
+		//System.out.println(service.getLastObsForPerson(2, 980).getValueNumeric());
+		Assert.assertEquals("", "0.087", service.getLastObsForPerson(8, 980).getValueNumeric().toString());
 	}
 	
 }

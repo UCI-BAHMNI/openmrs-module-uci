@@ -12,6 +12,7 @@ package org.openmrs.module.ucionchology.api;
 import java.util.Date;
 import java.util.List;
 
+import org.openmrs.Obs;
 import org.openmrs.Patient;
 import org.openmrs.api.APIException;
 import org.openmrs.api.OpenmrsService;
@@ -140,5 +141,8 @@ public interface UCIOnchologyService extends OpenmrsService {
 	
 	@Transactional
 	public void deleteDiagnosis(ProtocalDiagnosis diagnosis) throws APIException;
+	
+	@Transactional
+	public Obs getLastObsForPerson(int personId, int conceptId) throws APIException;
 	
 }
