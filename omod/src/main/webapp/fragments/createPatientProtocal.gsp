@@ -23,6 +23,9 @@
     <input type="hidden" name="protocalId" id="answerInput-hidden">
     </p>
    
+   <p>
+     ${ ui.includeFragment("uicommons", "field/datetimepicker", [ "id": "startDateField", "label": "From Date", "formFieldName": "startDate", "defaultToday": true, "useTime": true ]) }
+   </p>
 <button id="submit" type="submit">Start Protocal</button>
 </fieldset>
 </form>

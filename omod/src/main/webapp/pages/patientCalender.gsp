@@ -79,8 +79,6 @@
 
     });
 
-    var event= {id:1 , title: 'New event', start: new Date()};
-
     for(let i = 0; i < eventsArray.length; i++){ 
         jq('#calendar').fullCalendar( 'renderEvent',eventsArray[i], true); 
      }

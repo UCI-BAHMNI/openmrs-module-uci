@@ -87,6 +87,18 @@
 			<column defaultValueBoolean="false" name="isCyclic" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
+
+			<column defaultValueBoolean="false" name="approved" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+
+			<column defaultValueBoolean="false" name="privatised" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+
+			 <column name="patientId" type="int" >
+			    <constraints nullable="true"/>
+            </column>
 	           
             <column name="uuid" type="char(38)">
 				<constraints nullable="false" unique="true"></constraints>
@@ -125,7 +137,10 @@
             </column>				
 			 <column name="protocal_id" type="int" />              
              <column name="dateStarted" type="DATETIME"/>            
-            <column name="dateStopped" type="DATETIME"/>								 
+            <column name="dateStopped" type="DATETIME"/>
+			<column defaultValueBoolean="false" name="approved" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>								 
 		</createTable>	
         <addForeignKeyConstraint constraintName="protocol_id_fk3" baseTableName="p_patient_protocal" baseColumnNames="protocal_id"  referencedTableName="p_protocal"
                                  referencedColumnNames="id" />

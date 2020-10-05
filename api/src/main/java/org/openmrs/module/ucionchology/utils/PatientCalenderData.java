@@ -72,6 +72,7 @@ public class PatientCalenderData {
 						            + drug.getDosageFrequence() + ")");
 						event.put("start", sdf.format(c.getTime()));
 						event.put("rendering", "background");
+						event.put("allDay", false);
 						eventsArray.put(event);
 					}
 				}

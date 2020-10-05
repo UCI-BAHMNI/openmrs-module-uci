@@ -36,6 +36,10 @@ public class PatientProtocol {
 	@Column
 	private Date dateStopped;
 	
+	@Basic
+	@Column(columnDefinition = "BOOLEAN DEFAULT false")
+	private boolean approved;
+	
 	public Date getDateStarted() {
 		return dateStarted;
 	}
@@ -74,6 +78,14 @@ public class PatientProtocol {
 	
 	public void setDateStopped(Date dateStopped) {
 		this.dateStopped = dateStopped;
+	}
+	
+	public boolean isApproved() {
+		return approved;
+	}
+	
+	public void setApproved(boolean approved) {
+		this.approved = approved;
 	}
 	
 }

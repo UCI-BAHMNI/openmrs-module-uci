@@ -17,8 +17,8 @@ public class CreatePatientProtocalFragmentController {
 	
 	UCIOnchologyService onchlogyService;
 	
-	public void post(@RequestParam("patientId") Patient patient, @RequestParam("protocalId") Integer protocalId)
-	        throws ParseException {
+	public void post(@RequestParam("patientId") Patient patient, @RequestParam("protocalId") Integer protocalId,
+	        @RequestParam(required = false, value = "startDate") Date startDate) throws ParseException {
 		
 		onchlogyService = Context.getService(UCIOnchologyService.class);
 		PatientProtocol protocal = new PatientProtocol();
@@ -31,7 +31,13 @@ public class CreatePatientProtocalFragmentController {
 			totalDays += phase.getNumberOfDays();
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		String today = sdf.format(new Date());
+		
+		String today = "";
+		if (startDate == null) {
+			today = sdf.format(new Date());
+		} else {
+			today = sdf.format(startDate);
+		}
 		
 		Date date = sdf.parse(today);
 		

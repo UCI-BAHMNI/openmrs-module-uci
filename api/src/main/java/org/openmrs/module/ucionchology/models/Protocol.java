@@ -50,6 +50,18 @@ public class Protocol extends BaseOpenmrsData {
 	@Column(columnDefinition = "BOOLEAN DEFAULT false")
 	private boolean isCyclic;
 	
+	@Basic
+	@Column(columnDefinition = "BOOLEAN DEFAULT false")
+	private boolean approved;
+	
+	@Basic
+	@Column(columnDefinition = "BOOLEAN DEFAULT false")
+	private boolean privatised;
+	
+	@Basic
+	@Column(nullable = true)
+	private Integer patientId;
+	
 	public List<Phase> getSortedPhases() {
 		List<Phase> list = new ArrayList<Phase>();
 		list = convertToList(getPhase());
@@ -121,6 +133,30 @@ public class Protocol extends BaseOpenmrsData {
 	
 	public void setPatientProtocals(Set<PatientProtocol> patientProtocals) {
 		this.patientProtocals = patientProtocals;
+	}
+	
+	public boolean isApproved() {
+		return approved;
+	}
+	
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+	
+	public boolean isPrivatised() {
+		return privatised;
+	}
+	
+	public void setPrivatised(boolean privatised) {
+		this.privatised = privatised;
+	}
+	
+	public Integer getPatientId() {
+		return patientId;
+	}
+	
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
 	}
 	
 }
