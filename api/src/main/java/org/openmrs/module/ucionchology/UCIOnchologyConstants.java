@@ -25,6 +25,8 @@ public class UCIOnchologyConstants {
 	
 	public static final String SYMPTOMS_SET_CONCEPT_UUID = "Sa7fa9c8-1f9f-4427-9e67-c0ff90a9ebbS";
 	
+	public static final String WORKING_CANCER_DIAGNOSIS_CONCEPT_UUID = "7c644f88-e2eb-4a44-8b52-c9b76018cb57";
+	
 	public static final String CONCEPT_CLASS_UNITS = "Units of Measure";
 	
 	public static final String CONCEPT_CLASS_DRUG_FREQUENCE = "Frequency";
