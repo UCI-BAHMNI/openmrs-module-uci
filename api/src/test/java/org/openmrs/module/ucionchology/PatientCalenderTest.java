@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.api.UCIOnchologyService;
 import org.openmrs.module.ucionchology.models.PatientProtocol;
+import org.openmrs.module.ucionchology.utils.FilterProtocals;
 import org.openmrs.module.ucionchology.utils.PatientCalenderData;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 
@@ -35,8 +36,13 @@ public class PatientCalenderTest extends BaseModuleContextSensitiveTest {
 			System.out.println(eventsArray.getJSONObject(x));
 		} */
 		
-		//System.out.println(eventsArray.length());
 		Assert.assertEquals("", 24, eventsArray.length());
+	}
+	
+	@Test
+	public void testfilterProtocals() throws ParseException {
+		//System.out.println(FilterProtocals.filtererdProtocals(8).size());
+		Assert.assertEquals("", 2, FilterProtocals.filtererdProtocals(8).size());
 	}
 	
 }

@@ -44,6 +44,8 @@
 
    <p_diagnosis_table id="1" diagnosis="malaria"   protocal_id="1"  />
    <p_diagnosis_table id="2" diagnosis="HIV"   protocal_id="1"  />
+   <p_diagnosis_table id="3" diagnosis="malaria"   protocal_id="2"  />
+   <p_diagnosis_table id="4" diagnosis="fever"   protocal_id="3"  />
   
   <p_action id="1" actionName="act1"   description="check Blood"  />
   <p_action id="2" actionName="act2"   description="check Blood"  />
@@ -73,10 +75,20 @@
  <p_day_actions action_id = "3" day_id= "1" />
 
 
- <concept concept_id="980" retired="false" datatype_id="1" class_id="1" is_set="false" creator="1" date_created="2005-01-01 00:00:00.0" uuid="4a5048b1-cf85-4c64-9339-7cab41e5e364"/>
+  <concept concept_id="980" retired="false" datatype_id="1" class_id="1" is_set="false" creator="1" date_created="2005-01-01 00:00:00.0" uuid="4a5048b1-cf85-4c64-9339-7cab41e5e364"/>
   <concept_numeric concept_id="980" hi_absolute="50.0" low_absolute="2.0" allow_decimal="false"/>
   <concept_description concept_description_id="1" concept_id="980" description="this is a description" locale="en" creator="1" date_created="2005-01-01 00:00:00.0" uuid="8b46218d-8dcf-4f45-91b5-837d11486a53"/>
   <concept_name concept_id="980" name="Some concept name" locale="en" creator="1" date_created="2005-01-01 00:00:00.0" concept_name_id="1" voided="false" uuid="8add472b-156b-468f-ad62-d9333fb86976" concept_name_type="FULLY_SPECIFIED" locale_preferred="0"/>
+
+  <concept concept_id="100" retired="false" datatype_id="1" class_id="1" is_set="false" creator="1" date_created="2005-01-01 00:00:00.0" uuid="7c644f88-e2eb-4a44-8b52-c9b76018cb57"/>
+  <concept_description concept_description_id="1" concept_id="100" description="this is a description" locale="en" creator="1" date_created="2005-01-01 00:00:00.0" uuid="8b46218d-8dcf-4f45-91b5-837d11486a5B"/>
+  <concept_name concept_id="100" name="Some concept name" locale="en" creator="1" date_created="2005-01-01 00:00:00.0" concept_name_id="1" voided="false" uuid="8add472b-156b-468f-ad62-d9333fb8697B" concept_name_type="FULLY_SPECIFIED" locale_preferred="0"/>
+
+  <concept concept_id="101" retired="false" datatype_id="1" class_id="1" is_set="false" creator="1" date_created="2005-01-01 00:00:00.0" uuid="7c644f88-e2eb-4a44-8b52-c9b76018cb5C"/>
+  <concept_description concept_description_id="1" concept_id="101" description="this is a description" locale="en" creator="1" date_created="2005-01-01 00:00:00.0" uuid="8b46218d-8dcf-4f45-91b5-837d11486a5C"/>
+  <concept_name concept_id="101" name="malaria" locale="en" creator="1" date_created="2005-01-01 00:00:00.0" concept_name_id="1" voided="false" uuid="8add472b-156b-468f-ad62-d9333fb8697C" concept_name_type="FULLY_SPECIFIED" locale_preferred="0"/>
+
   <obs obs_id="1" person_id="8" concept_id="980" status="FINAL" obs_datetime="2006-02-09 00:00:00.0" location_id="1" value_numeric="1.0" creator="1" date_created="2006-02-10 15:57:35.0" voided="false" uuid="be3a4d7a-f9ab-47bb-aaad-bc0b452fcda4" accession_number="AN1"/>
   <obs obs_id="2" person_id="8" concept_id="980" status="FINAL" obs_datetime="2006-02-09 00:00:00.0" location_id="1" value_numeric="0.087" creator="1" date_created="2006-02-10 15:57:35.0" voided="false" uuid="be3a4d7a-f9ab-47bb-aaad-bc0b452fcdaA" accession_number="AN1"/>
+  <obs obs_id="3" person_id="8" concept_id="100" status="FINAL" obs_datetime="2006-02-09 00:00:00.0" location_id="1"  value_coded="101" creator="1" date_created="2006-02-10 15:57:35.0" voided="false" uuid="be3a4d7a-f9ab-47bb-aaad-bc0b452fcdaB" accession_number="AN1"/>
 </dataset>
