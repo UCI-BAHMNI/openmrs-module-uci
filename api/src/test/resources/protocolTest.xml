@@ -31,11 +31,11 @@
   date_created="2020-02-22 00:00:00" voided="false" />
   
  <p_drug_dosage id="1"  drugName="drug1" 
-  units="kavuma"  dosageValue="0.3897"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='100'  instructions="take water" uuid="UUID8D1"  creator="1"
+  units="kavuma"  dosageValue="0.3897"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='0'  instructions="take water" uuid="UUID8D1"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" /> 
   
   <p_drug_dosage id="2"  drugName="drug2" 
-  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='2.6666899'  instructions="take water" uuid="UUID8D2"  creator="1"
+  units="kavuma"  dosageValue="3"  dosageRoute = "oral" dosageFrequence="OD" maxDoseValue='0.11'  instructions="take water" uuid="UUID8D2"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />  
   
    <p_drug_dosage id="3"  drugName="drug3" 

@@ -4,8 +4,15 @@
 
 <script type="text/javascript">
 var breadcrumbs = [
-    { icon: "icon-home", link: '/' + OPENMRS_CONTEXT_PATH + '/index.htm' }
+    { icon: "icon-home", link: '/' + OPENMRS_CONTEXT_PATH + '/index.htm' } ,
+     { label: "${ ui.message("Home Page")}" }
 ];
+</script>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
 </script>
 
 
