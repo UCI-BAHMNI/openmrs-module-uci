@@ -31,8 +31,8 @@ public class PatientCalenderTest extends BaseModuleContextSensitiveTest {
 		PatientProtocol patientProtocal = onchlogyService.getPatientProtocalByPatient(8);
 		
 		JSONArray eventsArray = PatientCalenderData.generateCalenderData(patientProtocal);
-		/* 
-		for (int x = 0; x < eventsArray.length(); x++) {
+		
+		/* for (int x = 0; x < eventsArray.length(); x++) {
 			System.out.println(eventsArray.getJSONObject(x));
 		} */
 		

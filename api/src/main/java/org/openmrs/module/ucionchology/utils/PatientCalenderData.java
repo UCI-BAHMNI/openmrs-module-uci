@@ -107,11 +107,14 @@ public class PatientCalenderData {
 	
 	public static float calculatePatientDose(float bsa, float drugDoze, float MaxValue) {
 		float patientDose = bsa * drugDoze;
-		if (patientDose > MaxValue) {
-			return Math.round(MaxValue * 100f) / 100f;
-		} else {
-			return Math.round(patientDose * 100f) / 100f;
+		if (MaxValue > 0) {
+			if (patientDose > MaxValue) {
+				return Math.round(MaxValue * 100f) / 100f;
+			} else {
+				return Math.round(patientDose * 100f) / 100f;
+			}
 		}
+		return Math.round(patientDose * 100f) / 100f;
 	}
 	
 }
