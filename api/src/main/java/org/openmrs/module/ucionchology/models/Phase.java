@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Where;
 import org.openmrs.BaseOpenmrsData;
 
 @Entity
@@ -36,6 +37,7 @@ public class Phase extends BaseOpenmrsData implements Comparable<Phase> {
 	private String phaseName;
 	
 	@OneToMany(mappedBy = "phase")
+	@Where(clause = "voided = 'false'")
 	private Set<StageDay> stageDay;
 	
 	@ManyToOne

@@ -242,7 +242,11 @@
 			<column name="actionName" type="varchar(255)">
 			 <constraints nullable="false"/>	
 			</column>
-			<column name="description" type="varchar(1000)"/>					 
+			<column name="description" type="varchar(1000)"/>
+
+			<column defaultValueBoolean="false" name="voided" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>					 
 		</createTable>	
     </changeSet>
      

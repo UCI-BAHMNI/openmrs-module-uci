@@ -6,7 +6,6 @@ import java.util.Set;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openmrs.User;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.ucionchology.api.UCIOnchologyService;
@@ -29,7 +28,6 @@ public class UpdateProtocalFragmentController {
 	        @RequestParam(required = false, value = "numberOfPhases") Integer numberOfPhases,
 	        @RequestParam(required = false, value = "isCyclic") Boolean isCyclic) {
 		onchlogyService = Context.getService(UCIOnchologyService.class);
-		User creator = Context.getUserContext().getAuthenticatedUser();
 		Protocol protocol = onchlogyService.getProtocalById(protocalId);
 		if (StringUtils.isNotBlank(protocalName)) {
 			protocol.setProtocalName(protocalName);
@@ -41,7 +39,6 @@ public class UpdateProtocalFragmentController {
 		if (isCyclic != null) {
 			protocol.setCyclic(isCyclic);
 		}
-		protocol.setCreator(creator);
 		onchlogyService.saveOrUpdateProtocal(protocol);
 		
 		if (StringUtils.isNotBlank(diagnosisCodes)) {

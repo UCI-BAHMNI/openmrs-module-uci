@@ -26,7 +26,7 @@ ${ ui.includeFragment("ucionchology", "protocolDetails") }
 <fieldset id="create_phase" >
    
        <% if (protocol.isCyclic) { %>
-           <% if (protocol. phase) { %>
+           <% if (protocol.phase) { %>
               
                 Cycle Created
              <% } else { %> 
@@ -62,7 +62,7 @@ ${ ui.includeFragment("ucionchology", "protocolDetails") }
        </p>
    
       <p>Set Order</p>
-        <%orders.each {order -> %> 
+        <% orders.each {order -> %> 
           <input type="radio" id="${order}" name="phase_order" value="${order}">
           <label for="${order}">${order}</label><br>
         <% } %>

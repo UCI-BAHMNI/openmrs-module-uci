@@ -14,6 +14,9 @@
   
   <p_phase_table id="2" phaseName="phase2" numberOfDays="2" phase_order="2"  protocal_id="1" uuid="UUID6"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" /> 
+
+   <p_phase_table id="3" phaseName="phase3" numberOfDays="2" phase_order="3"  protocal_id="1" uuid="UUIDP3"  creator="1"
+  date_created="2020-02-22 00:00:00" voided="true" /> 
   
   <p_stage_day id="1"   dayNumber="1"   phase_id="1" uuid="UUID2"  creator="1"
   date_created="2020-02-22 00:00:00" voided="false" />
@@ -47,9 +50,9 @@
    <p_diagnosis_table id="3" diagnosis="malaria"   protocal_id="2"  />
    <p_diagnosis_table id="4" diagnosis="fever"   protocal_id="3"  />
   
-  <p_action id="1" actionName="act1"   description="check Blood"  />
-  <p_action id="2" actionName="act2"   description="check Blood"  />
-  <p_action id="3" actionName="act3"   description="check HIV"  />
+  <p_action id="1" actionName="act1"   description="check Blood"  voided = "false"/>
+  <p_action id="2" actionName="act2"   description="check Blood"  voided = "false"/>
+  <p_action id="3" actionName="act3"   description="check HIV"  voided = "false"/>
 
   <p_patient_protocal id="1" patientId="2"   protocal_id="1"  dateStarted="2020-02-22 00:00:00"
   dateStopped="2020-09-22 00:00:00"  />

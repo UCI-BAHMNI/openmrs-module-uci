@@ -30,6 +30,10 @@ public class Action {
 	@ManyToMany(mappedBy = "dayActions")
 	private Set<StageDay> stageDays;
 	
+	@Basic
+	@Column(columnDefinition = "BOOLEAN DEFAULT false")
+	private Boolean voided;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -60,6 +64,14 @@ public class Action {
 	
 	public void setStageDays(Set<StageDay> stageDays) {
 		this.stageDays = stageDays;
+	}
+	
+	public boolean isVoided() {
+		return voided;
+	}
+	
+	public void setVoided(boolean voided) {
+		this.voided = voided;
 	}
 	
 }

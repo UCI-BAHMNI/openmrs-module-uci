@@ -18,6 +18,7 @@
        <td>${ ui.format(it.dosageRoute) }</td>
        <td>${ ui.format(it.dosageFrequence) }</td>
        <td>${ ui.format(it.instructions) }</td>
+       <td> <a target="_blank" href='${ ui.pageLink("ucionchology","deleteDrug") }?drugId=${ ui.format(it.id)}' title="Delete Drug"><i class="icon-remove edit-action" > </i></a></td>
      </tr>
    <% } %>
  <% } else { %>
@@ -33,8 +34,8 @@
 <% if (actions) { %>
     <% actions.each { %>
        <div style="margin-left:20px">
-                    <ul style="list-style-type:square">                  
-                          <li>${ ui.format(it.description)}</li>                 
+                     <ul style="list-style-type:square">                  
+                          <li>${ ui.format(it.description)} <a target="_blank" href='${ ui.pageLink("ucionchology","deleteAction") }?actionId=${ ui.format(it.id)}' title="Delete Action"><i class="icon-remove edit-action" > </i></a> </li>                                        
                      </ul> 
        </div> 
    <% } %>
