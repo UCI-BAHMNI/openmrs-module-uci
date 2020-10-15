@@ -39,7 +39,8 @@ public class UCIOnchologyDao {
 	DbSessionFactory sessionFactory;
 	
 	private DbSession getSession() {
-		return sessionFactory.getCurrentSession();
+		DbSession session = sessionFactory.getCurrentSession();
+		return session;
 	}
 	
 	public void setSessionFactory(DbSessionFactory sessionFactory) {
@@ -205,7 +206,7 @@ public class UCIOnchologyDao {
 	
 	@SuppressWarnings("unchecked")
 	public List<Phase> getPhasesByProtocol(int protocolId) throws APIException {
-		String hql = "FROM Phase WHERE  protocol1.id = :protocoId ";
+		String hql = "FROM Phase WHERE  protocol1.id = :protocoId AND voided = false";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("protocoId", protocolId);
 		return (List<Phase>) query.list();

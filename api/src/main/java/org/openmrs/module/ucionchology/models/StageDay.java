@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Where;
 import org.openmrs.BaseOpenmrsData;
 
 @Entity
@@ -36,10 +37,12 @@ public class StageDay extends BaseOpenmrsData implements Comparable<StageDay> {
 	
 	@ManyToMany(cascade = { CascadeType.ALL })
 	@JoinTable(name = "p_day_doze", joinColumns = { @JoinColumn(name = "day_id") }, inverseJoinColumns = { @JoinColumn(name = "drug_id") })
+	@Where(clause = "voided = 'false'")
 	private Set<DayDrugDosage> dosage;
 	
 	@ManyToMany(cascade = { CascadeType.ALL })
 	@JoinTable(name = "p_day_actions", joinColumns = { @JoinColumn(name = "day_id") }, inverseJoinColumns = { @JoinColumn(name = "action_id") })
+	@Where(clause = "voided = 'false'")
 	private Set<Action> dayActions;
 	
 	@ManyToOne

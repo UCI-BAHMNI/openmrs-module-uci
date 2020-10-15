@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Where;
 import org.openmrs.BaseOpenmrsData;
 
 @Entity
@@ -37,6 +38,7 @@ public class Protocol extends BaseOpenmrsData {
 	private Set<ProtocalDiagnosis> diagnoses;
 	
 	@OneToMany(mappedBy = "protocol1")
+	@Where(clause = "voided = 'false'")
 	private Set<Phase> phase;
 	
 	@OneToMany(mappedBy = "protocol3")

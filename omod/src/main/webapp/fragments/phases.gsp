@@ -13,6 +13,8 @@
        <td><a target="_blank" href='${ ui.pageLink("ucionchology","day") }?phaseId=${ ui.format(it.id)}' title="Add day"><i class="icon-share edit-action" > </i></a></td>
        <td><a target="_blank" href='${ ui.pageLink("ucionchology","drug") }?phaseId=${ ui.format(it.id)}' title="Add drugs"><i class="icon-medkit edit-action" > </i></a></td>
       <td><a target="_blank" href='${ ui.pageLink("ucionchology","action") }?phaseId=${ ui.format(it.id)}' title="Add Action"><i class="icon-cogs edit-action" > </i></a></td>
+       <% if (!protocol.isCyclic) { %> <td><a target="_blank" href='${ ui.pageLink("ucionchology","editPhase") }?phaseId=${ ui.format(it.id)}' title="Edit Phase"><i class="icon-edit edit-action" > </i></a></td>  <% }  %>
+      <td><a target="_blank" href='${ ui.pageLink("ucionchology","deletePhase") }?phaseId=${ ui.format(it.id)}' title="Edit Phase"><i class="icon-remove edit-action" > </i></a></td>
     </tr>
   <% } %>
 <% } else { %>

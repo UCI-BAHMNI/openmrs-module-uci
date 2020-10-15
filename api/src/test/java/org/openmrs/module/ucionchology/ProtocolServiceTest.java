@@ -279,4 +279,10 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals("", "0.087", service.getLastObsForPerson(8, 980).getValueNumeric().toString());
 	}
 	
+	@Test
+	public void TestFiler() throws ParseException {
+		System.out.println(service.getProtocalById(1).getPhase().size());
+		//Assert.assertEquals("", 1, service.getProtocalById(1).getPhase().size());
+	}
+	
 }

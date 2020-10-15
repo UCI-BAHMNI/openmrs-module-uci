@@ -7,7 +7,7 @@
       <p>Edit Protocal </p>
       </legend>
 
-      <input id='protocol_id' hidden='false' name='protocalId' value='${protocal.id}'/> 
+      <input id='protocol_id' hidden='true' name='protocalId' value='${protocal.id}'/> 
     <p >
 
         Protocal Name <input id='protocalName'  name='protocalName' value='${protocal.protocalName}'/>   

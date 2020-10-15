@@ -36,7 +36,7 @@ var breadcrumbs = [
          
               <% protocol.sortedPhases.each { %>
                 <tr>  
-                  <td> Name : Cycle ${cycles}  </td>
+                  <td> Name : Cycle ${cycles} &nbsp;&nbsp;&nbsp;&nbsp; <a target="_blank" href='${ ui.pageLink("ucionchology","deletePhase") }?phaseId=${ ui.format(it.id)}' title="Edit Phase"><i class="icon-remove edit-action" > </i></a> </td>
                   <th style="width: 1%;"><a target="_blank" href='${ ui.pageLink("ucionchology","drug") }?phaseId=${ ui.format(it.id)}' title="Add drugs"> <i class="icon-medkit edit-action" > </i></a></th>
                   <th style="width: 1%;"><a target="_blank" href='${ ui.pageLink("ucionchology","action") }?phaseId=${ ui.format(it.id)}' title="Add Action"> <i class="icon-cogs edit-action" > </i></a></th>
                 </tr>
@@ -53,12 +53,17 @@ var breadcrumbs = [
                           <div style="margin-left:20px ; border: 1px solid green" >
                             <p >
                               
-                                <p> <a style="margin-left:10px"  target="_blank" href='${ ui.pageLink("ucionchology","viewDay") }?dayId=${ ui.format(it.id)}' title="View day"><b>Day ${ ui.format(it.dayNumber)} </b></a> </p>
-                                
+                                <p> <a style="margin-left:10px"  target="_blank" href='${ ui.pageLink("ucionchology","viewDay") }?dayId=${ ui.format(it.id)}' title="View day"><b>Day ${ ui.format(it.dayNumber)} </b></a>  
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                   <a style="margin-left:10px"   target="_blank" href='${ ui.pageLink("ucionchology","deleteDay") }?dayId=${ ui.format(it.id)}' title="Delete day"><i class="icon-remove edit-action" ></i></a> 
+
+                                </p>
+                               
+                              
                                   <table>
                                       <tr>
                                         <td>Drugs </td>
-                                          <td> Actions </td>
+                                         <td> Actions </td>
                                       </tr>   
                                       <tr>
                                       <td>
@@ -121,7 +126,10 @@ var breadcrumbs = [
             <% if (protocol.phase) { %>
               <% protocol.sortedPhases.each { %>
                 <tr>  
-                  <td> Name : ${ ui.format(it.phaseName) }  &nbsp;&nbsp;&nbsp;&nbsp;  Order  :  ${ ui.format(it.phase_order) } </td>
+                  <td> Name : ${ ui.format(it.phaseName) }  &nbsp;&nbsp;&nbsp;&nbsp;  Order  :  ${ ui.format(it.phase_order) }  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href='${ ui.pageLink("ucionchology","editPhase") }?phaseId=${ ui.format(it.id)}' title="Edit Phase"><i class="icon-edit edit-action" > </i></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                 <a target="_blank" href='${ ui.pageLink("ucionchology","deletePhase") }?phaseId=${ ui.format(it.id)}' title="Edit Phase"><i class="icon-remove edit-action" > </i></a>
+                  </td>
                   <th style="width: 1%;" ><a target="_blank" href='${ ui.pageLink("ucionchology","drug") }?phaseId=${ ui.format(it.id)}' title="Add drugs"> <i class="icon-medkit edit-action" > </i></a></th>
                   <th style="width: 1%;"><a target="_blank" href='${ ui.pageLink("ucionchology","action") }?phaseId=${ ui.format(it.id)}' title="Add Action"> <i class="icon-cogs edit-action" > </i></a></th>
                 </tr>
@@ -138,7 +146,10 @@ var breadcrumbs = [
                           <div style="margin-left:20px ; border: 1px solid green" >
                             <p >
                               
-                                <p> <a style="margin-left:10px"  target="_blank" href='${ ui.pageLink("ucionchology","viewDay") }?dayId=${ ui.format(it.id)}' title="View day"><b>Day ${ ui.format(it.dayNumber)} </b></a> </p>
+                                <p> <a style="margin-left:10px"  target="_blank" href='${ ui.pageLink("ucionchology","viewDay") }?dayId=${ ui.format(it.id)}' title="View day"><b>Day ${ ui.format(it.dayNumber)} </b></a> 
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                 <a style="margin-left:10px"   target="_blank" href='${ ui.pageLink("ucionchology","deleteDay") }?dayId=${ ui.format(it.id)}' title="Delete day"><i class="icon-remove edit-action" ></i></a> 
+                                </p>
                                 
                                   <table>
                                       <tr>
