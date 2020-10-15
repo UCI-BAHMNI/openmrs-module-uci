@@ -281,8 +281,8 @@ public class ProtocolServiceTest extends BaseModuleContextSensitiveTest {
 	
 	@Test
 	public void TestFiler() throws ParseException {
-		System.out.println(service.getProtocalById(1).getPhase().size());
-		//Assert.assertEquals("", 1, service.getProtocalById(1).getPhase().size());
+		//System.out.println(service.getProtocalById(1).getPhase().size());
+		Assert.assertEquals("", 1, service.getProtocalById(1).getPhase().size());
 	}
 	
 }
