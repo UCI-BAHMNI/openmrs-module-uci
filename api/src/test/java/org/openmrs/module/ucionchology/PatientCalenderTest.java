@@ -36,7 +36,7 @@ public class PatientCalenderTest extends BaseModuleContextSensitiveTest {
 			System.out.println(eventsArray.getJSONObject(x));
 		} */
 		
-		Assert.assertEquals("", 24, eventsArray.length());
+		Assert.assertEquals("", 18, eventsArray.length());
 	}
 	
 	@Test
