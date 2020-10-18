@@ -20,12 +20,12 @@ import org.openmrs.module.ucionchology.models.Phase;
 import org.openmrs.module.ucionchology.models.StageDay;
 
 public class PatientCalenderData {
-	
+
 	public static JSONArray generateCalenderData(PatientProtocol patientProtocal) throws ParseException {
 		Integer totalDays = 0;
 		List<StageDay> daysList = new ArrayList<StageDay>();
 		JSONArray eventsArray = new JSONArray();
-		
+
 		if (patientProtocal.getProtocol3().isCyclic()) {
 			for (int y = 1; y <= patientProtocal.getProtocol3().getNumberOfPhases(); y++) {
 				for (Phase phase : patientProtocal.getProtocol3().getSortedPhases()) {
@@ -43,44 +43,42 @@ public class PatientCalenderData {
 				}
 			}
 		}
-		
+
 		Date startDate = patientProtocal.getDateStarted();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String formatedStartDate = sdf.format(startDate);
-		
+
 		StageDay[] daysArray = new StageDay[daysList.size()];
 		daysArray = daysList.toArray(daysArray);
-		
+
 		if (totalDays > 0) {
 			for (int x = 0; x < totalDays; x++) {
 				StageDay day = daysArray[x];
-				
+
 				Calendar c = Calendar.getInstance();
 				c.setTime(sdf.parse(formatedStartDate));
 				c.add(Calendar.DAY_OF_MONTH, x);
-				
+
 				if (day.getDosage().size() > 0) {
-					
+
 					for (DayDrugDosage drug : day.getDosage()) {
 						JSONObject event = new JSONObject();
-						event.put(
-						    "title",
-						    drug.getDrugName()
-						            + " - "
-						            + calculatePatientDose(getLatestBsa(patientProtocal.getPatientId()),
-						                drug.getDosageValue(), drug.getMaxDoseValue()) + " " + drug.getUnits() + " " + "("
-						            + drug.getDosageFrequence() + ")");
+						event.put("title",
+								drug.getDrugName() + " - "
+										+ calculatePatientDose(getLatestBsa(patientProtocal.getPatientId()),
+												drug.getDosageValue(), drug.getMaxDoseValue())
+										+ " " + drug.getUnits() + " " + "(" + drug.getDosageFrequence() + ")");
 						event.put("start", sdf.format(c.getTime()));
 						event.put("rendering", "background");
 						event.put("allDay", false);
 						eventsArray.put(event);
 					}
 				}
-				
+
 				if (day.getDayActions().size() > 0) {
 					for (Action action : day.getDayActions()) {
 						JSONObject event = new JSONObject();
-						event.put("title", action.getDescription());
+						event.put("title", getDayAction(day, action, x, day.getPhase().getNumberOfDays()));
 						event.put("start", sdf.format(c.getTime()));
 						event.put("rendering", "background");
 						event.put("color", "#ff9f89");
@@ -88,23 +86,23 @@ public class PatientCalenderData {
 					}
 				}
 			}
-			
+
 		}
 		return eventsArray;
 	}
-	
+
 	public static float getLatestBsa(Integer patientId) {
 		UCIOnchologyService onchlogyService = Context.getService(UCIOnchologyService.class);
-		
+
 		Obs obs = onchlogyService.getLastObsForPerson(patientId, UCIOnchologyConstants.CONCEPT_ID_BSA);
-		
+
 		float bsa = 0;
 		if (obs != null) {
 			bsa = obs.getValueNumeric().floatValue();
 		}
 		return bsa;
 	}
-	
+
 	public static float calculatePatientDose(float bsa, float drugDoze, float MaxValue) {
 		float patientDose = bsa * drugDoze;
 		if (MaxValue > 0) {
@@ -116,5 +114,33 @@ public class PatientCalenderData {
 		}
 		return Math.round(patientDose * 100f) / 100f;
 	}
-	
+
+	public static String getDayAction(StageDay day, Action action, int daynumber, int cycleDays) {
+		if (!day.getPhase().getProtocol1().isCyclic()) {
+			return action.getDescription();
+		} else {
+
+			int actualDay = daynumber + 1;
+			int cycleNumber = 0;
+			if (actualDay <= cycleDays) {
+				cycleNumber = 1;
+			} else if (actualDay % cycleDays != 0) {
+				cycleNumber = (actualDay / cycleDays) + 1;
+			} else if (actualDay % cycleDays == 0) {
+				cycleNumber = (actualDay / cycleDays);
+			}
+
+			if (action != null && action.getCycleNumber()!= null) {
+				if (action.getCycleNumber() == cycleNumber) {
+					return action.getDescription();
+				} else {
+					return null;
+				}
+			}
+			return null;
+
+		}
+
+	}
+
 }

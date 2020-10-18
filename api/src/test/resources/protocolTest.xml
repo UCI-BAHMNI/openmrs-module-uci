@@ -50,9 +50,9 @@
    <p_diagnosis_table id="3" diagnosis="malaria"   protocal_id="2"  />
    <p_diagnosis_table id="4" diagnosis="fever"   protocal_id="3"  />
   
-  <p_action id="1" actionName="act1"   description="check Blood"  voided = "false"/>
-  <p_action id="2" actionName="act2"   description="check Blood"  voided = "false"/>
-  <p_action id="3" actionName="act3"   description="check HIV"  voided = "false"/>
+  <p_action id="1" actionName="act1"   description="check Blood1"  cycleNumber = "2" voided = "false"/>
+  <p_action id="2" actionName="act2"   description="check Blood2"  voided = "false"/>
+  <p_action id="3" actionName="act3"   description="check HIV3"  voided = "false"/>
 
   <p_patient_protocal id="1" patientId="2"   protocal_id="1"  dateStarted="2020-02-22 00:00:00"
   dateStopped="2020-09-22 00:00:00"  />

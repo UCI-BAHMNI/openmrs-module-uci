@@ -18,22 +18,46 @@ public class ActionPageController {
 	public void post(PageModel model, @RequestParam(required = true, value = "actionName") String actionName,
 	        @RequestParam(required = true, value = "description") String description,
 	        
-	        @RequestParam(required = true, value = "days") List<Integer> allDaysId) {
+	        @RequestParam(required = true, value = "days") List<Integer> allDaysId,
+	        @RequestParam(required = false, value = "cycleNumbers") List<Integer> cycleNumbers) {
 		
 		onchlogyService = Context.getService(UCIOnchologyService.class);
 		
-		Action action = new Action();
-		action.setActionName(actionName);
-		action.setDescription(description);
-		onchlogyService.saveOrUpdateAction(action);
-		for (Integer dayId : allDaysId) {
-			Set<Action> actions = new HashSet();
-			StageDay day = onchlogyService.getStageDayById(dayId);
-			actions.addAll(day.getDayActions());
-			actions.add(action);
-			day.setDayActions(actions);
-			onchlogyService.saveOrUpdateStageDay(day);
+		if (cycleNumbers != null && cycleNumbers.size() > 0) {
+			for (int cycleNumber : cycleNumbers) {
+				Action action = new Action();
+				action.setVoided(false);
+				action.setActionName(actionName);
+				action.setDescription(description);
+				action.setCycleNumber(cycleNumber);
+				onchlogyService.saveOrUpdateAction(action);
+				for (Integer dayId : allDaysId) {
+					Set<Action> actions = new HashSet();
+					StageDay day = onchlogyService.getStageDayById(dayId);
+					actions.addAll(day.getDayActions());
+					actions.add(action);
+					day.setDayActions(actions);
+					onchlogyService.saveOrUpdateStageDay(day);
+				}
+				
+			}
+		} else {
+			Action action = new Action();
+			action.setActionName(actionName);
+			action.setVoided(false);
+			action.setDescription(description);
+			onchlogyService.saveOrUpdateAction(action);
+			for (Integer dayId : allDaysId) {
+				Set<Action> actions = new HashSet();
+				StageDay day = onchlogyService.getStageDayById(dayId);
+				actions.addAll(day.getDayActions());
+				actions.add(action);
+				day.setDayActions(actions);
+				onchlogyService.saveOrUpdateStageDay(day);
+				
+			}
 		}
+		
 	}
 	
 	public void get(PageModel model) {

@@ -34,6 +34,10 @@ public class Action {
 	@Column(columnDefinition = "BOOLEAN DEFAULT false")
 	private Boolean voided;
 	
+	@Basic
+	@Column(nullable = true)
+	private Integer cycleNumber;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -66,12 +70,20 @@ public class Action {
 		this.stageDays = stageDays;
 	}
 	
-	public boolean isVoided() {
+	public Boolean getVoided() {
 		return voided;
 	}
 	
-	public void setVoided(boolean voided) {
+	public void setVoided(Boolean voided) {
 		this.voided = voided;
+	}
+	
+	public Integer getCycleNumber() {
+		return cycleNumber;
+	}
+	
+	public void setCycleNumber(Integer cycleNumber) {
+		this.cycleNumber = cycleNumber;
 	}
 	
 }

@@ -40,6 +40,16 @@ var breadcrumbs = [
         <% } %>
     </p>
 
+
+     <% if (day_phase.protocol1.isCyclic) { %>
+          <p>Select Cycle</p>
+           <% 1.upto(day_phase.protocol1.numberOfPhases) { cyclesNumber ->%>
+                 <input type="checkbox" id="${cyclesNumber}" name="cycleNumbers" value="${cyclesNumber}">
+                 <label for="${cyclesNumber}">${cyclesNumber}</label><br>  
+            <% } %>
+    
+      <% } %>
+
 <button id="submit" type="submit">Add Action</button>
 </fieldset>
 </form>
