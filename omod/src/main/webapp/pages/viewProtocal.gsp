@@ -49,11 +49,11 @@ var breadcrumbs = [
                                 <div>               
                             
                             <% if (it.sortedDays) { %>
-                          <% it.sortedDays.each { %>
+                          <% it.sortedDays.each { sortedDay -> %>
                           <div style="margin-left:20px ; border: 1px solid green" >
                             <p >
                               
-                                <p> <a style="margin-left:10px"  target="_blank" href='${ ui.pageLink("ucionchology","viewDay") }?dayId=${ ui.format(it.id)}' title="View day"><b>Day ${ ui.format(it.dayNumber)} </b></a>  
+                                <p> <a style="margin-left:10px"  target="_blank" href='${ ui.pageLink("ucionchology","viewDay") }?dayId=${ ui.format(it.id)}' title="View day"><b>Day ${ ui.format(sortedDay.dayNumber)} </b></a>  
                                   &nbsp;&nbsp;&nbsp;&nbsp;
                                    <a style="margin-left:10px"   target="_blank" href='${ ui.pageLink("ucionchology","deleteDay") }?dayId=${ ui.format(it.id)}' title="Delete day"><i class="icon-remove edit-action" ></i></a> 
 
@@ -63,12 +63,12 @@ var breadcrumbs = [
                                   <table>
                                       <tr>
                                         <td>Drugs </td>
-                                         <td> Actions </td>
+                                        <td> Actions </td>
                                       </tr>   
                                       <tr>
                                       <td>
-                                    <% if (it.dosage) { %>
-                                    <% it.dosage.each { %>  
+                                    <% if (sortedDay.dosage) { %>
+                                    <% sortedDay.dosage.each { %>  
                                             <div style="margin-left:20px">
                                               <ul style="list-style-type:square">                  
                                                   <li>${ ui.format(it.drugName)}</li>                 
@@ -84,13 +84,15 @@ var breadcrumbs = [
                                   
                                         </td>
                                           <td>
-                                        <% if (it.dayActions) { %>
-                                    <% it.dayActions.each { %>  
-                                            <div style="margin-left:20px">
-                                              <ul style="list-style-type:square">                  
-                                                  <li>${ ui.format(it.description)}</li>                 
-                                              </ul> 
-
+                                        <% if (sortedDay.dayActions) { %>
+                                        <% sortedDay.dayActions.each {act-> %>  
+                                            
+                                              <% if (act.cycleNumber == cycles ) { %>
+                                                <div style="margin-left:20px">
+                                                  <ul style="list-style-type:square">                  
+                                                      <li>${ ui.format(act.description)}</li>                 
+                                                  </ul> 
+                                              <% } %>
                                             </div> 
                                       <% } %>
                                       <% } else { %>

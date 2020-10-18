@@ -245,8 +245,12 @@
 			<column name="description" type="varchar(1000)"/>
 
 			<column defaultValueBoolean="false" name="voided" type="BOOLEAN">
-                <constraints nullable="false"/>
-            </column>					 
+                <constraints nullable="true"/>
+            </column>		
+
+			 <column name="cycleNumber" type="int" >
+			    <constraints nullable="true"/>
+            </column>			 
 		</createTable>	
     </changeSet>
      
