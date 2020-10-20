@@ -8,12 +8,13 @@ import org.openmrs.module.ucionchology.models.Phase;
 import org.openmrs.module.ucionchology.models.StageDay;
 import org.openmrs.module.uicommons.util.InfoErrorMessageUtil;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.openmrs.ui.framework.page.Redirect;
 
 public class DeleteDayPageController {
 	
 	UCIOnchologyService onchlogyService;
 	
-	public String controller(HttpSession session, @RequestParam(required = true, value = "dayId") Integer dayId) {
+	public Redirect controller(HttpSession session, @RequestParam(required = true, value = "dayId") Integer dayId) {
 		
 		onchlogyService = Context.getService(UCIOnchologyService.class);
 		StageDay day = onchlogyService.getStageDayById(dayId);
@@ -29,8 +30,9 @@ public class DeleteDayPageController {
 		}
 		
 		day.setVoided(true);
+		int protocalId = day.getPhase().getProtocol1().getId();
 		onchlogyService.saveOrUpdateStageDay(day);
-		InfoErrorMessageUtil.flashInfoMessage(session, "Succesfuly Deleted Day Day");
-		return "allProtocals";
+		InfoErrorMessageUtil.flashInfoMessage(session, "Succesfuly Deleted Day ");
+		return new Redirect("ucionchology", "viewProtocal", "protocalId=" + protocalId);
 	}
 }

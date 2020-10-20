@@ -214,7 +214,7 @@ public class UCIOnchologyDao {
 	
 	@SuppressWarnings("unchecked")
 	public List<StageDay> getDaysByPhase(int phaseId) throws APIException {
-		String hql = "FROM StageDay WHERE phase.id = :phaseId";
+		String hql = "FROM StageDay WHERE phase.id = :phaseId AND voided = false";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("phaseId", phaseId);
 		return (List<StageDay>) query.list();
@@ -259,7 +259,7 @@ public class UCIOnchologyDao {
 	}
 	
 	public Obs getLastObsForPerson(int personId, int conceptId) throws APIException {
-		String hql = "FROM Obs WHERE  concept.conceptId = :conceptId  AND person.personId = :personId ORDER BY obsId DESC";
+		String hql = "FROM Obs WHERE  concept.conceptId = :conceptId  AND person.personId = :personId AND voided = false ORDER BY obsId DESC";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.setInteger("personId", personId);
 		query.setInteger("conceptId", conceptId);

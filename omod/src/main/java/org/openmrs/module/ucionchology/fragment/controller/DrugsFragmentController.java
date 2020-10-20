@@ -12,5 +12,6 @@ public class DrugsFragmentController {
 		UCIOnchologyService onchlogyService = Context.getService(UCIOnchologyService.class);
 		model.addAttribute("drugs", onchlogyService.getStageDayById(dayId).getDosage());
 		model.addAttribute("actions", onchlogyService.getStageDayById(dayId).getDayActions());
+		model.addAttribute("dayId", dayId);
 	}
 }

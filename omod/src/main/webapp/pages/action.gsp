@@ -34,7 +34,7 @@ var breadcrumbs = [
 
     <p>
      <p>Select days</p>
-     <%actionPhaseDays.each {otherDay -> %> 
+     <%day_phase.sortedDays.each {otherDay -> %> 
           <input type="checkbox" id="${otherDay.id}" name="days" value="${otherDay.id}">
           <label for="${otherDay.id}">${otherDay.dayNumber}</label><br>
         <% } %>
