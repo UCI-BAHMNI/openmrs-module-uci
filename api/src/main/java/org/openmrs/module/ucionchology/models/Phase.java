@@ -56,8 +56,10 @@ public class Phase extends BaseOpenmrsData implements Comparable<Phase> {
 	
 	public List<StageDay> getSortedDays() {
 		List<StageDay> list = new ArrayList<StageDay>();
-		list = convertToList(getStageDay());
-		Collections.sort(list);
+		if (getStageDay() != null && getStageDay().size() > 0) {
+			list = convertToList(getStageDay());
+			Collections.sort(list);
+		}
 		return list;
 	}
 	
