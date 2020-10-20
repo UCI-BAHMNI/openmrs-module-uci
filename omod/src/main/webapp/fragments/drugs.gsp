@@ -18,7 +18,7 @@
        <td>${ ui.format(it.dosageRoute) }</td>
        <td>${ ui.format(it.dosageFrequence) }</td>
        <td>${ ui.format(it.instructions) }</td>
-       <td> <a target="_blank" href='${ ui.pageLink("ucionchology","deleteDrug") }?drugId=${ ui.format(it.id)}' title="Delete Drug"><i class="icon-remove edit-action" > </i></a></td>
+       <td> <a href='${ ui.pageLink("ucionchology","deleteDrug") }?drugId=${ ui.format(it.id)}&dayId=${dayId}' title="Delete Drug"><i class="icon-remove edit-action" > </i></a></td>
      </tr>
    <% } %>
  <% } else { %>
@@ -35,7 +35,7 @@
     <% actions.each { %>
        <div style="margin-left:20px">
                      <ul style="list-style-type:square">                  
-                          <li>${ ui.format(it.description)} <a target="_blank" href='${ ui.pageLink("ucionchology","deleteAction") }?actionId=${ ui.format(it.id)}' title="Delete Action"><i class="icon-remove edit-action" > </i></a> </li>                                        
+                          <li>${ ui.format(it.description)} <% if (it.cycleNumber) { %>- (cycle ${ ui.format(it.cycleNumber)}) <% } %> &nbsp;&nbsp;&nbsp;&nbsp;<a href='${ ui.pageLink("ucionchology","deleteAction") }?actionId=${ ui.format(it.id)}&dayId=${dayId}' title="Delete Action"><i class="icon-remove edit-action" > </i></a> </li>                                        
                      </ul> 
        </div> 
    <% } %>

@@ -42,10 +42,10 @@ public class UCIOnchologyServiceTest {
 	public void saveItem_shouldSetOwnerIfNotSet() {
 		
 	}
-
+	
 	@Test
 	public void check() {
-		System.out.println( 7 % 5 );
+		System.out.println(7 % 5);
 	}
 	
 }
