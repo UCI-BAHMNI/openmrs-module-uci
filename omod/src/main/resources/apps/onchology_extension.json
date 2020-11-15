@@ -1,7 +1,7 @@
 [
     {
           "id": "${project.parent.groupId}.${project.parent.artifactId}.ucionchology",
-          "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+          "extensionPointId": "systemAdministration.apps",
           "type": "link",
           "label": "Create Protocal",
           "url": "ucionchology/home.page",

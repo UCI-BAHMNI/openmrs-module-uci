@@ -30,6 +30,10 @@ public class DeleteDayPageController {
 		}
 		
 		day.setVoided(true);
+		
+		int phaseNumberOfDays = phase.getNumberOfDays();
+		phase.setNumberOfDays(phaseNumberOfDays - 1);
+		onchlogyService.saveOrUpdatePhase(phase);
 		int protocalId = day.getPhase().getProtocol1().getId();
 		onchlogyService.saveOrUpdateStageDay(day);
 		InfoErrorMessageUtil.flashInfoMessage(session, "Succesfuly Deleted Day ");
