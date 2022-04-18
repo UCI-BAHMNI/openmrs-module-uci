@@ -7,3 +7,5 @@ NB before you run the UCI intake form,
 * add concept 121610  to Concept Cardiovascular System Review 
 * add concepts 121657  , 131040  to Concept Nervous system Review 
 [![Build Status](https://travis-ci.com/UCI-BAHMNI/openmrs-module-uci.svg?branch=master)](https://travis-ci.com/UCI-BAHMNI/openmrs-module-uci)
+
+Hot to make a PR
