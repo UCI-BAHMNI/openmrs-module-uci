@@ -72,7 +72,7 @@
 	</pluginRepositories>
 
 	<properties>
-	   <jsonVersion>20160212</jsonVersion>
+	   <jsonVersion>20230227</jsonVersion>
 		<openmrsPlatformVersion>2.2.0</openmrsPlatformVersion>
 	</properties>
 </project>
